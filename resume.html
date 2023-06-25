@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5.3 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kellen Stuart - Resume</title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" data-bs-toggle="tooltip" data-bs-title="Home">Kellen Stuart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand fa-solid fa-file" href="resume.html" data-bs-toggle="tooltip"
+                            data-bs-title="Kellen's Resume"></a>
+                        <a class="navbar-brand fa-brands fa-stack-overflow"
+                            href="https://stackoverflow.com/users/5361412/kellen-stuart" data-bs-toggle="tooltip"
+                            data-bs-title="Kellen's Stack Overflow Profile"></a>
+                        <a class="navbar-brand fa-brands fa-github" href="https://github.com/Kellen-Stuart"
+                            data-bs-toggle="tooltip" data-bs-title="Kellen's Github"></a>
+                        <a class="navbar-brand fa-brands fa-gitlab" href="https://gitlab.com/kellenstuart"
+                            data-bs-toggle="tooltip" data-bs-title="Kellen's Gitlab"></a>
+                        <a class="navbar-brand fa-brands fa-instagram" href="https://www.instagram.com/kellenmstuart"
+                            data-bs-toggle="tooltip" data-bs-title="Kellen's Instagram"></a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </nav>
+    <!-- End Nav Bar-->
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+            <h3 class="text-center">
+                Kellen Stuart
+                <small class="text-muted">Software Engineer</small>
+            </h3>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center justify-content-lg-center">
+        <div class="col-auto">
+            <div class="alert alert-info alert-dismissible fade show @HideOnPrint" role="alert" hidden="@_hideAlerts">
+                <a href="javascript:void(0)" @onclick="PrintResume">Need a PDF?</a>
+                <button @onclick="HideAlerts" type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+    <!--
+        <div class="row mb-4 @ShowOnPrint">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+                <b>cover letter</b>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <a href="#">Home</a>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                <i>@Now.ToString("y")</i>
+            </div>
+        </div>
+
+        <div class="row mb-4 @ShowOnPrint">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+                <b>resume</b>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <a href="@Urls[" Resume"]">@Urls["Resume"]</a>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                <i>todo insert date time now</i>
+            </div>
+        </div>
+    -->
+        <!-- Education -->
+        <div class="row mb-4">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+                <b>education</b>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <a class="link" href="https://western.edu/">Western State Colorado University</a><br />
+                <a class="link" href="javascript:void(0)" onclick"FocusJp">Professor John Peterson</a><br />
+                <i>Bachelor of Computer Science</i><br />
+                GPA 3.91<br />
+                Summa Cum Laude
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                <i>July 2016</i>
+            </div>
+        </div>
+
+        <!-- Work Experience - Tyler Technologies -->
+        <div class="row mb-4">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+                <b>work</b>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <a class="link" href="https://www.tylertech.com/">Tyler Technologies</a><br />
+                <i>Software Engineer</i><br />
+                <p class="pl-3">
+                    This position entails developing critical payment systems for a large utility billing software suite
+                    called
+                    <a href="https://municipalonlinepayments.com/goldenco" class="link">InSite</a>.
+                    The core responsiblity is to ensure payments can be executed enmasse.
+                    Autopay is my core focus; it's a large source of recurring revenue for Tyler Tech.
+                    Each month, our website is responsbile for reminding, scheduled, and processing a users utility
+                    bill.
+                    Originally, the system could barely support 5,000 autopayments a day;
+                    we are now able to handle 500,000+ due to my efforts.
+                </p>
+                <p class="pl-3">
+                    Furthermore, I modernize the look and feel of our systems;
+                    <a href="https://www.expresslanedefensivedriving.com" class="link">ExpressLane Defensive Driving</a>
+                    is a production example of a redesign I did during my time at Tyler Tech.
+                </p>
+                <ul class="ul-dashes ul-padding-gentle">
+                    <li>Full Stack .NET C# Web Development</li>
+                    <li>Upgrade ORM from LINQ To SQL to Entity Framework Core</li>
+                    <li>Redesign UI's to look modern</li>
+                    <li>Greatly improve database performance</li>
+                    <li>Scale monoliths into microservices</li>
+                    <li>Upgrade projects from .NET Framework to .NET Core</li>
+                    <li>Develop API's using the latest .NET Core standards</li>
+                    <li>Develop test suites to promote test driven development</li>
+                    <li>Standardize UI by following material design practices</li>
+                    <li>Upgrade the email system to support SendGrid</li>
+                    <li>Support text messaging by integrating with Twilio</li>
+                </ul>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                <i>August 2018 - Present</i>
+            </div>
+        </div>
+
+        <!-- Work Experience - Lockheed Martin-->
+        <div class="row mb-4">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12"></div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <a href="https://www.lockheedmartin.com/en-us/index.html" class="link">Lockheed Martin</a><br />
+                <i>Software Engineer II</i>
+                <p class="pl-3">
+                    This position entailed supporting a missile defense system by integrating new technology with the
+                    old.
+                    After my internship, I was tasked to upgrade the internal employee tracking system -
+                    everything was tracked by an excel sheet; my task was to create
+                    a web application that automated the process.
+                    Concurrently, I helped the IT team automate their repetitive processes with the use of PowerShell.
+                    Also during this time, I attained a
+                    <a href="https://www.comptia.org/certifications/security" class="link">CompTIA Security+ Certificate</a>.
+                </p>
+                <p class="pl-3">
+                    Soon after, I was promoted to another missile defense project. The goal was to move from a desktop
+                    application to a web based application.
+                    My job was to identify the best web technology for this upgrade and present it.
+                    Furthermore, I was tasked to research how to hookup this new technology with legacy server-side
+                    code.
+                    Soon after my promotion, I was recruited by Tyler Technologies;
+                    a big reason for this change was to stay technologically relevent within the industry and to
+                    continually improve my skillset.
+                </p>
+                <ul class="ul-dashes ul-padding-gentle">
+                    <li>Frontend redesign (Angular)</li>
+                    <li>Database conversions (MongoDB)</li>
+                    <li>Analyze ways to integrate legacy with new services</li>
+                    <li>Full stack development (Angular / Java & LAMP)</li>
+                    <li>Linux production environment</li>
+                </ul>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                <i>December 2015 - March 2018</i>
+            </div>
+        </div>
+
+        <!-- Work Experience - Lockheed Martin-->
+        <div class="row mb-4">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12"></div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <a href="https://www.lockheedmartin.com/en-us/index.html" class="link">Lockheed Martin</a><br />
+                <i>Software Engineer Internship</i>
+                <ul class="ul-dashes ul-padding-gentle">
+                    <li>Full stack LAMP development</li>
+                    <li>Systems administration</li>
+                    <li>Became intimately familiar with Active Directory in Windows</li>
+                    <li>PowerShell Automation</li>
+                </ul>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                <i>May 2015 - December 2015</i>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="row mb-4">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+                <b>certifications</b>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <a href="https://www.comptia.org/certifications/security" class="link">CompTIA Security +</a>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                <i>January 2018</i>
+            </div>
+        </div>
+
+
+        <!-- Teaching -->
+        <div class="row mb-4">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+                <b>teaching</b>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <a href="https://western.edu" class="link">Western State Colorado University</a><br />
+                <i>Computer Science Tutor & Grader</i><br />
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                <i>December 2015 - December 2016</i>
+            </div>
+        </div>
+
+        <!-- Proficient -->
+        <div class="row mb-4">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+                <b>proficient</b>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <b>languages</b>
+                <p>
+                    C#, Typescript, Javascript, TSQL
+                </p>
+                <b>frameworks</b>
+                <p>
+                    .NET Core, ASP.NET MVC
+                </p>
+                <b>front end</b>
+                <p>
+                    Blazor, Angular 11, React
+                </p>
+                <b>cloud</b>
+                <p>
+                    Azure, AWS
+                </p>
+                <b>database / orm</b>
+                <p>
+                    SQL Server, MySql, Entity Framework, Dapper, LINQ to SQL
+                </p>
+                <b>platform</b>
+                <p>
+                    Node.js
+                </p>
+                <b>ide</b>
+                <p>
+                    Visual Studio 2019, Visual Studio Code, Rider 2021.2, Eclipse
+                </p>
+                <b>automation / cli</b>
+                <p>
+                    Powershell Core, Dotnet CLI, IIS Administration, Active Directory, NUnit, XUnit, Selenium
+                </p>
+                <b>stylesheet</b>
+                <p>
+                    LESS, SASS, CSS
+                </p>
+                <b>package management</b>
+                <p>
+                    Chocolatey, Apt-Get, NPM, PowerShellGet
+                </p>
+                <b>dev ops</b>
+                <p>
+                    Dotnet Publish, TeamCity, Octopus Deploy
+                </p>
+                <b>version control</b>
+                <p>
+                    Git, GitHub, GitLab, POSH-Git, Bitbucket
+                </p>
+                <b>api</b>
+                <p>
+                    ASP.NET Web API, OAuth 2.0, RESTful API
+                </p>
+                <b>authentication</b>
+                <p>
+                    Microsoft Identity Platform
+                </p>
+                <b>cryptography</b>
+                <p>
+                    Public / Private Key Encryption
+                </p>
+                <b>networking</b>
+                <p>
+                    SSH, RDP, OpenWRT, PowerShell, BASH
+                </p>
+                <b>productivity</b>
+                <p>
+                    VIM
+                </p>
+                <b>debugging</b>
+                <p>
+                    DotMemory, DotTrace
+                </p>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12"></div>
+        </div>
+
+        <!-- Familiar -->
+        <div class="row mb-4">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+                <b>familiar</b>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <p>Haskell, Scala, Python, LISP, Java, PHP</p>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12"></div>
+        </div>
+
+        <div id="john-peterson" class="row mb-4" tabindex="0">
+            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+                <b>john peterson</b>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+                <p>
+                    My professor <a href="https://archive.gunnisontimes.com/obituaries/john-peterson" class="link">John Peterson</a>
+                    was an aboslute legend.
+                    John suffered a rock climbing accident at the Moab Arches in 2017 and has since passed away...
+                </p>
+                <p>
+                    John was one of the authors of the <a href="https://www.haskell.org/onlinereport/" class="link">Haskell
+                        Report</a>
+                    and the <a href="https://www.haskell.org/tutorial/" class="link">Gentle Introduction to Haskell</a>.
+                    Futhermore, he participated in the early development of Functional Reactive Programming and the
+                    arrow-based
+                    <a href="https://hackage.haskell.org/package/Yampa" class="link">Yampa Library</a>.
+                    He is well respected in the community and I plan to dedicate a page on my site for him in the
+                    future.
+                    People may not consider Western State a premiere CS school, but when John was around, it was....
+                </p>
+            </div>
+        </div>
+        <!-- todo make JP memorial -->
+        <!-- todo make hobbies section -->
+    </div>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/6a6185d5dd.js" crossorigin="anonymous"></script>
+    <!-- Popper JS (for Bootstrap tooltips)-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+</body>
+
+</html>

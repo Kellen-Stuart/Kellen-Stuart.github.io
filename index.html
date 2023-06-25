@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap 5.3 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Kellen Stuart - Home</title>
 </head>
 
 <body>
-    <!-- Your content goes here -->
+    <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Kellen Stuart</a>
+            <a class="navbar-brand" href="/" data-bs-toggle="tooltip" data-bs-title="Home">Kellen Stuart</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -22,19 +23,75 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <nav class="navbar bg-body-tertiary">
                     <div class="container-fluid">
-                        <a class="navbar-brand fa-brands fa-stack-overflow" href="https://stackoverflow.com/users/5361412/kellen-stuart"></a>
-                        <a class="navbar-brand fa-brands fa-github" href="https://github.com/Kellen-Stuart"></a>
-                        <a class="navbar-brand fa-brands fa-gitlab" href="https://gitlab.com/kellenstuart"></a>
-                        <a class="navbar-brand fa-brands fa-instagram" href="https://www.instagram.com/kellenmstuart"></a>
+                        <a class="navbar-brand fa-solid fa-file" href="resume.html" data-bs-toggle="tooltip" data-bs-title="Kellen's Resume"></a>
+                        <a class="navbar-brand fa-brands fa-stack-overflow"
+                            href="https://stackoverflow.com/users/5361412/kellen-stuart" data-bs-toggle="tooltip" data-bs-title="Kellen's Stack Overflow Profile"></a>
+                        <a class="navbar-brand fa-brands fa-github" href="https://github.com/Kellen-Stuart" data-bs-toggle="tooltip" data-bs-title="Kellen's Github"></a>
+                        <a class="navbar-brand fa-brands fa-gitlab" href="https://gitlab.com/kellenstuart" data-bs-toggle="tooltip" data-bs-title="Kellen's Gitlab"></a>
+                        <a class="navbar-brand fa-brands fa-instagram"
+                            href="https://www.instagram.com/kellenmstuart" data-bs-toggle="tooltip" data-bs-title="Kellen's Instagram"></a>
                     </div>
                 </nav>
             </div>
         </div>
     </nav>
+    <!-- End Nav Bar-->
+
+    <!-- Kellen Overview-->
+    <div class="row mt-2">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-center">
+            <img src="images/kellen1.png" class="img-fluid img-thumbnail" alt="Kellen" />
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <hr>
+            <div class="row">
+                <h3>Kellen Stuart <small class="text-muted">Software Engineer</small></h3>
+            </div>
+            <hr>
+            <div class="row mt-3">
+                <h3>Education</h3>
+                <p class="mb-4">
+                    Kellen graduated from <a href="https://western.edu/" class="link">Western State Colorado University</a> with a bachelor in computer science;
+                    Kellen was awarded Summa Cum Laude as one of the top performers of his computer science class. Kellen was lucky enough to have been
+                    a student of professor <a href="https://archive.gunnisontimes.com/obituaries/john-peterson" class="link">John Peterson</a> before his untimely death in 2017. 
+                    John Peterson graduated from Yale and is known for contributing to the creation and documentation for the functional programming language Haskell.
+                </p>
+            </div>
+            <div class="row">
+            <h3>Professional Experience</h3>
+            <p>
+                Kellen has been working professionally for 8 years as a software engineer.
+                Beginning with an internship at Lockheed Martin, Kellen gained experience in multiple industries and programming languages. 
+            </p>
+            <p>
+                Kellen began his career at Lockheed Martin where he worked on a missile defense project. He worked closely with the IT team
+                and gained a deep knowledge of system administration while also coding an application to track internal hires / departs.
+            </p>
+            <p>
+                In 2018, Kellen moved to Tyler Technologies. He would switch focus from defense to local
+                government.
+                Kellen was responsible for writing custom payment processing software (similar to Stripe)
+                for processing users utility bills. This allowed Tyler Technologies to save cost on payment processor fees which greatly increased revenue for the company
+                and thus increased revenue for shareholders.
+            </p>
+            <p>
+                In 2022, Kellen moved to Tasso Inc. He would switch focus to biomedical technologies.
+                <a href="https://www.tassoinc.com/" class="link">Tasso</a> is a startup company that makes devices to draw blood via suction (in a painless manner).
+                This revolutionary technology will allow people to get blood tests from the comfort of their home.
+                Kellen writes the APIs for customers to place orders for said devices. 
+                Roughly 80% of order traffic goes through Kellens software.
+            </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap 5.3 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/6a6185d5dd.js" crossorigin="anonymous"></script>
+    <!-- Popper JS (for Bootstrap tooltips)-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
