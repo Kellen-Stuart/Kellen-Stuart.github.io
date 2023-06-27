@@ -1,5 +1,5 @@
 body {
-    font-family: Helvetica, Arial, Calibri
+  font-family: Helvetica, Arial, Calibri
 }
 
 .link {
@@ -11,5 +11,19 @@ body {
 }
 
 .link:hover {
-  color: #003687; /* Change the color to your desired hover color */
+  color: #003687;
+}
+
+@media print {
+  .col-sm-3 {
+    width: 20%;
+  }
+
+  .col-sm-6 {
+    width: 60%;
+  }
+
+  .col-sm-3 {
+    width: 20%;
+  }
 }
