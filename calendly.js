@@ -8,4 +8,8 @@ function initCalendly()
     });
 }
 
-initCalendly();
+// This fixes the bug where calendly would initialize multiple times.
+const iframe = document.querySelector('iframe');
+if(iframe !== null) {
+    initCalendly();
+}
