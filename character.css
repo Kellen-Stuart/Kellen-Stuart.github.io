@@ -14,6 +14,12 @@
     margin-right: 5px;
 }
 
+.exp-sprite-triple-wide {
+    width: 80px;
+    height: 40px;
+    margin-right: 5px;
+}
+
 .stardew-border {
     border: 4px solid #5c3a24; /* Dark brown for the wood */
     background-color: #fffbe6; /* Light cream for the interior */
