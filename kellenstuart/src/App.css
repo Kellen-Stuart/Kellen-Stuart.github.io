@@ -1,0 +1,78 @@
+body {
+  font-family: Helvetica, Arial, Calibri;
+}
+
+:root {
+  --link-color: #003687;
+  --link-hover-color: #05a2e6;
+  --link-orange-color: #C75B12;
+  --link-orange-hover-color: darkorange;
+  --link-black-color: black;
+  --link-black-hover-color: grey;
+  --link-pink-color: #E75480;
+  --link-pink-hover-color: #D1479F;
+}
+
+.link,
+.link-orange {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  transition: color 0.3s;
+  color: var(--link-color);
+}
+
+.link:hover {
+  color: var(--link-hover-color);
+}
+
+.link-orange {
+  color: var(--link-orange-color);
+}
+
+.link-orange:hover {
+  color: var(--link-orange-hover-color);
+}
+
+.link-black {
+  color: var(--link-black-color);
+}
+
+.link-black:hover {
+  color: var(--link-black-hover-color);
+}
+
+.link-pink {
+  color: var(--link-pink-color);
+}
+
+.link-pink:hover {
+  color: var(--link-pink-hover-color);
+}
+
+a {
+  color: #003687;
+  text-decoration: none; /* Assuming you want to remove the underline from all links */
+}
+
+a:hover {
+  position: relative;
+  display: inline-block;
+  color: #05a2e6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+@media print {
+  .col-sm-3 {
+    width: 20%;
+  }
+
+  .col-sm-6 {
+    width: 60%;
+  }
+
+  .col-sm-3 {
+    width: 20%;
+  }
+}
