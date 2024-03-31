@@ -21,6 +21,7 @@ import {
   faFile,
   faAddressCard
 } from "@fortawesome/free-solid-svg-icons";
+import { LinkContainer } from "react-router-bootstrap";
 
 function KSNavbar() {
   return (
@@ -43,12 +44,16 @@ function KSNavbar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">
-          <Nav.Link href="/resume">
-            <FontAwesomeIcon icon={faFile} className="fa-xl link-black" />
-          </Nav.Link>
-          <Nav.Link href="/contact">
-            <FontAwesomeIcon icon={faAddressCard} className="fa-xl link-black" />
-          </Nav.Link>
+          <LinkContainer to="/resume">
+            <Nav.Link>
+              <FontAwesomeIcon icon={faFile} className="fa-xl link-black" />
+            </Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/contact">
+            <Nav.Link>
+              <FontAwesomeIcon icon={faAddressCard} className="fa-xl link-black" />
+            </Nav.Link>
+          </LinkContainer>
           <Nav.Link href="https://www.linkedin.com/in/kellenstuart">
             <FontAwesomeIcon icon={faLinkedin} className="fa-xl link" />
           </Nav.Link>
