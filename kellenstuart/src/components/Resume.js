@@ -81,22 +81,19 @@ function Resume() {
             </p>
             <ul class="ul-dashes ul-padding-gentle">
               <li>Full Stack Development</li>
-              <li>React / Material UI</li>
-              <li>Express.JS</li>
+              <li>RESTful API</li>
+              <li>React / Material UI / Tailwind / Bootstrap 5</li>
               <li>Node.JS</li>
+              <li>Express.JS</li>
               <li>Nest.JS</li>
               <li>Typescript</li>
               <li>Java</li>
               <li>AWS / AWS CLI</li>
-              <li>API</li>
-              <li>NPM</li>
+              <li>Docker</li>
               <li>PSQL</li>
-              <li>Open API</li>
-              <li>Mustache</li>
-              <li>Ubuntu / Linux / Mac OS</li>
               <li>Gitlab CI/CD</li>
               <li>Agile</li>
-              <li>Test Driven Development / Cucumber / Gherkin</li>
+              <li>Test Driven Development / Cucumber / Gherkin / Selenium</li>
             </ul>
           </div>
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
