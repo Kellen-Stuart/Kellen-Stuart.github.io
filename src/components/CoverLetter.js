@@ -1,4 +1,5 @@
 import React from "react";
+import ContactButton from "./ContactButton";
 
 function CoverLetter() {
   return (
@@ -10,6 +11,9 @@ function CoverLetter() {
             className="img-fluid img-thumbnail"
             alt="Kellen"
           />
+          <div className="row">
+              <ContactButton />
+          </div>
         </div>
         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
           <hr />
