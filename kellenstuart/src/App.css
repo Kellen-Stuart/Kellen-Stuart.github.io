@@ -5,12 +5,12 @@ body {
 :root {
   --link-color: #003687;
   --link-hover-color: #05a2e6;
-  --link-orange-color: #C75B12;
+  --link-orange-color: #c75b12;
   --link-orange-hover-color: darkorange;
   --link-black-color: black;
   --link-black-hover-color: grey;
-  --link-pink-color: #E75480;
-  --link-pink-hover-color: #D1479F;
+  --link-pink-color: #e75480;
+  --link-pink-hover-color: #d1479f;
 }
 
 .link,
@@ -64,6 +64,10 @@ a:hover {
 }
 
 @media print {
+  .print-hide {
+    display: none !important;
+  }
+
   .col-sm-3 {
     width: 20%;
   }
