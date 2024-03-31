@@ -73,9 +73,13 @@ function CharacterSheet() {
               </div>
             </div>
 
-            {/*Node.JS TS Java*/}
+            {/*React Node.JS TS Java*/}
             <div class="row mt-2">
               <div class="col-3 d-flex align-items-center justify-content-end">
+                <img
+                  class="img-fluid exp-sprite"
+                  src="react-logo.svg"
+                />
                 <img
                   class="img-fluid exp-sprite-double-wide"
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1180px-Node.js_logo.svg.png"
@@ -134,13 +138,9 @@ function CharacterSheet() {
               </div>
             </div>
 
-            {/*React Angular Blazor Python*/}
+            {/*Angular Blazor Python*/}
             <div class="row mt-2">
               <div class="col-3 d-flex align-items-center justify-content-end">
-                <img
-                  class="img-fluid exp-sprite"
-                  src="react-logo.svg"
-                />
                 <img
                   class="img-fluid exp-sprite"
                   src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"
