@@ -1,6 +1,7 @@
 import React from "react";
 import PDFModal from "./PDFModal";
 import CharacterSheet from "./CharacterSheet";
+import ContactButton from "./ContactButton";
 
 function Resume() {
 
@@ -8,6 +9,7 @@ function Resume() {
     <div>
       <PDFModal />
       <CharacterSheet />
+      <ContactButton />
       <div className="container">
         {/* Resume Content Here - Adjusted class to className, and inline event handling */}
         <div className="row justify-content-center mt-4">
