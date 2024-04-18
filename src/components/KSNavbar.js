@@ -9,41 +9,25 @@ import {
   faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  faK,
-  faS,
-  faE,
-  faL,
-  faN,
-  faT,
-  faU,
-  faA,
-  faR,
   faFile,
   faAddressCard
 } from "@fortawesome/free-solid-svg-icons";
 import { LinkContainer } from "react-router-bootstrap";
+import KellenStuartLogo from "./KellenStuartLogo";
+import SeniorSoftwareEngineerLogo from "./SeniorSoftwareEngineerLogo";
 
 function KSNavbar() {
   return (
-    <Navbar bg="light" expand="lg" className="px-3">
+    <Navbar bg="light" expand="lg" className="px-3 print-hide">
       <Navbar.Brand href="/" className="link-black">
-        <FontAwesomeIcon icon={faK} className="fa-xl"/>{" "}
-        <FontAwesomeIcon icon={faE} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faL} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faL} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faE} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faN} className="fa-2xs pe-2" />{" "}
-        <FontAwesomeIcon icon={faS} className="fa-xl"/>{" "}
-        <FontAwesomeIcon icon={faT} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faU} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faA} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faR} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faT} className="fa-2xs" />
+        <KellenStuartLogo />
       </Navbar.Brand>
-
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">
+          <Navbar.Brand>
+            <SeniorSoftwareEngineerLogo />
+          </Navbar.Brand>
           <LinkContainer to="/resume">
             <Nav.Link>
               <FontAwesomeIcon icon={faFile} className="fa-xl link-black" />

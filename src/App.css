@@ -79,4 +79,15 @@ a:hover {
   .col-sm-3 {
     width: 20%;
   }
+
+  .contact-navbar {
+    display: flex; /* Ensures flexbox layout */
+    flex-direction: row; /* Ensures items are in a row */
+    align-items: center; /* Centers items vertically */
+    width: 100%; /* Ensures the navbar takes full width */
+  }
+  .nav-link, .navbar-text {
+    display: inline; /* Forces inline display */
+    white-space: nowrap; /* Prevents breaking items into new lines */
+  }
 }
