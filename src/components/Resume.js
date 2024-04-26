@@ -4,7 +4,6 @@ import CharacterSheet from "./CharacterSheet";
 import ContactButton from "./ContactButton";
 
 function Resume() {
-
   return (
     <div>
       <PDFModal />
@@ -60,42 +59,43 @@ function Resume() {
               Tasso Inc.
             </a>
             <br />
-            <i>Senior Software Engineer</i>
+            <i>Senior Software Engineer (Full Stack)</i>
             <br />
             <p class="pl-3">
-              This position entails developing back-end APIs to allow customers
-              to place orders enmasse; the API also allows the integrators to
-              see test results and view critical information as a device
-              progresses through our workflow.
+              Tasso is a startup that specializes in at home blood collection
+              devices. My role is to develop software to facilitate the
+              collection of blood samples. I am responsbile for a variety of
+              software tasks including building AWS cloud infrastructure,
+              building React frontends, and developing API's and databases to
+              support integrations with our partners. I recently was tasked with
+              implementing feature flags company wide; I frequently host
+              team-wide tech designs to decide the best way to implement new
+              features.
             </p>
+            <p class="pl-3"></p>
             <p class="pl-3">
-              Furthermore, I modernize the look and feel of our systems; we have
-              5 front-ends - each have a separate target (customer, patient,
-              lab, internal admin). A key part of my job is to ensure these
-              front-ends look good and are intuitive for the user. I enjoy this
-              part because it has an artistic design aspect to it.
-            </p>
-            <p class="pl-3">
-              Since Tasso works in the healthcare industry, we have to abide by
-              various standards - HIPAA, PHI, ePHI, BAAs, HITECH Act etc.
-              Developers are trained on these standards and our software must
-              meet these standards for a production release.
+              Our software must abide by various standards - HIPAA, PHI, ePHI,
+              BAAs, HITECH Act etc. Developers are trained on these standards
+              and our software must meet these standards for a production
+              release.
             </p>
             <ul class="ul-dashes ul-padding-gentle">
-              <li>Full Stack Development</li>
-              <li>RESTful API</li>
               <li>React / Material UI / Tailwind / Bootstrap 5</li>
               <li>Node.JS</li>
               <li>Express.JS</li>
               <li>Nest.JS</li>
+              <li>AWS / AWS CLI & CDK</li>
+              <li>RESTful API</li>
               <li>Typescript</li>
+              <li>Python</li>
               <li>Java</li>
-              <li>AWS / AWS CLI</li>
               <li>Docker</li>
               <li>PSQL</li>
               <li>Gitlab CI/CD</li>
               <li>Agile</li>
               <li>Test Driven Development / Cucumber / Gherkin / Selenium</li>
+              <li>Launch Darkly / Unleash / Gitlab Unleash</li>
+              <li>Linux / Sonoma Automation ZSH BASH</li>
             </ul>
           </div>
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
@@ -103,10 +103,42 @@ function Resume() {
           </div>
         </div>
 
+        {/* Work Experience - Flavor Forge AI, LLC */}
+        <div class="row mb-4">
+          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+          </div>
+          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+            <a class="link" href="https://flavorforgeai.com">
+              Flavor Forge AI, LLC
+            </a>
+            <br />
+            <i>Founder</i>
+            <br />
+            <p class="pl-3">
+              <i>Expected release June 2024</i>
+            </p>
+            <p class="pl-3">
+              Flavor Forge AI is a company that I started which takes
+              ingredients from your pantry and suggests recipes based on what
+              you have. The goal is to reduce food waste and help people cook
+              more at home. It utilitizes OpenAI's GPT-4 and DALLE-3 models to
+              generate unique recipes.
+            </p>
+            <ul class="ul-dashes ul-padding-gentle">
+              <li>React / Tailwind CSS</li>
+              <li>Python Django</li>
+              <li>OpenAI API GPT-4 DALLE-3</li>
+              <li>Postgres SQL</li>
+              <li>Stripe</li>
+              <li>Github Actions</li>
+              <li>Business Administration</li>
+            </ul>
+          </div>
+        </div>
+
         {/* Work Experience - Tyler Technologies */}
         <div class="row mb-4">
           <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
-            <b>work</b>
           </div>
           <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <a class="link" href="https://www.tylertech.com/">
@@ -205,7 +237,7 @@ function Resume() {
               <li>Database conversions (MongoDB)</li>
               <li>Analyze ways to integrate legacy with new services</li>
               <li>Full stack development (Angular / Java & LAMP)</li>
-              <li>Linux production environment</li>
+              <li>Adminstratior of a highly secure RedHat Linux environment</li>
             </ul>
           </div>
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
