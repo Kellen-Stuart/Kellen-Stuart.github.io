@@ -131,6 +131,7 @@ function Resume() {
               <li>Postgres SQL</li>
               <li>Stripe</li>
               <li>Github Actions</li>
+              <li>VS Code CoPilot</li>
               <li>Business Administration</li>
             </ul>
           </div>
