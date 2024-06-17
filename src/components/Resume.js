@@ -62,22 +62,33 @@ function Resume() {
             <i>Senior Software Engineer (Full Stack)</i>
             <br />
             <p class="pl-3">
-              Tasso is a startup that specializes in at home blood collection
-              devices. My role is to develop software to facilitate the
-              collection of blood samples. I am responsbile for a variety of
-              software tasks including building AWS cloud infrastructure,
-              building React frontends, and developing API's and databases to
-              support integrations with our partners. I recently was tasked with
-              implementing feature flags company wide; I frequently host
-              team-wide tech designs to decide the best way to implement new
-              features.
+              At Tasso, a startup specializing in at-home blood collection devices, 
+              I develop software to streamline the blood sample collection process. 
+              My responsibilities encompass a broad range of software tasks, including:
             </p>
-            <p class="pl-3"></p>
+            <ul>
+              <li>Building and maintaining AWS cloud infrastructure</li>
+              <li>Developing React frontends for user-facing applications</li>
+              <li>Creating and managing APIs and databases to support partner integrations</li>
+            </ul>
             <p class="pl-3">
-              Our software must abide by various standards - HIPAA, PHI, ePHI,
-              BAAs, HITECH Act etc. Developers are trained on these standards
-              and our software must meet these standards for a production
-              release.
+              Recently, I led the implementation of company-wide feature flags. 
+              I also frequently host team-wide technical design sessions to determine 
+              optimal approaches for new feature implementations.
+            </p>
+            <p class="pl-3">
+              Our software must abide by various standards:
+            </p>
+            <ul>
+              <li>HIPAA</li>
+              <li>PHI</li>
+              <li>ePHI</li>
+              <li>BAAs</li>
+              <li>HITECH Act</li>
+            </ul>
+            <p class="pl-3">
+              Our developers are trained on these standards and our software must meet these standards 
+              for a production release.
             </p>
             <ul class="ul-dashes ul-padding-gentle">
               <li>React / Material UI / Tailwind / Bootstrap 5</li>
@@ -94,7 +105,7 @@ function Resume() {
               <li>Gitlab CI/CD</li>
               <li>Agile</li>
               <li>Test Driven Development / Cucumber / Gherkin / Selenium</li>
-              <li>Launch Darkly / Unleash / Gitlab Unleash</li>
+              <li>Launch Darkly / Unleash / Gitlab Unleash / Unleash React SDK</li>
               <li>Linux / Sonoma Automation ZSH BASH</li>
             </ul>
           </div>
