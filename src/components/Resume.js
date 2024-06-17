@@ -101,7 +101,7 @@ function Resume() {
               <li>Python</li>
               <li>Java</li>
               <li>Docker</li>
-              <li>PSQL</li>
+              <li>PostgreSQL</li>
               <li>Gitlab CI/CD</li>
               <li>Agile</li>
               <li>Test Driven Development / Cucumber / Gherkin / Selenium</li>
@@ -304,7 +304,7 @@ function Resume() {
             <b>frameworks</b>
             <p>.NET Core, ASP.NET MVC, Nest.JS</p>
             <b>front end</b>
-            <p>Blazor, React Angular, Razor Pages</p>
+            <p>React (Vite & CRA), Angular</p>
             <b>Mobile</b>
             <p>React Native</p>
             <b>cloud</b>
