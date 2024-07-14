@@ -9,7 +9,7 @@ function PDFModal() {
   }, []);
 
   const handlePrint = () => {
-    window.print();
+    window.location.href = '/print-resume';
     setShowModal(false);
   }
 
@@ -17,9 +17,9 @@ function PDFModal() {
     <>
       <Modal show={showModal} onHide={() => setShowModal(false)} className='print-hide'>
         <Modal.Header closeButton>
-          <Modal.Title>PDF</Modal.Title>
+          <Modal.Title>Need a PDF?</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Need a pdf?</Modal.Body>
+        <Modal.Body>"No" for long-form resume. "Yes" for short-form PDF resume.</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowModal(false)}>
             No
