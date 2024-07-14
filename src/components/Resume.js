@@ -249,7 +249,7 @@ function Resume() {
               <li>Database conversions (MongoDB)</li>
               <li>Analyze ways to integrate legacy with new services</li>
               <li>Full stack development (Angular / Java & LAMP)</li>
-              <li>Adminstratior of a highly secure RedHat Linux environment</li>
+              <li>Administrator of a highly secure RedHat Linux environment</li>
             </ul>
           </div>
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">

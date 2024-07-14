@@ -6,7 +6,7 @@ import KellenStuartLogo from "./KellenStuartLogo";
 function PrintNavbar() {
   return (
     <>
-      <Navbar bg="light" expand="lg" className="px-3 navbar">
+      <Navbar expand="lg" className="px-3 navbar bg-light-purple pt-5">
         <Navbar.Brand>
           <KellenStuartLogo />
         </Navbar.Brand>
