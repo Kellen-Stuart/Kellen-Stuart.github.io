@@ -54,7 +54,7 @@ applications, mobile applications, and a GraphQL API essential for the success o
         bulletPoints={[
           "Recognized by executive team for the facilitation of company pivots in response to the new challenges of the COVID-19 pandemic.",
           "Authored hundreds of thousands of lines of code during the creation of new tools essential for maintaining business operations during the pandemic.",
-          "Developed a C# .NET full stack applications using Entity Framework, TypeScript, and Microsoft SQL Server.",
+          "Developed C# .NET Core full stack applications using Blazor / Razor Pages, Entity Framework, TypeScript, and Microsoft SQL Server.",
         ]}
       />
 
