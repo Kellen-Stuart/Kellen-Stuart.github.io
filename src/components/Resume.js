@@ -188,7 +188,7 @@ function Resume() {
               Tyler Tech.
             </p>
             <ul class="ul-dashes ul-padding-gentle">
-              <li>Full Stack .NET C# Web Development</li>
+              <li>Full Stack C# .NET Core Blazor / Razor Pages</li>
               <li>Upgrade ORM from LINQ To SQL to Entity Framework Core</li>
               <li>Redesign UI's to look modern</li>
               <li>Greatly improve database performance</li>
@@ -304,7 +304,7 @@ function Resume() {
             <b>frameworks</b>
             <p>.NET Core, ASP.NET MVC, Nest.JS</p>
             <b>front end</b>
-            <p>React (Vite & CRA), Blazor, Angular</p>
+            <p>React (Vite & CRA), Blazor, Angular, Web Assembly</p>
             <b>Mobile</b>
             <p>React Native</p>
             <b>cloud</b>
