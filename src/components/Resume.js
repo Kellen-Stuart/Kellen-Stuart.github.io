@@ -304,7 +304,7 @@ function Resume() {
             <b>frameworks</b>
             <p>.NET Core, ASP.NET MVC, Nest.JS</p>
             <b>front end</b>
-            <p>React (Vite & CRA), Angular</p>
+            <p>React (Vite & CRA), Blazor, Angular</p>
             <b>Mobile</b>
             <p>React Native</p>
             <b>cloud</b>
