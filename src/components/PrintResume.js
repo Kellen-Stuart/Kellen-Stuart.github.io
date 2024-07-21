@@ -13,8 +13,6 @@ const PrintResume = () => {
       <PrintNavbar />
       <PrintContactInfo
         contacts={[
-          "[REDACTED_PHONE]",
-          "[REDACTED_EMAIL]",
           "linkedin.com/in/kellenstuart",
         ]}
       />
