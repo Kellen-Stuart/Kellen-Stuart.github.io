@@ -28,19 +28,18 @@ const PrintResume = () => {
       </div>
       <PrintHeader title="Professional Experience" />
       <PrintEmployment
-        title="Senior Software Engineer"
+        title="Software Engineer III"
         company="Tasso Inc."
         employmentTimeSpan="2021 - Present"
         paragraphText="Led the design, development, and introduction of powerful new tools and exciting features which directly resulted in significant revenue growth primarily leveraging technologies such as Typescript, React, and
 Python. Additionally, certain projects required deeply diving into data services written in AWS CDK as well as stateful, realtime services built with Nest.JS."
         bulletPoints={[
           "Led the planning and execution of projects such as the TassoCare API https://docs.tassocare.com/ and the TassoCare Portal https://portal.tassocare.com/, which required consistent cross-functional collaboration and communication to ensure the on-time, within budget completion of all objectives.",
-          "Enabled the business development team to fulfill orders without needing engineers to hardcode promotions into code (resulting in the biggest order growth to date).",
-          "Spearheaded the founding of a full testing setup by introducing unit and integration testing using Cypress, Jest, Gherkin and Selenium which directly resulted in the ability to author end-to-end integration tests and significantly reduce bugs.",
-          "Architected a fully scalable feature flagging solution using AWS ELB / Fargate / VPC which enabled Tasso to develop new features in parallel with the QA team faster.",
-          "Finished planned work ahead of schedule and used the extra 2 weeks before the 2022 winter holiday season to introduce bulk ordering which increased revenue by 300k.",
-          "Ran ML experiments within related to revenue to generate more accurate predictions for leadership.",
-          "Participated in hackathons to greenfield new ideas and features for the company; built a GraphQL API for the TassoCare Portal to improve data accessibility for frontend engineers.",
+          "Enabled the services team to fulfill orders by adding features and fixing bugs in the TassoCare Admin Portal.",
+          "Spearheaded end-to-end integration testing using Jest, Gherkin and Selenium to ensure quality in the TassoCare product line-up.",
+          "Architected a fully scalable feature flagging solution using Gitlab / Unleash / AWS CDK which enabled Tasso to develop new features quickly without immediately releasing them.",
+          "Participated in hackathons to greenfield new ideas and features for the company; built a GraphQL API to demonstrate the power of GraphQL and Entity Framework to the team.",
+          "Worked closely with product management in an Agile environment to ensure the timely delivery of features and bug fixes.",
         ]}
       />
       <PrintEmployment

@@ -161,7 +161,7 @@ function Resume() {
             <br />
             <p class="pl-3">
               This position entails developing critical payment systems for a
-              large utility billing software suite called
+              large utility billing software suite called 
               <a
                 href="https://municipalonlinepayments.com/goldenco"
                 class="link"
