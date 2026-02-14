@@ -9,10 +9,16 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 
 ## Scripts
 
+### Development
+
 - `npm run dev` (or `npm start`): start the local Vite dev server at `http://localhost:5173`
-- `npm run build`: produce a production build in `dist/` and copy `dist/index.html` to `dist/404.html`
+- `npm run build`: create a production build in `dist/` and copy `dist/index.html` to `dist/404.html`
 - `npm run preview`: preview the production build locally
-- `npm run deploy`: build (via `predeploy`) and publish `dist/` using `gh-pages`
+
+### Deploy
+
+- `npm run predeploy`: run the production build step
+- `npm run deploy`: publish `dist/` using `gh-pages` (runs `predeploy` automatically)
 
 ## Install
 

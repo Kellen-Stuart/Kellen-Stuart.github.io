@@ -142,8 +142,8 @@ function CharacterSheet() {
             <div className="row mt-2">
               <div className="col-3 d-flex align-items-center justify-content-end">
                 <img
-                  className="img-fluid exp-sprite"
-                  src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"
+                  className="img-fluid exp-sprite-triple-wide"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Angular_logo_%282023%29.svg/500px-Angular_logo_%282023%29.svg.png"
                 />
                 <img
                   className="img-fluid exp-sprite"
@@ -199,9 +199,13 @@ function CharacterSheet() {
               </div>
             </div>
 
-            {/*AWS Azure*/}
+            {/*GCP AWS Azure*/}
             <div className="row mt-2">
               <div className="col-3 d-flex align-items-center justify-content-end">
+                <img
+                  className="img-fluid exp-sprite-triple-wide"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/500px-Google_Cloud_logo.svg.png"
+                />
                 <img
                   className="img-fluid exp-sprite"
                   src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
@@ -363,8 +367,9 @@ function CharacterSheet() {
                   src="/exp-sprite-4.png"
                 />
                 <img
-                  className="img-fluid exp-sprite-super-wide"
-                  src="/8-years.png"
+                  className="img-fluid exp-sprite-double-wide"
+                  src="/number-10.png"
+                  alt="10 years of experience"
                 />
               </div>
             </div>

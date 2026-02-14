@@ -25,7 +25,7 @@ function Resume() {
         {/* Education Section */}
         <div className="row mb-4">
           <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
-            <strong>Education</strong>
+            <strong>education</strong>
           </div>
           <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <a
@@ -49,46 +49,74 @@ function Resume() {
           </div>
         </div>
 
-        {/* Work Experience - Tasso */}
+        {/* Work Experience - Tech Disc */}
         <div className="row mb-4">
           <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
             <b>work</b>
           </div>
           <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+            <a className="link" href="https://techdisc.com/">
+              Tech Disc
+            </a>
+            <br />
+            <i>Senior Full Stack Developer</i>
+            <br />
+            <p className="pl-3">
+              Build and maintain a web platform for a disc golf simulator that
+              helps players improve throw performance by returning detailed
+              throw analytics.
+            </p>
+            <p className="pl-3">
+              Focused on Bluetooth device connectivity hardening for production
+              reliability, with near-term roadmap work supporting multiple discs
+              connected to a single web session.
+            </p>
+            <ul className="ul-dashes ul-padding-gentle">
+              <li>React</li>
+              <li>Typescript</li>
+              <li>Node.JS</li>
+              <li>Google Cloud / Firebase Storage</li>
+              <li>Bluetooth device integration</li>
+              <li>Security vulnerability patching (dependency/package updates)</li>
+              <li>Github Actions</li>
+              <li>WSL 2 (Ubuntu)</li>
+              <li>ZSH</li>
+              <li>Copilot</li>
+            </ul>
+          </div>
+          <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+            <i>December 2025 - Present</i>
+          </div>
+        </div>
+
+        {/* Work Experience - Tasso */}
+        <div className="row mb-4">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12"></div>
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <a className="link" href="https://www.tassoinc.com/">
               Tasso Inc.
             </a>
             <br />
-            <i>Senior Software Engineer (Full Stack)</i>
+            <i>Senior Full Stack Developer</i>
             <br />
             <p className="pl-3">
-              At Tasso, a startup specializing in at-home blood collection devices, 
-              I develop software to streamline the blood sample collection process. 
-              My responsibilities encompass a broad range of software tasks, including:
+              At Tasso, a startup specializing in at-home blood collection
+              devices, I developed software to streamline the blood sample
+              collection process.
             </p>
             <ul>
-              <li>Building and maintaining AWS cloud infrastructure</li>
-              <li>Developing React frontends for user-facing applications</li>
-              <li>Creating and managing APIs and databases to support partner integrations</li>
+              <li>Built and maintained AWS cloud infrastructure</li>
+              <li>Developed React frontends for user-facing applications</li>
+              <li>Created and managed APIs and databases for partner integrations</li>
             </ul>
             <p className="pl-3">
-              Recently, I led the implementation of company-wide feature flags. 
-              I also frequently host team-wide technical design sessions to determine 
-              optimal approaches for new feature implementations.
+              Led implementation of company-wide feature flags and frequently
+              facilitated technical design sessions to determine implementation
+              approaches for new features.
             </p>
             <p className="pl-3">
-              Our software must abide by various standards:
-            </p>
-            <ul>
-              <li>HIPAA</li>
-              <li>PHI</li>
-              <li>ePHI</li>
-              <li>BAAs</li>
-              <li>HITECH Act</li>
-            </ul>
-            <p className="pl-3">
-              Our developers are trained on these standards and our software must meet these standards 
-              for a production release.
+              Supported development in a regulated environment requiring HIPAA,
+              PHI, ePHI, BAA, and HITECH-aligned operational controls.
             </p>
             <ul className="ul-dashes ul-padding-gentle">
               <li>React / Material UI / Tailwind / Bootstrap 5</li>
@@ -110,7 +138,7 @@ function Resume() {
             </ul>
           </div>
           <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
-            <i>December 2021 - Present</i>
+            <i>December 2021 - November 2024</i>
           </div>
         </div>
 
@@ -126,17 +154,17 @@ function Resume() {
             <i>Founder</i>
             <br />
             <p className="pl-3">
-              <i>Expected release June 2024</i>
+              <i>Independent product R&amp;D (not released)</i>
             </p>
             <p className="pl-3">
-              Flavor Forge AI is a company that I started which takes
-              ingredients from your pantry and suggests recipes based on what
-              you have. The goal is to reduce food waste and help people cook
-              more at home. It utilitizes OpenAI's GPT-4 and DALLE-3 models to
-              generate unique recipes.
+              Flavor Forge AI was an independent product concept that explored
+              pantry-based recipe recommendations. Although the product was not
+              released, it was meaningful full-stack experience that
+              strengthened my Django backend capabilities and hands-on work with
+              modern React frameworks.
             </p>
             <ul className="ul-dashes ul-padding-gentle">
-              <li>React / Tailwind CSS</li>
+              <li>Modern React frameworks / Tailwind CSS</li>
               <li>Python Django</li>
               <li>OpenAI API GPT-4 DALLE-3</li>
               <li>Postgres SQL</li>
@@ -300,25 +328,27 @@ function Resume() {
           </div>
           <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <b>languages</b>
-            <p>C#, Python, Typescript / Javascript, Java, PHP, TSQL, PSQL</p>
+            <p>Typescript, Javascript (ES6+), Python, C#, Java, SQL</p>
             <b>frameworks</b>
-            <p>.NET Core, ASP.NET MVC, Nest.JS</p>
+            <p>React, Django, Node.js, Express.js, Nest.JS, .NET Core, ASP.NET MVC, Blazor, Angular</p>
             <b>front end</b>
-            <p>React (Vite & CRA), Blazor, Angular, Web Assembly</p>
-            <b>Mobile</b>
+            <p>React (Vite & CRA), React Router, Tailwind CSS, Material UI, Bootstrap 5, CSS, SASS, LESS</p>
+            <b>mobile</b>
             <p>React Native</p>
             <b>cloud</b>
-            <p>AWS, Azure, GCP</p>
-            <b>machine learning</b>
-            <p>pytorch, tensorflow, scikit-learn</p>
+            <p>AWS (CDK, AWS CLI), Google Cloud Platform (GCP), Firebase Storage, Azure</p>
+            <b>databases</b>
+            <p>PostgreSQL, SQL Server, MySQL, DynamoDB, MongoDB</p>
             <b>orm</b>
-            <p>Entity Framework, Django, Dapper, LINQ to SQL</p>
-            <b>database / orm</b>
-            <p>SQL Server, MySql, Postgres SQL, Dynamo DB, MongoDB</p>
-            <b>platform</b>
-            <p>Node.js</p>
-            <b>build / package automation</b>
-            <p>Apache Maven Semantic-Release npm publish</p>
+            <p>Entity Framework, Dapper, LINQ to SQL, Django ORM</p>
+            <b>api</b>
+            <p>REST APIs, GraphQL, OAuth 2.0, ASP.NET Web API</p>
+            <b>security</b>
+            <p>Dependency vulnerability remediation, package patching, secure release practices</p>
+            <b>connectivity</b>
+            <p>Bluetooth / BLE device integration and reliability hardening</p>
+            <b>dev ops / ci-cd</b>
+            <p>GitHub Actions, GitLab CI/CD, Dotnet Publish, TeamCity, Octopus Deploy</p>
             <b>ide</b>
             <p>
               VS Code, Visual Studio, Jetbrains Rider, WebStorm, Eclipse,
@@ -326,23 +356,15 @@ function Resume() {
             </p>
             <b>automation / cli</b>
             <p>
-              AWS CLI, ZSH, Oh My Zsh!, BASH, Powershell 7, Dotnet CLI,
-              create-react-app, IIS Administration, Active Directory
+              WSL 2, Ubuntu Linux, AWS CLI, ZSH, Oh My Zsh!, BASH, Powershell 7,
+              Dotnet CLI, IIS Administration, Active Directory
             </p>
-            <b>testing Frameworks</b>
+            <b>testing frameworks</b>
             <p>NUnit, XUnit, Selenium, Cucumber / Gherkin</p>
-            <b>styles</b>
-            <p>Bootstrap 5, Material UI, Tailwind CSS, LESS, SASS, CSS</p>
             <b>package management</b>
             <p>Homebrew, Chocolatey, Apt-Get, NPM, PowerShellGet</p>
-            <b>dev ops</b>
-            <p>Gitlab CI/CD, Dotnet Publish, TeamCity, Octopus Deploy</p>
             <b>version control</b>
-            <p>Git, GitHub, GitLab, POSH-Git, Bitbucket</p>
-            <b>api</b>
-            <p>
-              Nest.JS, ASP.NET Web API, GraphQL, OAuth 2.0, RESTful API, Axios
-            </p>
+            <p>Git, GitHub, GitLab, Bitbucket</p>
             <b>authentication</b>
             <p>Microsoft Identity Platform</p>
             <b>cryptography</b>
@@ -350,7 +372,7 @@ function Resume() {
             <b>networking</b>
             <p>SSH, RDP, OpenWRT</p>
             <b>productivity</b>
-            <p>VIM, CoPilot, ChatGPT</p>
+            <p>VIM, GitHub Copilot, ChatGPT, Codex</p>
             <b>debugging</b>
             <p>DotMemory, DotTrace</p>
           </div>

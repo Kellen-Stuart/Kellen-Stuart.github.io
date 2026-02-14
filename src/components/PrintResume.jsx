@@ -20,7 +20,8 @@ const PrintResume = () => {
         <p className="mt-5">
           Senior leader with a track record of success in translating business
           challenges and changing user needs into innovative new features and
-          products for companies including Tasso Inc. and Lockheed Martin.
+          products for companies including Tech Disc, Tasso Inc., and Lockheed
+          Martin.
           Highly skilled in leveraging cross-functional collaboration to ensure
           the on-time completion of end-to-end software development and
           engineering lifecycles.
@@ -28,11 +29,23 @@ const PrintResume = () => {
       </div>
       <PrintHeader title="Professional Experience" />
       <PrintEmployment
-        title="Software Engineer III"
+        title="Senior Full Stack Developer"
+        company="Tech Disc"
+        employmentTimeSpan="Dec 2025 - Present"
+        paragraphText="Build and maintain a web platform for a disc golf simulator that helps users improve throw performance through actionable throw analytics."
+        bulletPoints={[
+          "Led Bluetooth connectivity hardening to improve reliability for production device-to-web communication.",
+          "Building support for connecting multiple Bluetooth-enabled discs to a single web application session.",
+          "Developing end-to-end features across React frontends and Node.js services.",
+          "Performed security vulnerability patching by remediating dependency and package vulnerabilities in the web application stack.",
+          "Working within a modern cloud and developer workflow including Google Cloud Firebase Storage, TypeScript, GitHub Actions, WSL2 Ubuntu, Zsh, and Copilot.",
+        ]}
+      />
+      <PrintEmployment
+        title="Senior Full Stack Developer"
         company="Tasso Inc."
-        employmentTimeSpan="2021 - Present"
-        paragraphText="Led the design, development, and introduction of powerful new tools and exciting features which directly resulted in significant revenue growth primarily leveraging technologies such as Typescript, React, and
-Python. Additionally, certain projects required deeply diving into data services written in AWS CDK as well as stateful, realtime services built with Nest.JS."
+        employmentTimeSpan="Dec 2021 - Nov 2024"
+        paragraphText="Led the design, development, and launch of high-impact tools and features leveraging TypeScript, React, Python, AWS CDK, and Nest.JS."
         bulletPoints={[
           "Led the planning and execution of projects such as the TassoCare API https://docs.tassocare.com/ and the TassoCare Portal https://portal.tassocare.com/, which required consistent cross-functional collaboration and communication to ensure the on-time, within budget completion of all objectives.",
           "Enabled the services team to fulfill orders by adding features and fixing bugs in the TassoCare Admin Portal.",

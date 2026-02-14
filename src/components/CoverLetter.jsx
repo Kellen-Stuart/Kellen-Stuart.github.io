@@ -48,7 +48,7 @@ function CoverLetter() {
           <div className="row">
             <h3>Professional Experience</h3>
             <p>
-              Kellen has been working professionally for 8 years as a software
+              Kellen has been working professionally for over 10 years as a software
               engineer. Beginning with an internship at Lockheed Martin, Kellen
               gained experience in multiple industries and programming
               languages.
@@ -69,8 +69,8 @@ function CoverLetter() {
               shareholders.
             </p>
             <p>
-              In 2022, Kellen moved to Tasso Inc. He would switch focus to
-              biomedical technologies.{" "}
+              In 2022, Kellen moved to Tasso Inc. and focused on biomedical
+              technologies through November 2024.{" "}
               <a href="https://www.tassoinc.com/" className="link">
                 Tasso
               </a>{" "}
@@ -79,6 +79,14 @@ function CoverLetter() {
               people to get blood tests from the comfort of their home. Kellen
               works on API's and frontends to enable customers to place orders
               for said devices.
+            </p>
+            <p>
+              In December 2025, Kellen joined Tech Disc as a Senior Full Stack
+              Developer, building a disc golf simulator platform that helps
+              users improve throw performance with data-driven feedback. His
+              current work includes hardening Bluetooth connectivity and
+              expanding the platform to support multiple connected devices in a
+              single web session.
             </p>
           </div>
         </div>
