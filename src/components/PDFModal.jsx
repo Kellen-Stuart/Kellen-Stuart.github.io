@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function PDFModal() {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   
   useEffect(() => {
@@ -9,9 +11,9 @@ function PDFModal() {
   }, []);
 
   const handlePrint = () => {
-    window.location.href = '/print-resume';
+    navigate('/print-resume');
     setShowModal(false);
-  }
+  };
 
   return (
     <>

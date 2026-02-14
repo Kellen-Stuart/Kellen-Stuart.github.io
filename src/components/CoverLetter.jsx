@@ -7,7 +7,7 @@ function CoverLetter() {
       <div className="row mt-2">
         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
           <img
-            src="kellen1.png"
+            src="/kellen1.png"
             className="img-fluid img-thumbnail"
             alt="Kellen"
           />
@@ -36,7 +36,7 @@ function CoverLetter() {
               Kellen was lucky enough to have been a student of professor{" "}
               <a
                 href="https://archive.gunnisontimes.com/obituaries/john-peterson"
-                class="link"
+                className="link"
               >
                 John Peterson
               </a>{" "}
@@ -71,7 +71,7 @@ function CoverLetter() {
             <p>
               In 2022, Kellen moved to Tasso Inc. He would switch focus to
               biomedical technologies.{" "}
-              <a href="https://www.tassoinc.com/" class="link">
+              <a href="https://www.tassoinc.com/" className="link">
                 Tasso
               </a>{" "}
               is a startup company that makes devices to draw blood via suction

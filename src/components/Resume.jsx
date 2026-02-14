@@ -50,18 +50,18 @@ function Resume() {
         </div>
 
         {/* Work Experience - Tasso */}
-        <div class="row mb-4">
-          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+        <div className="row mb-4">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
             <b>work</b>
           </div>
-          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
-            <a class="link" href="https://www.tassoinc.com/">
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+            <a className="link" href="https://www.tassoinc.com/">
               Tasso Inc.
             </a>
             <br />
             <i>Senior Software Engineer (Full Stack)</i>
             <br />
-            <p class="pl-3">
+            <p className="pl-3">
               At Tasso, a startup specializing in at-home blood collection devices, 
               I develop software to streamline the blood sample collection process. 
               My responsibilities encompass a broad range of software tasks, including:
@@ -71,12 +71,12 @@ function Resume() {
               <li>Developing React frontends for user-facing applications</li>
               <li>Creating and managing APIs and databases to support partner integrations</li>
             </ul>
-            <p class="pl-3">
+            <p className="pl-3">
               Recently, I led the implementation of company-wide feature flags. 
               I also frequently host team-wide technical design sessions to determine 
               optimal approaches for new feature implementations.
             </p>
-            <p class="pl-3">
+            <p className="pl-3">
               Our software must abide by various standards:
             </p>
             <ul>
@@ -86,11 +86,11 @@ function Resume() {
               <li>BAAs</li>
               <li>HITECH Act</li>
             </ul>
-            <p class="pl-3">
+            <p className="pl-3">
               Our developers are trained on these standards and our software must meet these standards 
               for a production release.
             </p>
-            <ul class="ul-dashes ul-padding-gentle">
+            <ul className="ul-dashes ul-padding-gentle">
               <li>React / Material UI / Tailwind / Bootstrap 5</li>
               <li>Node.JS</li>
               <li>Express.JS</li>
@@ -109,33 +109,33 @@ function Resume() {
               <li>Linux / Sonoma Automation ZSH BASH</li>
             </ul>
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+          <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
             <i>December 2021 - Present</i>
           </div>
         </div>
 
         {/* Work Experience - Flavor Forge AI, LLC */}
-        <div class="row mb-4">
-          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+        <div className="row mb-4">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
           </div>
-          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
-            <a class="link" href="https://flavorforgeai.com">
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+            <a className="link" href="https://flavorforgeai.com">
               Flavor Forge AI, LLC
             </a>
             <br />
             <i>Founder</i>
             <br />
-            <p class="pl-3">
+            <p className="pl-3">
               <i>Expected release June 2024</i>
             </p>
-            <p class="pl-3">
+            <p className="pl-3">
               Flavor Forge AI is a company that I started which takes
               ingredients from your pantry and suggests recipes based on what
               you have. The goal is to reduce food waste and help people cook
               more at home. It utilitizes OpenAI's GPT-4 and DALLE-3 models to
               generate unique recipes.
             </p>
-            <ul class="ul-dashes ul-padding-gentle">
+            <ul className="ul-dashes ul-padding-gentle">
               <li>React / Tailwind CSS</li>
               <li>Python Django</li>
               <li>OpenAI API GPT-4 DALLE-3</li>
@@ -149,22 +149,22 @@ function Resume() {
         </div>
 
         {/* Work Experience - Tyler Technologies */}
-        <div class="row mb-4">
-          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+        <div className="row mb-4">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
           </div>
-          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
-            <a class="link" href="https://www.tylertech.com/">
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+            <a className="link" href="https://www.tylertech.com/">
               Tyler Technologies
             </a>
             <br />
             <i>Software Engineer</i>
             <br />
-            <p class="pl-3">
+            <p className="pl-3">
               This position entails developing critical payment systems for a
               large utility billing software suite called 
               <a
                 href="https://municipalonlinepayments.com/goldenco"
-                class="link"
+                className="link"
               >
                 InSite
               </a>
@@ -176,18 +176,18 @@ function Resume() {
               autopayments a day; we are now able to handle 500,000+ due to my
               efforts.
             </p>
-            <p class="pl-3">
+            <p className="pl-3">
               Furthermore, I modernize the look and feel of our systems;
               <a
                 href="https://www.expresslanedefensivedriving.com"
-                class="link"
+                className="link"
               >
                 ExpressLane Defensive Driving
               </a>
               is a production example of a redesign I did during my time at
               Tyler Tech.
             </p>
-            <ul class="ul-dashes ul-padding-gentle">
+            <ul className="ul-dashes ul-padding-gentle">
               <li>Full Stack C# .NET Core Blazor / Razor Pages</li>
               <li>Upgrade ORM from LINQ To SQL to Entity Framework Core</li>
               <li>Redesign UI's to look modern</li>
@@ -201,24 +201,24 @@ function Resume() {
               <li>Support text messaging by integrating with Twilio</li>
             </ul>
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+          <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
             <i>August 2018 - December 2021</i>
           </div>
         </div>
 
         {/* Work Experience - Lockheed Martin */}
-        <div class="row mb-4">
-          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12"></div>
-          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+        <div className="row mb-4">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12"></div>
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <a
               href="https://www.lockheedmartin.com/en-us/index.html"
-              class="link"
+              className="link"
             >
               Lockheed Martin
             </a>
             <br />
             <i>Software Engineer II</i>
-            <p class="pl-3">
+            <p className="pl-3">
               This position entailed supporting a missile defense system by
               integrating new technology with the old. After my internship, I
               was tasked to upgrade the internal employee tracking system -
@@ -228,13 +228,13 @@ function Resume() {
               PowerShell. Also during this time, I attained a
               <a
                 href="https://www.comptia.org/certifications/security"
-                class="link"
+                className="link"
               >
                 CompTIA Security+ Certificate
               </a>
               .
             </p>
-            <p class="pl-3">
+            <p className="pl-3">
               Soon after, I was promoted to another missile defense project. The
               goal was to move from a desktop application to a web based
               application. My job was to identify the best web technology for
@@ -244,7 +244,7 @@ function Resume() {
               big reason for this change was to stay technologically relevent
               within the industry and to continually improve my skillset.
             </p>
-            <ul class="ul-dashes ul-padding-gentle">
+            <ul className="ul-dashes ul-padding-gentle">
               <li>Frontend redesign (Angular)</li>
               <li>Database conversions (MongoDB)</li>
               <li>Analyze ways to integrate legacy with new services</li>
@@ -252,53 +252,53 @@ function Resume() {
               <li>Administrator of a highly secure RedHat Linux environment</li>
             </ul>
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+          <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
             <i>December 2015 - March 2018</i>
           </div>
         </div>
 
         {/* Certifications Section */}
-        <div class="row mb-4">
-          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+        <div className="row mb-4">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
             <b>certifications</b>
           </div>
-          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <a
               href="https://www.comptia.org/certifications/security"
-              class="link"
+              className="link"
             >
               CompTIA Security +
             </a>
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+          <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
             <i>January 2018</i>
           </div>
         </div>
 
         {/* Teaching Section */}
-        <div class="row mb-4">
-          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+        <div className="row mb-4">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
             <b>teaching</b>
           </div>
-          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
-            <a href="https://western.edu" class="link">
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+            <a href="https://western.edu" className="link">
               Western State Colorado University
             </a>
             <br />
             <i>Computer Science Tutor & Grader</i>
             <br />
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+          <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
             <i>December 2015 - December 2016</i>
           </div>
         </div>
 
         {/* Proficient */}
-        <div class="row mb-4">
-          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+        <div className="row mb-4">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
             <b>proficient</b>
           </div>
-          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <b>languages</b>
             <p>C#, Python, Typescript / Javascript, Java, PHP, TSQL, PSQL</p>
             <b>frameworks</b>
@@ -354,33 +354,33 @@ function Resume() {
             <b>debugging</b>
             <p>DotMemory, DotTrace</p>
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12"></div>
+          <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12"></div>
         </div>
 
         {/*todo: add section about security /*}
 
         {/* Familiar */}
-        <div class="row mb-4">
-          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+        <div className="row mb-4">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
             <b>familiar</b>
           </div>
-          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <p>Haskell, Scala, LISP</p>
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12"></div>
+          <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12"></div>
         </div>
 
         {/*John Peterson Section*/}
-        <div id="john-peterson" class="row mb-4" tabindex="0">
-          <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
+        <div id="john-peterson" className="row mb-4" tabIndex="0">
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
             <b>john peterson</b>
           </div>
-          <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
+          <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <p>
               My professor{" "}
               <a
                 href="https://archive.gunnisontimes.com/obituaries/john-peterson"
-                class="link"
+                className="link"
               >
                 John Peterson
               </a>{" "}
@@ -389,16 +389,16 @@ function Resume() {
             </p>
             <p>
               John was one of the authors of the{" "}
-              <a href="https://www.haskell.org/onlinereport/" class="link">
+              <a href="https://www.haskell.org/onlinereport/" className="link">
                 Haskell Report
               </a>{" "}
               and the{" "}
-              <a href="https://www.haskell.org/tutorial/" class="link">
+              <a href="https://www.haskell.org/tutorial/" className="link">
                 Gentle Introduction to Haskell
               </a>
               . Futhermore, he participated in the early development of
               Functional Reactive Programming and the arrow-based
-              <a href="https://hackage.haskell.org/package/Yampa" class="link">
+              <a href="https://hackage.haskell.org/package/Yampa" className="link">
                 Yampa Library
               </a>
               . He is well respected in the community and I plan to dedicate a
