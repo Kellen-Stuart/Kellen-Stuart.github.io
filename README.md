@@ -4,7 +4,7 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 
 ## Requirements
 
-- Node.js 20.x (project pin: `20.11.1` in `.nvmrc`)
+- Node.js 20.x (project pin: `20.19.6` in `.nvmrc`)
 - npm
 
 ## Scripts
