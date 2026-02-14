@@ -2,6 +2,44 @@
     background-color: #f8ca88;
 }
 
+/* TODO(pixel-art + dark-mode): Replace the right-side XP "box" screenshots with
+ * purpose-built pixel-art assets.
+ *
+ * Why:
+ * - Current box images are screenshot-derived raster art and are fragile under
+ *   browser color filters/extensions (Dark Reader), causing washed/dirty colors.
+ * - Pixel-art originals with controlled palettes scale cleaner and stay readable.
+ *
+ * Recommended implementation:
+ * 1) Asset strategy
+ *    - Create dedicated tiles (full, partial, empty, and count numbers) as
+ *      native pixel art at a small source size (e.g., 16x16 or 20x20).
+ *    - Export lossless PNG (or a single sprite sheet atlas) into:
+ *      public/sprites/xp/light/*
+ *      public/sprites/xp/dark/*
+ *    - Keep fixed palette per theme (light + dark) for consistent visuals.
+ *
+ * 2) Rendering strategy
+ *    - Render these with nearest-neighbor scaling only:
+ *      image-rendering: pixelated; image-rendering: crisp-edges;
+ *    - Avoid non-integer scale factors when possible (2x/3x) to prevent blur.
+ *
+ * 3) Theming strategy
+ *    - Implement first-party dark mode with `@media (prefers-color-scheme: dark)`
+ *      and swap only XP tile assets to dark variants.
+ *    - Keep the Stardew panel background and border colors theme-aware so the
+ *      tiles maintain contrast.
+ *
+ * 4) Dark Reader compatibility
+ *    - Opt the XP tile grid out of extension recoloring by adding
+ *      `data-darkreader-ignore` on the XP tile container (or each tile image).
+ *    - Goal: preserve intended palette while still allowing the rest of the
+ *      page to be dark-reader-adjusted.
+ *
+ * 5) Optional optimization
+ *    - Move to a sprite atlas + background-position classes to reduce requests
+ *      and ensure all tiles share one palette source.
+ */
 .exp-sprite {
     width: 40px;
     height: 40px;
