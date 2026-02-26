@@ -57,7 +57,7 @@ const PrintResume = () => {
         title="Senior Full Stack Developer"
         company="Tasso Inc."
         employmentTimeSpan="Dec 2021 - Nov 2024"
-        paragraphText="Led the design, development, and launch of high-impact tools and features leveraging TypeScript, React, Python, AWS CDK, and Nest.JS."
+        paragraphText="Led the design, development, and launch of high-impact tools and features leveraging TypeScript, React, Python, C# .NET, Entity Framework Core, AWS CDK, and Nest.JS."
         bulletPoints={[
           "Led the planning and execution of projects such as the TassoCare API https://docs.tassocare.com/ and the TassoCare Portal https://portal.tassocare.com/, which required consistent cross-functional collaboration and communication to ensure the on-time, within budget completion of all objectives.",
           "Enabled the services team to fulfill orders by adding features and fixing bugs in the TassoCare Admin Portal.",
