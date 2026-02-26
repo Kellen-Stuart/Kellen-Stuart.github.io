@@ -5,9 +5,19 @@ import PrintHeader from "./PrintHeader";
 import PrintEmployment from "./PrintEmployment";
 
 const PrintResume = () => {
-    useEffect(() => {
-        window.print();
-    },[]);
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = "Kellen Stuart - Resume";
+
+    const printTimeout = window.setTimeout(() => {
+      window.print();
+    }, 0);
+
+    return () => {
+      window.clearTimeout(printTimeout);
+      document.title = previousTitle;
+    };
+  }, []);
   return (
     <div className="container-fluid print-resume-page">
       <PrintNavbar />
