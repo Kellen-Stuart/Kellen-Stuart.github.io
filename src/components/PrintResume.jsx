@@ -58,7 +58,7 @@ const PrintResume = () => {
       <PrintEmployment
         title="Software Engineer"
         company="Tyler Technologies"
-        employmentTimeSpan="2018-2021"
+        employmentTimeSpan="Aug 2018 - Dec 2021"
         paragraphText="Played an active role as a member of a team of engineers tasked with developing C# .NET web
 applications, mobile applications, and a GraphQL API essential for the success of InSite."
         bulletPoints={[
@@ -71,7 +71,7 @@ applications, mobile applications, and a GraphQL API essential for the success o
       <PrintEmployment
         title="Software Engineer II"
         company="Lockheed Martin"
-        employmentTimeSpan="2015 - 2018"
+        employmentTimeSpan="Dec 2015 - Mar 2018"
         paragraphText="Supported a missile defense system by integrating new technologies."
         bulletPoints={[
             "Supported Java development of missile defense system.",
