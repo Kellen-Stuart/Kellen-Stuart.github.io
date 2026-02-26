@@ -110,6 +110,14 @@ function Resume() {
               <li>Created and managed APIs and databases for partner integrations</li>
             </ul>
             <p className="pl-3">
+              Built a .NET 8 GraphQL API for blood device and collection
+              workflow data by scaffolding the existing relational database
+              with Entity Framework Core, then layering a strongly typed
+              GraphQL schema on top. This let clients request only the exact
+              fields needed for each workflow, reducing REST over-fetching and
+              removing significant front-end data-joining complexity.
+            </p>
+            <p className="pl-3">
               Led implementation of company-wide feature flags and frequently
               facilitated technical design sessions to determine implementation
               approaches for new features.
@@ -123,6 +131,7 @@ function Resume() {
               <li>Node.JS</li>
               <li>Express.JS</li>
               <li>Nest.JS</li>
+              <li>C# .NET 8 / GraphQL / Entity Framework Core</li>
               <li>AWS / AWS CLI & CDK</li>
               <li>RESTful API</li>
               <li>Typescript</li>

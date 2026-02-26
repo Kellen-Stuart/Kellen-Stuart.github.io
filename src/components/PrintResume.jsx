@@ -51,7 +51,7 @@ const PrintResume = () => {
           "Enabled the services team to fulfill orders by adding features and fixing bugs in the TassoCare Admin Portal.",
           "Spearheaded end-to-end integration testing using Jest, Gherkin and Selenium to ensure quality in the TassoCare product line-up.",
           "Architected a fully scalable feature flagging solution using Gitlab / Unleash / AWS CDK which enabled Tasso to develop new features quickly without immediately releasing them.",
-          "Participated in hackathons to greenfield new ideas and features for the company; built a GraphQL API to demonstrate the power of GraphQL and Entity Framework to the team.",
+          "Built a .NET 8 GraphQL API on top of the existing blood-device database using Entity Framework scaffolding, enabling clients to request only needed fields and reducing front-end data joins.",
           "Worked closely with product management in an Agile environment to ensure the timely delivery of features and bug fixes.",
         ]}
       />
