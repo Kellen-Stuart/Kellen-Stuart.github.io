@@ -3,8 +3,8 @@ import React from "react";
 function PrintHeader({ title }) {
   return (
     <div className="row bg-light-purple">
-        <div className="col-8 ms-2">
-            <h4>{title}</h4>
+        <div className="col-12 ps-2 pe-2">
+            <h4 className="mb-0">{title}</h4>
         </div>
     </div>
   );

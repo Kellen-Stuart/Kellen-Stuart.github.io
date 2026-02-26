@@ -9,25 +9,29 @@ const PrintEmployment = ({
 }) => {
   return (
     <>
-      <div className="row mt-1">
-        <div className="col-8">
-          <h6 className="ms-2 fw-bold">
+      <div className="row mt-1 g-0">
+        <div className="col-8 ps-2 pe-2">
+          <h6 className="fw-bold">
             {title}, {company}
           </h6>
         </div>
-        <div className="col-4 text-end">
-          <h6 className="me-2 fw-bold">{employmentTimeSpan}</h6>
+        <div className="col-4 text-end pe-2">
+          <h6 className="fw-bold">{employmentTimeSpan}</h6>
         </div>
       </div>
       <div className="row">
-        <p className="ms-2">{paragraphText}</p>
+        <div className="col-12">
+          <p className="ps-2 pe-2">{paragraphText}</p>
+        </div>
       </div>
       <div className="row">
-        <ul className="ms-5">
-          {bulletPoints.map((bulletPoint, index) => (
-            <li key={index}>{bulletPoint}</li>
-          ))}
-        </ul>
+        <div className="col-12">
+          <ul className="ps-4 pe-2">
+            {bulletPoints.map((bulletPoint, index) => (
+              <li key={index}>{bulletPoint}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );

@@ -2,8 +2,8 @@ import React from "react";
 
 const PrintContactInfo = ({ contacts }) => {
   return (
-    <div className="row ms-1">
-      <div className="me-auto fs-6">
+    <div className="row">
+      <div className="col-12 ps-1 pe-2 fs-6">
         {contacts.map((contact, index) => (
           <span key={index}>
             <span className="fs-6">{contact}</span>

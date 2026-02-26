@@ -63,9 +63,36 @@ a:hover {
   transition: color 0.3s;
 }
 
+.print-resume-page p,
+.print-resume-page li {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 @media print {
+  @page {
+    margin: 0.5in;
+  }
+
   .print-hide {
     display: none !important;
+  }
+
+  .print-resume-page {
+    max-width: 100%;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .print-resume-page .row {
+    margin-left: 0;
+    margin-right: 0;
+    --bs-gutter-x: 0;
+  }
+
+  .print-resume-page .row > * {
+    min-width: 0;
   }
 
   .col-sm-3 {

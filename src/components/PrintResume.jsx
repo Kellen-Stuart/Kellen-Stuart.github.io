@@ -9,23 +9,25 @@ const PrintResume = () => {
         window.print();
     },[]);
   return (
-    <>
+    <div className="container-fluid print-resume-page">
       <PrintNavbar />
       <PrintContactInfo
         contacts={[
           "linkedin.com/in/kellenstuart",
         ]}
       />
-      <div className="row ms-1">
-        <p className="mt-5">
-          Senior leader with a track record of success in translating business
-          challenges and changing user needs into innovative new features and
-          products for companies including Tech Disc, Tasso Inc., and Lockheed
-          Martin.
-          Highly skilled in leveraging cross-functional collaboration to ensure
-          the on-time completion of end-to-end software development and
-          engineering lifecycles.
-        </p>
+      <div className="row">
+        <div className="col-12">
+          <p className="mt-5 ps-1 pe-2">
+            Senior leader with a track record of success in translating business
+            challenges and changing user needs into innovative new features and
+            products for companies including Tech Disc, Tasso Inc., and Lockheed
+            Martin.
+            Highly skilled in leveraging cross-functional collaboration to ensure
+            the on-time completion of end-to-end software development and
+            engineering lifecycles.
+          </p>
+        </div>
       </div>
       <PrintHeader title="Professional Experience" />
       <PrintEmployment
@@ -82,20 +84,24 @@ applications, mobile applications, and a GraphQL API essential for the success o
       />
 
       <PrintHeader title="Education" />
-      <div className="row ms-1">
-        <p>
-          <span className="fw-bold">Bachelor of Computer Science</span>, Western
-          State Colorado University, 2016 - GPA 3.94/4.0 Summa Cum Laude
-        </p>
+      <div className="row">
+        <div className="col-12">
+          <p className="ps-1 pe-2">
+            <span className="fw-bold">Bachelor of Computer Science</span>, Western
+            State Colorado University, 2016 - GPA 3.94/4.0 Summa Cum Laude
+          </p>
+        </div>
       </div>
 
       <PrintHeader title="Certifications" />
-      <div className="row ms-1">
-        <p>
-          <span className="fw-bold">CompTIA Security +</span>, 2016
-        </p>
+      <div className="row">
+        <div className="col-12">
+          <p className="ps-1 pe-2">
+            <span className="fw-bold">CompTIA Security +</span>, 2016
+          </p>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
