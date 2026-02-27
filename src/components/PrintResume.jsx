@@ -6,8 +6,16 @@ import PrintEmployment from "./PrintEmployment";
 
 const PrintResume = () => {
   useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const isPdfMode = searchParams.get("mode") === "pdf";
     const previousTitle = document.title;
     document.title = "Kellen Stuart - Resume";
+
+    if (isPdfMode) {
+      return () => {
+        document.title = previousTitle;
+      };
+    }
 
     const printTimeout = window.setTimeout(() => {
       window.print();

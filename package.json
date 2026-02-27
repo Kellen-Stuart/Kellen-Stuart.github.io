@@ -20,12 +20,14 @@
     "start": "vite",
     "build": "vite build && cp dist/index.html dist/404.html",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build && npm run generate:resume-pdf",
+    "deploy": "gh-pages -d dist",
+    "generate:resume-pdf": "node scripts/generate-resume-pdf.mjs"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.6.0",
     "gh-pages": "^6.1.1",
+    "playwright": "^1.58.2",
     "vite": "^6.3.6"
   }
 }

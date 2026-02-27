@@ -12,7 +12,7 @@ function CoverLetter() {
             alt="Kellen"
           />
           <div className="row">
-              <ContactButton />
+              <ContactButton showDownloadPdf downloadLabel="Download Resume" />
           </div>
         </div>
         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
