@@ -50,6 +50,62 @@ body {
   color: var(--link-pink-hover-color);
 }
 
+.navbar-icon-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.navbar-hover-link {
+  position: relative;
+  border-radius: 0.5rem;
+}
+
+.navbar-icon {
+  transition: transform 0.08s ease, opacity 0.08s ease;
+}
+
+.navbar-icon-link:hover .navbar-icon,
+.navbar-icon-link:focus-visible .navbar-icon {
+  transform: translateY(-1px) scale(1.08);
+  opacity: 0.9;
+}
+
+.navbar-icon-link::after,
+.navbar-hover-link::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.2rem);
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+  padding: 0.12rem 0.4rem;
+  border-radius: 0.35rem;
+  background-color: #111;
+  color: #fff;
+  font-size: 0.68rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  transition: opacity 0.06s linear;
+}
+
+.navbar-icon-link:hover::after,
+.navbar-icon-link:focus-visible::after,
+.navbar-hover-link:hover::after,
+.navbar-hover-link:focus-visible::after {
+  opacity: 1;
+}
+
+.navbar-icon-link:focus-visible,
+.navbar-hover-link:focus-visible {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
 a {
   color: #003687;
   text-decoration: none; /* Assuming you want to remove the underline from all links */
