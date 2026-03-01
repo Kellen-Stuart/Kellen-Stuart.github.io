@@ -119,6 +119,138 @@ a:hover {
   transition: color 0.3s;
 }
 
+.blog-page {
+  max-width: 1200px;
+}
+
+.blog-intro {
+  max-width: 68ch;
+}
+
+.blog-category-section + .blog-category-section {
+  margin-top: 2rem;
+}
+
+.blog-category-heading {
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid #d9e3f3;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+}
+
+.blog-post-card {
+  position: relative;
+  height: 100%;
+  border: 1px solid #d9e3f3;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.blog-post-card:hover {
+  border-color: #9bb6de;
+  box-shadow: 0 10px 22px rgba(0, 54, 135, 0.1);
+}
+
+.blog-post-meta {
+  color: #4f5d75;
+  font-size: 0.875rem;
+}
+
+.blog-read-link {
+  font-weight: 600;
+}
+
+.blog-back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.blog-post-shell {
+  border: 1px solid #d9e3f3;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  background-color: #ffffff;
+}
+
+.blog-post-updated {
+  margin-top: -0.25rem;
+  font-weight: 600;
+}
+
+.blog-updates {
+  border: 1px solid #d9e3f3;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: #f8fbff;
+}
+
+.blog-updates-heading {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.blog-updates-list {
+  padding-left: 1rem;
+}
+
+.blog-updates-date {
+  font-weight: 600;
+}
+
+.blog-post-content p {
+  line-height: 1.7;
+}
+
+.blog-post-content ul {
+  padding-left: 1.25rem;
+}
+
+.blog-audio {
+  margin: 0 0 1.25rem 0;
+}
+
+.blog-audio-title {
+  font-weight: 600;
+}
+
+.blog-audio-player {
+  width: 100%;
+}
+
+.blog-audio-caption {
+  margin-top: 0.5rem;
+  color: #4f5d75;
+  font-size: 0.9rem;
+}
+
+.blog-image {
+  margin: 0 0 1.25rem 0;
+}
+
+.blog-image-media {
+  width: 100%;
+  border: 1px solid #d9e3f3;
+  border-radius: 0.75rem;
+  background-color: #f5f9ff;
+}
+
+.blog-image-caption {
+  margin-top: 0.5rem;
+  color: #4f5d75;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+  .blog-post-shell {
+    padding: 1rem;
+  }
+}
+
 .print-resume-page p,
 .print-resume-page li {
   overflow-wrap: break-word;
