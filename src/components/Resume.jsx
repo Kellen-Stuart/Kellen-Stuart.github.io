@@ -218,7 +218,7 @@ function Resume() {
                 className="link"
               >
                 ExpressLane Defensive Driving
-              </a>
+              </a>{" "}
               is a production example of a redesign I did during my time at
               Tyler Tech.
             </p>
