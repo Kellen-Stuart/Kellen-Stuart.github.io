@@ -1,0 +1,35 @@
+model = "gpt-5.4"
+personality = "pragmatic"
+model_reasoning_effort = "xhigh"
+
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+allow_login_shell = false
+
+web_search = "disabled"
+
+[sandbox_workspace_write]
+network_access = false
+# If you want even tighter isolation and your tooling still works, uncomment:
+exclude_slash_tmp = true
+exclude_tmpdir_env_var = true
+
+[shell_environment_policy]
+inherit = "core"
+ignore_default_excludes = false
+include_only = ["PATH", "HOME", "LANG", "LC_*", "TERM", "COLORTERM", "NVM_*"]
+exclude = [
+  "SSH_AUTH_SOCK",
+  "AWS_*",
+  "AZURE_*",
+  "GOOGLE_*",
+  "GITHUB_*",
+  "KUBECONFIG",
+  "DBUS_SESSION_BUS_ADDRESS",
+]
+
+[analytics]
+enabled = false
+
+[feedback]
+enabled = false
