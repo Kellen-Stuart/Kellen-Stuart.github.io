@@ -15,6 +15,8 @@ const imageExtensions = new Set([
   ".tiff",
   ".webp",
 ]);
+const audioExtensions = new Set([".flac"]);
+const mediaExtensions = new Set([...imageExtensions, ...audioExtensions]);
 
 function gitOutput(args, cwd) {
   const result = spawnSync("git", args, {
@@ -47,7 +49,21 @@ function trackedFiles(root) {
     .filter((file) => fs.existsSync(path.join(root, file)));
 }
 
-function cliImageFiles(root) {
+function untrackedFiles(root) {
+  const output = gitOutput(["ls-files", "--others", "--exclude-standard", "-z"], root);
+
+  return output
+    .toString("utf8")
+    .split("\0")
+    .filter(Boolean)
+    .filter((file) => fs.existsSync(path.join(root, file)));
+}
+
+function defaultFiles(root) {
+  return [...new Set([...trackedFiles(root), ...untrackedFiles(root)])];
+}
+
+function cliMediaFiles(root) {
   return process.argv
     .slice(2)
     .map((file) => path.relative(root, path.resolve(file)))
@@ -207,6 +223,40 @@ function checkIco(buffer, file, issues) {
   return true;
 }
 
+function checkFlac(buffer, file, issues) {
+  if (buffer.length < 4 || buffer.subarray(0, 4).toString("latin1") !== "fLaC") {
+    return false;
+  }
+
+  const blockNames = new Map([
+    [0, "STREAMINFO"],
+    [1, "PADDING"],
+    [2, "APPLICATION"],
+    [3, "SEEKTABLE"],
+    [4, "VORBIS_COMMENT"],
+    [5, "CUESHEET"],
+    [6, "PICTURE"],
+  ]);
+  let offset = 4;
+  let isLast = false;
+
+  while (!isLast && offset + 4 <= buffer.length) {
+    const header = buffer[offset];
+    isLast = Boolean(header & 0x80);
+    const type = header & 0x7f;
+    const length = buffer.readUIntBE(offset + 1, 3);
+    const blockName = blockNames.get(type) || `UNKNOWN_${type}`;
+
+    if (type !== 0 && type !== 1) {
+      addIssue(issues, file, `FLAC metadata block found: ${blockName}`);
+    }
+
+    offset += 4 + length;
+  }
+
+  return true;
+}
+
 function checkLooseMetadataStrings(buffer, file, issues) {
   const haystack = buffer.toString("latin1");
   const blocked = ["C2PA", "Exif", "exif", "XMP", "xmp", "GPS", "gps", "IPTC"];
@@ -224,6 +274,7 @@ function checkBuffer(buffer, file, issues, extension = path.extname(file).toLowe
   if (checkWebp(buffer, file, issues)) return;
   if (checkIco(buffer, file, issues)) return;
   if (checkSvg(buffer, file, issues)) return;
+  if (checkFlac(buffer, file, issues)) return;
 
   if ([".avif", ".gif", ".tif", ".tiff"].includes(extension)) {
     checkLooseMetadataStrings(buffer, file, issues);
@@ -238,7 +289,7 @@ function checkInlineDataImages(root, files, issues) {
   const dataImagePattern = /data:image\/([a-zA-Z0-9.+-]+);base64,([A-Za-z0-9+/=]+)/g;
 
   for (const file of files) {
-    if (imageExtensions.has(path.extname(file).toLowerCase())) continue;
+    if (mediaExtensions.has(path.extname(file).toLowerCase())) continue;
 
     let text;
     try {
@@ -258,24 +309,26 @@ function checkInlineDataImages(root, files, issues) {
 }
 
 const root = repoRoot();
-const scannedFiles = process.argv.length > 2 ? cliImageFiles(root) : trackedFiles(root);
-const imageFiles = scannedFiles.filter((file) => imageExtensions.has(path.extname(file).toLowerCase()));
+const scannedFiles = process.argv.length > 2 ? cliMediaFiles(root) : defaultFiles(root);
+const mediaFiles = scannedFiles.filter((file) => mediaExtensions.has(path.extname(file).toLowerCase()));
 const issues = [];
 
-for (const file of imageFiles) {
+for (const file of mediaFiles) {
   checkFile(root, file, issues);
 }
 checkInlineDataImages(root, scannedFiles, issues);
 
 if (issues.length > 0) {
-  console.error("Image metadata check failed:");
+  console.error("Media metadata check failed:");
   for (const issue of issues) {
     console.error(`- ${issue.file}: ${issue.message}`);
   }
-  console.error("\nStrip metadata before pushing. ImageMagick can usually do this with `convert input -strip output`.");
+  console.error(
+    "\nStrip metadata before pushing. ImageMagick can usually clean images with `convert input -strip output`; FLAC files can be cleaned with `metaflac --dont-use-padding --remove-all file.flac`.",
+  );
   process.exit(1);
 }
 
 console.log(
-  `Image metadata check passed for ${imageFiles.length} image file${imageFiles.length === 1 ? "" : "s"}.`,
+  `Media metadata check passed for ${mediaFiles.length} media file${mediaFiles.length === 1 ? "" : "s"}.`,
 );

@@ -7,7 +7,8 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 - Node.js 20.x (project pin: `20.19.6` in `.nvmrc`)
 - npm
 - Git
-- Optional: ImageMagick, for stripping image metadata when the image metadata check fails
+- Optional: ImageMagick, for stripping image metadata when the media metadata check fails
+- Optional: metaflac, for stripping FLAC metadata when the media metadata check fails
 
 ## Scripts
 
@@ -16,7 +17,8 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 - `npm run dev` (or `npm start`): start the local Vite dev server at `http://localhost:5173`
 - `npm run build`: create a production build in `dist/` and copy `dist/index.html` to `dist/404.html`
 - `npm run preview`: preview the production build locally
-- `npm run check:image-metadata`: check tracked images and inline data images for EXIF, XMP, ICC, C2PA, comments, and similar metadata
+- `npm run check:media-metadata`: check tracked and untracked media files for image and FLAC metadata
+- `npm run check:image-metadata`: compatibility alias for `npm run check:media-metadata`
 - `npm run setup:hooks`: configure this local clone to use the repo's Git hooks from `.githooks/`
 - `npm run generate:resume-pdf`: use Playwright + headless Chromium to render `/print-resume?mode=pdf` into `dist/Kellen-Stuart-Resume.pdf` (requires `dist/` to exist)
 
@@ -30,7 +32,7 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 ```bash
 npm install
 npm run setup:hooks
-npm run check:image-metadata
+npm run check:media-metadata
 ```
 
 ## Notes
@@ -43,7 +45,7 @@ npm run check:image-metadata
 
 ## Image Metadata Guard
 
-The repo includes a pre-push hook at `.githooks/pre-push` that runs `npm run check:image-metadata` before anything is pushed.
+The repo includes a pre-push hook at `.githooks/pre-push` that checks media metadata before anything is pushed.
 
 Fresh clones need one local Git setting because `core.hooksPath` is not committed with the repo:
 
@@ -51,7 +53,7 @@ Fresh clones need one local Git setting because `core.hooksPath` is not committe
 npm run setup:hooks
 ```
 
-The hook itself only requires Git and Node. ImageMagick is optional but recommended because it is the easiest way to clean an image that fails the check.
+The hook itself only requires Git and Node. ImageMagick is optional but recommended because it is the easiest way to clean an image that fails the check. `metaflac` is optional but recommended for cleaning FLAC files.
 
 Typical cleanup commands:
 
@@ -59,6 +61,7 @@ Typical cleanup commands:
 magick input.png -strip output.png
 magick input.webp -strip output.webp
 magick input.jpg -auto-orient -strip output.jpg
+metaflac --dont-use-padding --remove-all input.flac
 ```
 
 On ImageMagick 6, use `convert` instead of `magick`.
