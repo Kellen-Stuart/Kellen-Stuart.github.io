@@ -69,6 +69,7 @@ function BlogPostLayout({
                 src={heroImage.src}
                 alt={heroImage.alt || ""}
                 caption={heroImage.caption}
+                className={heroImage.className}
               />
             )}
             <section className="blog-post-content">{children}</section>

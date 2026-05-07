@@ -180,7 +180,7 @@ function LaneyLa30blPost({ post }) {
       </p>
 
       <BlogImage
-        src="/blog/music/guitar/laney-la30bl-warranty-knob-installation.jpg"
+        src="/blog/music/guitar/laney-la30bl-knobs-after-warranty.png"
         alt="Laney LA30BL control panel with a loose knob after warranty repair"
         caption="After the warranty repair, the knobs were indexed incorrectly and the mids knob came loose."
       />

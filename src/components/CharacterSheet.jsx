@@ -13,9 +13,9 @@ function CharacterSheet() {
             <span className="stardew-text">Kellen Stuart</span>
           </div>
           <div id="stats" className="col-9">
-            {/* .NET Core */}
+            {/* C# .NET Core React Node.JS TS */}
             <div className="row mt-2">
-              <div className="col-3 d-flex align-items-center justify-content-end">
+              <div className="col-3 d-flex align-items-center justify-content-end flex-wrap">
                 <img
                   className="img-fluid exp-sprite"
                   src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg"
@@ -23,6 +23,18 @@ function CharacterSheet() {
                 <img
                   className="img-fluid exp-sprite"
                   src="https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg"
+                />
+                <img
+                  className="img-fluid exp-sprite"
+                  src="/react-logo.svg"
+                />
+                <img
+                  className="img-fluid exp-sprite-double-wide"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/500px-Node.js_logo.svg.png"
+                />
+                <img
+                  className="img-fluid exp-sprite"
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg"
                 />
               </div>
               <div className="col-9">
@@ -73,21 +85,9 @@ function CharacterSheet() {
               </div>
             </div>
 
-            {/*React Node.JS TS Java*/}
+            {/* Java */}
             <div className="row mt-2">
               <div className="col-3 d-flex align-items-center justify-content-end">
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/react-logo.svg"
-                />
-                <img
-                  className="img-fluid exp-sprite-double-wide"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1180px-Node.js_logo.svg.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg"
-                />
                 <img
                   className="img-fluid exp-sprite"
                   src="https://upload.wikimedia.org/wikipedia/de/e/e1/Java-Logo.svg"
