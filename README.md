@@ -6,6 +6,8 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 
 - Node.js 20.x (project pin: `20.19.6` in `.nvmrc`)
 - npm
+- Git
+- Optional: ImageMagick, for stripping image metadata when the image metadata check fails
 
 ## Scripts
 
@@ -14,6 +16,8 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 - `npm run dev` (or `npm start`): start the local Vite dev server at `http://localhost:5173`
 - `npm run build`: create a production build in `dist/` and copy `dist/index.html` to `dist/404.html`
 - `npm run preview`: preview the production build locally
+- `npm run check:image-metadata`: check tracked images and inline data images for EXIF, XMP, ICC, C2PA, comments, and similar metadata
+- `npm run setup:hooks`: configure this local clone to use the repo's Git hooks from `.githooks/`
 - `npm run generate:resume-pdf`: use Playwright + headless Chromium to render `/print-resume?mode=pdf` into `dist/Kellen-Stuart-Resume.pdf` (requires `dist/` to exist)
 
 ### Deploy
@@ -25,6 +29,8 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 
 ```bash
 npm install
+npm run setup:hooks
+npm run check:image-metadata
 ```
 
 ## Notes
@@ -34,6 +40,28 @@ npm install
 - The build includes a `404.html` copy for static hosting fallback behavior.
 - If Playwright browser binaries are missing in your environment, run `npx playwright install chromium`.
 - On Linux runners/workstations missing shared libraries, run `npx playwright install --with-deps chromium`.
+
+## Image Metadata Guard
+
+The repo includes a pre-push hook at `.githooks/pre-push` that runs `npm run check:image-metadata` before anything is pushed.
+
+Fresh clones need one local Git setting because `core.hooksPath` is not committed with the repo:
+
+```bash
+npm run setup:hooks
+```
+
+The hook itself only requires Git and Node. ImageMagick is optional but recommended because it is the easiest way to clean an image that fails the check.
+
+Typical cleanup commands:
+
+```bash
+magick input.png -strip output.png
+magick input.webp -strip output.webp
+magick input.jpg -auto-orient -strip output.jpg
+```
+
+On ImageMagick 6, use `convert` instead of `magick`.
 
 ## Blog Photos
 
