@@ -1,13 +1,21 @@
 import LaneyLa30blPost from "../posts/LaneyLa30blPost";
+import Custom4x12Veteran30CreambackWiringPost from "../posts/Custom4x12Veteran30CreambackWiringPost";
 import { blogPostMeta } from "./blogPostMeta.mjs";
 
-export const blogCategories = ["Software Engineering", "Music", "Backpacking"];
+export const blogCategories = [
+  "Software Engineering",
+  "Guitar Tech",
+  "Music",
+  "Backpacking",
+];
 
 const sortByDateDescending = (firstPost, secondPost) =>
   secondPost.date.localeCompare(firstPost.date);
 
 const postComponents = {
   "laney-la30bl-black-sabbath-tone-review": LaneyLa30blPost,
+  "custom-4x12-wgs-veteran-30-creamback-wiring":
+    Custom4x12Veteran30CreambackWiringPost,
 };
 
 export const blogPosts = blogPostMeta.map((post) => ({
