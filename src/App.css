@@ -253,9 +253,705 @@ a:hover {
   font-size: 0.9rem;
 }
 
+.jam-page {
+  max-width: 1200px;
+}
+
+.jam-index-header p {
+  max-width: 68ch;
+}
+
+.jam-search label,
+.jam-control-label {
+  color: #4f5d75;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.jam-song-card {
+  position: relative;
+  height: 100%;
+  border: 1px solid #d9e3f3;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.jam-song-card:hover {
+  border-color: #9bb6de;
+  box-shadow: 0 10px 22px rgba(0, 54, 135, 0.1);
+}
+
+.jam-song-meta {
+  color: #4f5d75;
+  font-size: 0.875rem;
+}
+
+.jam-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.jam-tag-row span,
+.jam-song-facts span,
+.jam-block-meta span {
+  border: 1px solid #d9e3f3;
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  background-color: #f8fbff;
+  color: #4f5d75;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.jam-open-link {
+  font-weight: 600;
+}
+
+.jam-empty-state {
+  margin-top: 1.5rem;
+  color: #4f5d75;
+}
+
+.jam-song-header {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #d9e3f3;
+}
+
+.jam-back-link {
+  font-weight: 600;
+}
+
+.jam-song-header h1 {
+  margin-bottom: 0.75rem;
+  font-size: 2.25rem;
+  line-height: 1.12;
+}
+
+.jam-song-facts,
+.jam-block-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.jam-scroll-controls {
+  position: sticky;
+  top: 0.5rem;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #d9e3f3;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 18px rgba(0, 54, 135, 0.08);
+}
+
+.jam-scroll-controls .btn + .btn {
+  margin-left: 0.5rem;
+}
+
+.jam-speed-control {
+  flex: 1;
+  min-width: 14rem;
+}
+
+.jam-speed-control label {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #4f5d75;
+  font-weight: 700;
+}
+
+.jam-speed-control input {
+  width: 100%;
+}
+
+.jam-song-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d9e3f3;
+}
+
+.jam-song-section.has-after-divider {
+  margin-bottom: 3.5rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 0.45rem solid #111;
+}
+
+.jam-section-header {
+  margin-bottom: 1rem;
+}
+
+.jam-section-header h2 {
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+}
+
+.jam-section-header p {
+  margin-bottom: 0;
+  color: #4f5d75;
+}
+
+.jam-chart-block {
+  margin: 1rem 0;
+}
+
+.jam-block-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.jam-block-heading h3 {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.jam-chord-lyrics-block {
+  font-size: 1.15rem;
+}
+
+.jam-chord-lyric-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.35rem;
+  align-items: end;
+  margin: 0.8rem 0;
+}
+
+.jam-chord-lyric-line.is-section-label {
+  display: block;
+  margin: 1.1rem 0 0.35rem;
+  color: #4f5d75;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.jam-chord-lyric-line.is-spacer {
+  display: block;
+  min-height: 0.45rem;
+  margin: 0;
+}
+
+.jam-chord-lyric-line.is-cue-link {
+  display: block;
+}
+
+.jam-chord-lyric-line.is-plain-cue {
+  display: block;
+}
+
+.jam-chord-lyric-line.is-cue-link a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.jam-rhythm-block[id] {
+  scroll-margin-top: 5rem;
+}
+
+.jam-chord-lyric-cell {
+  display: inline-grid;
+  grid-template-rows: 1.2rem auto;
+  min-width: max-content;
+}
+
+.jam-chord-slot {
+  min-height: 1.2rem;
+  line-height: 1;
+}
+
+.jam-lyric-text {
+  white-space: pre-wrap;
+}
+
+.jam-chord-token-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.jam-chord-token {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--link-color);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.jam-chord-token:hover,
+.jam-chord-token:focus-visible {
+  color: var(--link-hover-color);
+}
+
+.jam-chord-token:focus-visible {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+.jam-chord-popover {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.35rem);
+  z-index: 1000;
+  width: 11rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-0.15rem);
+  transition: opacity 0.08s ease, transform 0.08s ease;
+  visibility: hidden;
+}
+
+.jam-chord-token-wrap:hover .jam-chord-popover,
+.jam-chord-token-wrap.is-pinned .jam-chord-popover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  visibility: visible;
+}
+
+.jam-chord-diagram {
+  border: 1px solid #9bb6de;
+  border-radius: 0.65rem;
+  padding: 0.55rem;
+  background-color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 54, 135, 0.16);
+  color: #111;
+  text-align: center;
+}
+
+.jam-chord-diagram-title {
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.jam-chord-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.jam-chord-diagram-missing {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.jam-chord-string,
+.jam-chord-fret {
+  stroke: #222;
+  stroke-width: 1.5;
+}
+
+.jam-chord-nut {
+  stroke: #111;
+  stroke-width: 4;
+}
+
+.jam-chord-dot {
+  fill: #003687;
+}
+
+.jam-chord-finger {
+  fill: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.jam-chord-string-marker,
+.jam-chord-string-label,
+.jam-chord-base-fret {
+  fill: #4f5d75;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.jam-tab-block,
+.jam-rhythmic-lyrics-block,
+.jam-rhythm-block,
+.jam-bar-map-block,
+.jam-structure-block {
+  border: 1px solid #d9e3f3;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+.jam-rhythmic-measures {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.jam-rhythmic-measure-wrap {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.jam-rhythmic-measure-label {
+  color: #4f5d75;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.jam-rhythmic-measure {
+  display: grid;
+  overflow-x: auto;
+  border: 1px solid #d9e3f3;
+  border-radius: 0.55rem;
+  background-color: #f8fbff;
+}
+
+.jam-rhythmic-count,
+.jam-rhythmic-cell {
+  min-width: 3.2rem;
+  border-right: 1px solid #d9e3f3;
+  padding: 0.25rem;
+}
+
+.jam-rhythmic-count:last-of-type,
+.jam-rhythmic-cell:last-child {
+  border-right: 0;
+}
+
+.jam-rhythmic-count {
+  border-bottom: 1px solid #d9e3f3;
+  color: #4f5d75;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.jam-rhythmic-cell {
+  display: grid;
+  grid-template-rows: 1.15rem auto;
+  min-height: 3.25rem;
+  background-color: #ffffff;
+}
+
+.jam-rhythmic-cell.has-chord {
+  background-color: #f8fbff;
+}
+
+.jam-rhythmic-chord {
+  line-height: 1;
+}
+
+.jam-rhythmic-lyric {
+  align-self: end;
+  color: #111;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.jam-tab-lines,
+.jam-tab-rhythm {
+  overflow-x: auto;
+  margin-bottom: 0;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background-color: #f6f8fb;
+  color: #111;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.jam-tab-rhythm {
+  margin-top: 0.5rem;
+  color: #4f5d75;
+  font-weight: 700;
+}
+
+.jam-block-notes {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  color: #4f5d75;
+}
+
+.jam-rhythm-grid {
+  display: grid;
+  gap: 0.2rem;
+  overflow-x: auto;
+  padding-top: 0.2rem;
+}
+
+.jam-rhythm-event {
+  position: relative;
+  display: grid;
+  grid-template-rows: 0.95rem 0.75rem 2rem 1.1rem;
+  justify-items: center;
+  min-width: 2.25rem;
+  color: #111;
+}
+
+.jam-rhythm-chord-label {
+  color: #003687;
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+}
+
+.jam-rhythm-accent {
+  color: #111;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.jam-rhythm-notehead {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 2px solid #111;
+  border-radius: 999px;
+  background-color: #111;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.jam-rhythm-stem {
+  position: absolute;
+  top: 2.4rem;
+  left: calc(50% + 0.45rem);
+  height: 1.55rem;
+  border-left: 2px solid #111;
+}
+
+.jam-rhythm-event.is-held .jam-rhythm-notehead {
+  border-color: transparent;
+  background-color: transparent;
+  color: #8a95a6;
+}
+
+.jam-rhythm-event.is-rest .jam-rhythm-notehead {
+  border-color: transparent;
+  background-color: transparent;
+  color: #4f5d75;
+}
+
+.jam-rhythm-event.is-muted .jam-rhythm-notehead {
+  background-color: #ffffff;
+  color: #111;
+}
+
+.jam-rhythm-event.is-accented .jam-rhythm-notehead {
+  background-color: #003687;
+  border-color: #003687;
+}
+
+.jam-rhythm-event-label,
+.jam-rhythm-count {
+  color: #4f5d75;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.jam-rhythm-count {
+  border-top: 1px solid #d9e3f3;
+  padding-top: 0.35rem;
+}
+
+.jam-rhythm-note {
+  margin: 0.75rem 0 0;
+  color: #4f5d75;
+}
+
+.jam-bar-map-table {
+  display: grid;
+  overflow-x: auto;
+  border: 1px solid #d9e3f3;
+  border-radius: 0.55rem;
+}
+
+.jam-bar-map-row {
+  display: grid;
+  grid-template-columns: minmax(4.5rem, 0.4fr) minmax(12rem, 1fr) minmax(14rem, 1.35fr);
+  min-width: 46rem;
+}
+
+.jam-bar-map-row + .jam-bar-map-row {
+  border-top: 1px solid #d9e3f3;
+}
+
+.jam-bar-map-row > span {
+  padding: 0.55rem 0.65rem;
+}
+
+.jam-bar-map-row > span + span {
+  border-left: 1px solid #d9e3f3;
+}
+
+.jam-bar-map-head {
+  background-color: #f8fbff;
+  color: #4f5d75;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.jam-bar-map-bars,
+.jam-bar-map-chords {
+  font-weight: 800;
+}
+
+.jam-bar-map-chords {
+  color: #003687;
+}
+
+.jam-bar-map-cue {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.jam-bar-map-lyric {
+  color: #111;
+}
+
+.jam-bar-map-note {
+  color: #4f5d75;
+  font-size: 0.88rem;
+}
+
+.jam-compact-strum {
+  overflow-x: auto;
+  margin-bottom: 0.85rem;
+  border: 1px solid #d9e3f3;
+  border-radius: 0.55rem;
+  background-color: #f8fbff;
+}
+
+.jam-compact-strum-grid {
+  display: grid;
+  min-width: max-content;
+}
+
+.jam-compact-pattern {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  border-bottom: 1px solid #d9e3f3;
+  padding: 0.35rem 0.5rem;
+  color: #4f5d75;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.jam-compact-pattern code {
+  color: #111;
+  font-size: 0.9rem;
+  text-transform: none;
+}
+
+.jam-compact-count,
+.jam-compact-hit,
+.jam-compact-chord {
+  min-width: 1.85rem;
+  border-right: 1px solid #d9e3f3;
+  padding: 0.2rem;
+  text-align: center;
+}
+
+.jam-compact-count.is-last,
+.jam-compact-hit.is-last,
+.jam-compact-chord.is-last {
+  border-right: 0;
+}
+
+.jam-compact-count {
+  border-bottom: 1px solid #d9e3f3;
+  color: #4f5d75;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.jam-compact-hit {
+  border-bottom: 1px solid #d9e3f3;
+  color: #111;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.jam-compact-hit.is-held,
+.jam-compact-hit.is-rest {
+  color: #8a95a6;
+  font-weight: 600;
+}
+
+.jam-compact-hit.is-accented {
+  background-color: #e9f1fb;
+  color: #003687;
+}
+
+.jam-compact-chord {
+  color: #003687;
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.jam-structure-block ol {
+  margin-bottom: 0;
+  padding-left: 1.25rem;
+}
+
 @media (max-width: 576px) {
   .blog-post-shell {
     padding: 1rem;
+  }
+
+  .jam-scroll-controls,
+  .jam-block-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .jam-song-header h1 {
+    font-size: 1.65rem;
+  }
+
+  .jam-chord-lyrics-block {
+    font-size: 1.05rem;
+  }
+
+  .jam-chord-popover {
+    left: 0;
+    transform: translateY(-0.15rem);
+  }
+
+  .jam-chord-token-wrap:hover .jam-chord-popover,
+  .jam-chord-token-wrap.is-pinned .jam-chord-popover {
+    transform: translateY(0);
   }
 }
 
@@ -271,6 +967,11 @@ a:hover {
   }
 
   .print-hide {
+    display: none !important;
+  }
+
+  .jam-scroll-controls,
+  .jam-chord-popover {
     display: none !important;
   }
 
