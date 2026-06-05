@@ -1,47 +1,40 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getJamSongBySlug } from "../../data/jamSongs";
 import JamChartRenderer from "./JamChartRenderer";
 
-const minSpeedMultiplier = 0.25;
-const maxSpeedMultiplier = 2.5;
+const minScrollSpeed = 1;
+const maxScrollSpeed = 25;
 
 function getStorageKey(slug) {
-  return `jam-scroll-speed:${slug}`;
+  return `jam-scroll-speed-px:${slug}`;
 }
 
-function clampSpeed(value) {
+function clampScrollSpeed(value, fallbackSpeed = minScrollSpeed) {
   if (!Number.isFinite(value)) {
-    return 1;
+    return fallbackSpeed;
   }
 
-  return Math.min(Math.max(value, minSpeedMultiplier), maxSpeedMultiplier);
+  return Math.min(Math.max(value, minScrollSpeed), maxScrollSpeed);
 }
 
-function readStoredSpeed(slug) {
+function readStoredSpeed(slug, fallbackSpeed) {
   if (typeof window === "undefined") {
-    return 1;
+    return fallbackSpeed;
   }
 
   const storedValue = Number(window.localStorage.getItem(getStorageKey(slug)));
-  return clampSpeed(storedValue || 1);
+  return clampScrollSpeed(storedValue || fallbackSpeed, fallbackSpeed);
 }
 
 function JamSongPage() {
   const { slug } = useParams();
   const song = getJamSongBySlug(slug);
   const [isScrolling, setIsScrolling] = useState(false);
-  const [speedMultiplier, setSpeedMultiplier] = useState(1);
+  const [pixelsPerSecond, setPixelsPerSecond] = useState(minScrollSpeed);
   const animationFrameRef = useRef(null);
   const lastFrameTimeRef = useRef(null);
-
-  const pixelsPerSecond = useMemo(() => {
-    if (!song) {
-      return 0;
-    }
-
-    return Math.round(song.defaultScrollSpeed * speedMultiplier);
-  }, [song, speedMultiplier]);
+  const pendingScrollPixelsRef = useRef(0);
 
   useEffect(() => {
     if (!song) {
@@ -50,7 +43,7 @@ function JamSongPage() {
 
     window.scrollTo({ top: 0 });
     setIsScrolling(false);
-    setSpeedMultiplier(readStoredSpeed(song.slug));
+    setPixelsPerSecond(readStoredSpeed(song.slug, song.defaultScrollSpeed));
   }, [song]);
 
   useEffect(() => {
@@ -58,8 +51,8 @@ function JamSongPage() {
       return;
     }
 
-    window.localStorage.setItem(getStorageKey(song.slug), String(speedMultiplier));
-  }, [song, speedMultiplier]);
+    window.localStorage.setItem(getStorageKey(song.slug), String(pixelsPerSecond));
+  }, [song, pixelsPerSecond]);
 
   useEffect(() => {
     if (!isScrolling || pixelsPerSecond <= 0) {
@@ -71,7 +64,7 @@ function JamSongPage() {
         lastFrameTimeRef.current = timestamp;
       }
 
-      const elapsedSeconds = (timestamp - lastFrameTimeRef.current) / 1000;
+      const elapsedSeconds = Math.min((timestamp - lastFrameTimeRef.current) / 1000, 0.25);
       lastFrameTimeRef.current = timestamp;
 
       const documentElement = document.documentElement;
@@ -82,11 +75,19 @@ function JamSongPage() {
         return;
       }
 
-      window.scrollBy({ top: pixelsPerSecond * elapsedSeconds, behavior: "auto" });
+      pendingScrollPixelsRef.current += pixelsPerSecond * elapsedSeconds;
+
+      const scrollPixels = Math.trunc(pendingScrollPixelsRef.current);
+      if (scrollPixels > 0) {
+        pendingScrollPixelsRef.current -= scrollPixels;
+        window.scrollBy({ top: scrollPixels, behavior: "auto" });
+      }
+
       animationFrameRef.current = window.requestAnimationFrame(tick);
     }
 
     lastFrameTimeRef.current = null;
+    pendingScrollPixelsRef.current = 0;
     animationFrameRef.current = window.requestAnimationFrame(tick);
 
     return () => {
@@ -95,6 +96,7 @@ function JamSongPage() {
       }
       animationFrameRef.current = null;
       lastFrameTimeRef.current = null;
+      pendingScrollPixelsRef.current = 0;
     };
   }, [isScrolling, pixelsPerSecond]);
 
@@ -159,16 +161,20 @@ function JamSongPage() {
 
             <div className="jam-speed-control">
               <label htmlFor="jam-scroll-speed">
-                Speed {speedMultiplier.toFixed(2)}x ({pixelsPerSecond}px/s)
+                Speed {pixelsPerSecond}px/s
               </label>
               <input
                 id="jam-scroll-speed"
                 type="range"
-                min={minSpeedMultiplier}
-                max={maxSpeedMultiplier}
-                step="0.05"
-                value={speedMultiplier}
-                onChange={(event) => setSpeedMultiplier(clampSpeed(Number(event.target.value)))}
+                min={minScrollSpeed}
+                max={maxScrollSpeed}
+                step="1"
+                value={pixelsPerSecond}
+                onChange={(event) =>
+                  setPixelsPerSecond(
+                    clampScrollSpeed(Number(event.target.value), song.defaultScrollSpeed)
+                  )
+                }
               />
             </div>
           </section>

@@ -91,7 +91,7 @@ export const jamSongs = [
     tempo: 72,
     timeSignature: "4/4",
     chordNotation: "Shape-relative names as if the guitar were in E standard.",
-    defaultScrollSpeed: 20,
+    defaultScrollSpeed: 5,
     tags: ["grunge", "eb-standard", "16th-note-strum"],
     summary:
       "Opening two-bar progression with chord names written as standard-tuning shapes.",
