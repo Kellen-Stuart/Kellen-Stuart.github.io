@@ -4,7 +4,7 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 
 ## Requirements
 
-- Node.js 20.x (project pin: `20.19.6` in `.nvmrc`)
+- Node.js 24.x (project pin: `24.16.0` in `.nvmrc`)
 - npm
 - Git
 - Optional: ImageMagick, for stripping image metadata when the media metadata check fails
@@ -38,7 +38,7 @@ npm run check:media-metadata
 ## Notes
 
 - Static assets are served from `public/`.
-- Routing is handled client-side with `react-router-dom`.
+- Routing is handled client-side with `react-router`.
 - The build includes a `404.html` copy for static hosting fallback behavior.
 - If Playwright browser binaries are missing in your environment, run `npx playwright install chromium`.
 - On Linux runners/workstations missing shared libraries, run `npx playwright install --with-deps chromium`.

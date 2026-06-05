@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import Resume from './components/Resume';
 import KSNavbar from './components/KSNavbar';
 import CoverLetter from './components/CoverLetter';

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 import { getJamSongBySlug } from "../../data/jamSongs";
 import JamChartRenderer from "./JamChartRenderer";
 
