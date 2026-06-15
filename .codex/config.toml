@@ -1,35 +1,65 @@
-model = "gpt-5.4"
-personality = "pragmatic"
-model_reasoning_effort = "xhigh"
+#:schema https://developers.openai.com/codex/config-schema.json
+
+# Project-local Codex config.
+#
+# Purpose:
+# - Let Codex freely read, edit, test, format, and inspect files in this repository.
+# - Keep OS-level changes, dependency installs, network access, and secret access gated by approval.
+# - Avoid duplicating global ~/.codex/config.toml settings.
 
 approval_policy = "on-request"
+approvals_reviewer = "user"
+
 sandbox_mode = "workspace-write"
 allow_login_shell = false
+web_search = "cached"
 
-web_search = "disabled"
+developer_instructions = """
+This repository is trusted for normal development work.
 
-[sandbox_workspace_write]
-network_access = false
-# If you want even tighter isolation and your tooling still works, uncomment:
-exclude_slash_tmp = true
-exclude_tmpdir_env_var = true
+Codex may read, create, modify, move, and delete files inside this repository when doing ordinary project work, including implementation, refactors, tests, formatting, linting, documentation edits, and git inspection.
 
-[shell_environment_policy]
-inherit = "core"
-ignore_default_excludes = false
-include_only = ["PATH", "HOME", "LANG", "LC_*", "TERM", "COLORTERM", "NVM_*"]
-exclude = [
-  "SSH_AUTH_SOCK",
-  "AWS_*",
-  "AZURE_*",
-  "GOOGLE_*",
-  "GITHUB_*",
-  "KUBECONFIG",
-  "DBUS_SESSION_BUS_ADDRESS",
-]
+Codex must ask before:
+- intentionally writing outside this repository
+- changing operating system state
+- installing, upgrading, or removing system packages
+- installing, upgrading, or removing project dependencies
+- using network access for dependency resolution, package metadata, documentation lookup, downloads, or external API calls
+- running commands that start services, daemons, containers, VMs, or background processes
+- changing shell, SSH, Git global, package-manager global, cloud CLI, or credential-manager configuration
+- reading, printing, summarizing, copying, modifying, or exfiltrating likely secret material
 
-[analytics]
-enabled = false
+Likely secret material includes:
+- .env
+- .env.*
+- *.env
+- secrets/
+- secret/
+- .secrets/
+- .secret/
+- credentials/
+- .credentials/
+- credentials.json
+- service-account.json
+- service-account-key.json
+- *.pem
+- *.key
+- *.p12
+- *.pfx
+- id_rsa
+- id_ed25519
+- .npmrc
+- .netrc
+- .git-credentials
 
-[feedback]
-enabled = false
+Prefer safe project-local commands:
+- git status
+- git diff
+- git diff --stat
+- git log
+- grep/rg searches that exclude likely secret paths
+- package-manager scripts already defined by the repository
+- test, lint, typecheck, build, and format commands that do not require network access
+
+If a command may print secrets, redact the output or ask first.
+"""
