@@ -127,11 +127,16 @@ function JamSongPage() {
               </Link>
             </p>
             <h1>
-              {song.artist} - {song.title} - {song.tuning} - {song.key}
+              {song.title} - {song.artist}
             </h1>
             <div className="jam-song-facts" aria-label="Song details">
-              <span>{song.tempo} BPM</span>
-              <span>{song.timeSignature}</span>
+              {song.guitarKey && <span>{song.guitarKey}</span>}
+              <span>{song.tuning}</span>
+              {song.capo && <span>{song.capo}</span>}
+              {song.key && <span>{song.key}</span>}
+              {song.tempo && <span>{song.tempo} BPM</span>}
+              {song.timeSignature && <span>{song.timeSignature}</span>}
+              {song.difficulty && <span>Difficulty {song.difficulty}/10</span>}
               {song.chordNotation && <span>{song.chordNotation}</span>}
               <span>Default scroll {song.defaultScrollSpeed}px/s</span>
             </div>

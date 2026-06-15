@@ -270,24 +270,137 @@ a:hover {
   text-transform: uppercase;
 }
 
+.jam-filter-panel {
+  border: 1px solid #d9e3f3;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background-color: #f8fbff;
+}
+
+.jam-filter-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.jam-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.jam-filter-chip,
+.jam-song-tag {
+  border: 1px solid #c9d8ef;
+  border-radius: 999px;
+  padding: 0.22rem 0.6rem;
+  background-color: #ffffff;
+  color: #24364f;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+.jam-filter-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.jam-filter-chip small {
+  color: #64748b;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.jam-filter-chip:hover,
+.jam-song-tag:hover,
+.jam-filter-chip:focus-visible,
+.jam-song-tag:focus-visible,
+.jam-filter-chip.is-active,
+.jam-song-tag.is-active {
+  border-color: #003687;
+  background-color: #003687;
+  color: #ffffff;
+}
+
+.jam-filter-chip:hover small,
+.jam-filter-chip:focus-visible small,
+.jam-filter-chip.is-active small {
+  color: #dbeafe;
+}
+
+.jam-filter-chip:focus-visible,
+.jam-song-tag:focus-visible {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+.jam-result-count {
+  margin-bottom: 0.75rem;
+  color: #4f5d75;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .jam-song-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  min-height: 16rem;
   border: 1px solid #d9e3f3;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 1rem;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.jam-song-card:hover {
+.jam-song-card.is-tabbed:hover {
   border-color: #9bb6de;
   box-shadow: 0 10px 22px rgba(0, 54, 135, 0.1);
 }
 
-.jam-song-meta {
+.jam-song-card.is-not-tabbed {
+  border-style: dashed;
+  background: #ffffff;
+}
+
+.jam-song-card-header {
+  margin-bottom: 0.75rem;
+}
+
+.jam-song-title {
+  margin: 0;
+  color: #172033;
+  font-size: 1.35rem;
+  line-height: 1.16;
+  overflow-wrap: anywhere;
+}
+
+.jam-song-artist {
+  margin: 0.2rem 0 0 0;
   color: #4f5d75;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.jam-song-summary {
+  margin-bottom: 0.85rem;
+  color: #24364f;
+  line-height: 1.5;
+}
+
+.jam-song-fact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
 }
 
 .jam-tag-row {
@@ -297,7 +410,30 @@ a:hover {
   margin-bottom: 0.75rem;
 }
 
-.jam-tag-row span,
+.jam-song-tag.is-tabbed-status {
+  border-color: #9fd3b6;
+  background-color: #effaf3;
+  color: #19673a;
+}
+
+.jam-song-tag.is-missing-tab-status {
+  border-color: #dfc7a4;
+  background-color: #fff8ed;
+  color: #755118;
+}
+
+.jam-song-tag.is-tabbed-status:hover,
+.jam-song-tag.is-tabbed-status:focus-visible,
+.jam-song-tag.is-tabbed-status.is-active,
+.jam-song-tag.is-missing-tab-status:hover,
+.jam-song-tag.is-missing-tab-status:focus-visible,
+.jam-song-tag.is-missing-tab-status.is-active {
+  border-color: #003687;
+  background-color: #003687;
+  color: #ffffff;
+}
+
+.jam-song-fact-row span,
 .jam-song-facts span,
 .jam-block-meta span {
   border: 1px solid #d9e3f3;
@@ -309,8 +445,46 @@ a:hover {
   font-weight: 700;
 }
 
+.jam-song-fact-row span.is-difficulty {
+  border-color: #dfc7a4;
+  background-color: #fff8ed;
+  color: #755118;
+}
+
+.jam-song-fact-row span.difficulty-1,
+.jam-song-fact-row span.difficulty-2,
+.jam-song-fact-row span.difficulty-3 {
+  border-color: #9fd3b6;
+  background-color: #effaf3;
+  color: #19673a;
+}
+
+.jam-song-fact-row span.difficulty-7,
+.jam-song-fact-row span.difficulty-8 {
+  border-color: #e0a366;
+  background-color: #fff2df;
+  color: #7a3f07;
+}
+
+.jam-song-fact-row span.difficulty-9,
+.jam-song-fact-row span.difficulty-10 {
+  border-color: #e49aa1;
+  background-color: #fff1f2;
+  color: #8a1f2d;
+}
+
+.jam-song-card-footer {
+  margin-top: auto;
+}
+
 .jam-open-link {
   font-weight: 600;
+}
+
+.jam-no-tab-note {
+  color: #755118;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .jam-empty-state {
