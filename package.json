@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "homepage": "https://kellenstuart.com",
   "private": true,
+  "engines": {
+    "node": ">=24.16.0 <25"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
@@ -13,7 +16,7 @@
     "react-bootstrap": "^2.10.2",
     "react-calendly": "^4.3.0",
     "react-dom": "^19.2.4",
-    "react-router-dom": "^7.13.0"
+    "react-router": "^7.17.0"
   },
   "scripts": {
     "dev": "vite",
@@ -28,10 +31,10 @@
     "generate:resume-pdf": "node scripts/generate-resume-pdf.mjs"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.6.0",
+    "@vitejs/plugin-react": "^6.0.2",
     "gh-pages": "^6.3.0",
     "playwright": "^1.58.2",
-    "vite": "^7.3.2"
+    "vite": "^8.0.16"
   },
   "overrides": {
     "rollup": "^4.58.1"

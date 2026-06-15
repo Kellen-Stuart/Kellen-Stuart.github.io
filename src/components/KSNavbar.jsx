@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import {
   faGithub,
   faGitlab,
@@ -12,7 +12,8 @@ import {
 import {
   faFile,
   faAddressCard,
-  faBookOpen
+  faBookOpen,
+  faGuitar
 } from "@fortawesome/free-solid-svg-icons";
 import KellenStuartLogo from "./KellenStuartLogo";
 import SeniorSoftwareEngineerLogo from "./SeniorSoftwareEngineerLogo";
@@ -61,6 +62,15 @@ function KSNavbar() {
             aria-label="Blog"
           >
             <FontAwesomeIcon icon={faBookOpen} className="fa-xl link-black navbar-icon" />
+          </Nav.Link>
+          <Nav.Link
+            as={Link}
+            to="/jam"
+            className="navbar-icon-link"
+            data-label="Jam"
+            aria-label="Jam"
+          >
+            <FontAwesomeIcon icon={faGuitar} className="fa-xl link-black navbar-icon" />
           </Nav.Link>
           <Nav.Link
             href="https://www.linkedin.com/in/kellenstuart"

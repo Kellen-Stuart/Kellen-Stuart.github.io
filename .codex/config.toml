@@ -6,6 +6,9 @@
 # - Let Codex freely read, edit, test, format, and inspect files in this repository.
 # - Keep OS-level changes, dependency installs, network access, and secret access gated by approval.
 # - Avoid duplicating global ~/.codex/config.toml settings.
+model = "gpt-5.5"
+personality = "pragmatic"
+model_reasoning_effort = "xhigh"
 
 approval_policy = "on-request"
 approvals_reviewer = "user"

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 import { getPostBySlug } from "../../data/blogPosts";
 
 const siteUrl = "https://kellenstuart.com";

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import Resume from './components/Resume';
 import KSNavbar from './components/KSNavbar';
 import CoverLetter from './components/CoverLetter';
@@ -7,6 +7,8 @@ import CharacterSheet from './components/CharacterSheet';
 import PrintResume from './components/PrintResume';
 import BlogIndex from './components/blog/BlogIndex';
 import BlogPostPage from './components/blog/BlogPostPage';
+import JamIndex from './components/jam/JamIndex';
+import JamSongPage from './components/jam/JamSongPage';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/jam" element={<JamIndex />} />
+        <Route path="/jam/:slug" element={<JamSongPage />} />
         <Route path="/character" element={<CharacterSheet />} />
       </Routes>
     </Router>

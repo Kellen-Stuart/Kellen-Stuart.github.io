@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 function ContactButton({ showDownloadPdf = false, downloadLabel = 'Download PDF' }) {
   const buttonStyle = { fontWeight: 'bold', borderRadius: '20px', padding: '10px 20px' };
