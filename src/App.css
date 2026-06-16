@@ -257,8 +257,22 @@ a:hover {
   max-width: 1200px;
 }
 
+.jam-index-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 .jam-index-header p {
   max-width: 68ch;
+}
+
+.jam-print-link,
+.jam-print-toolbar .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .jam-search label,
@@ -293,6 +307,9 @@ a:hover {
 
 .jam-filter-chip,
 .jam-song-tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
   border: 1px solid #c9d8ef;
   border-radius: 999px;
   padding: 0.22rem 0.6rem;
@@ -304,13 +321,8 @@ a:hover {
   transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
 }
 
-.jam-filter-chip {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
-}
-
-.jam-filter-chip small {
+.jam-filter-chip small,
+.jam-song-tag small {
   color: #64748b;
   font-size: 0.68rem;
   font-weight: 700;
@@ -331,7 +343,10 @@ a:hover {
 
 .jam-filter-chip:hover small,
 .jam-filter-chip:focus-visible small,
-.jam-filter-chip.is-active small {
+.jam-filter-chip.is-active small,
+.jam-song-tag:hover small,
+.jam-song-tag:focus-visible small,
+.jam-song-tag.is-active small {
   color: #dbeafe;
 }
 
@@ -375,6 +390,16 @@ a:hover {
   margin-bottom: 0.75rem;
 }
 
+.jam-album-cover {
+  width: 4.75rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid #d9e3f3;
+  border-radius: 0.35rem;
+  margin-bottom: 0.75rem;
+  background-color: #f8fbff;
+}
+
 .jam-song-title {
   margin: 0;
   color: #172033;
@@ -388,12 +413,6 @@ a:hover {
   color: #4f5d75;
   font-size: 0.95rem;
   font-weight: 700;
-}
-
-.jam-song-summary {
-  margin-bottom: 0.85rem;
-  color: #24364f;
-  line-height: 1.5;
 }
 
 .jam-song-fact-row {
@@ -436,6 +455,9 @@ a:hover {
 .jam-song-fact-row span,
 .jam-song-facts span,
 .jam-block-meta span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
   border: 1px solid #d9e3f3;
   border-radius: 999px;
   padding: 0.15rem 0.5rem;
@@ -443,6 +465,23 @@ a:hover {
   color: #4f5d75;
   font-size: 0.8rem;
   font-weight: 700;
+}
+
+.jam-song-fact-row strong,
+.jam-song-facts strong,
+.jam-block-meta strong {
+  color: inherit;
+  font-weight: 800;
+}
+
+.jam-song-fact-row small,
+.jam-song-facts small,
+.jam-block-meta small {
+  color: #64748b;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .jam-song-fact-row span.is-difficulty {
@@ -1099,15 +1138,128 @@ a:hover {
   padding-left: 1.25rem;
 }
 
+.jam-print-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  color: #172033;
+}
+
+.jam-print-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.jam-print-sheet {
+  border: 1px solid #d9e3f3;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+.jam-print-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid #172033;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.jam-print-title h1 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.jam-print-title p {
+  margin: 0;
+  color: #4f5d75;
+  font-weight: 800;
+}
+
+.jam-print-key-grid {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.jam-print-key-section {
+  break-inside: avoid;
+  margin: 0 0 1rem;
+}
+
+.jam-print-key-section h2 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 0 0.35rem;
+  border-bottom: 1px solid #9bb6de;
+  color: #003687;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.jam-print-key-section h2 small {
+  color: #4f5d75;
+  font-size: 0.72rem;
+}
+
+.jam-print-artist {
+  break-inside: avoid;
+  margin-bottom: 0.45rem;
+}
+
+.jam-print-artist h3 {
+  margin: 0 0 0.12rem;
+  color: #24364f;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.jam-print-song-list {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.jam-print-song {
+  margin-bottom: 0.08rem;
+  padding-left: 0.12rem;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  break-inside: avoid;
+}
+
+.jam-print-song-title {
+  font-weight: 700;
+}
+
+.jam-print-song-meta {
+  color: #4f5d75;
+  font-size: 0.72rem;
+}
+
+.jam-print-song-meta::before {
+  content: " - ";
+}
+
 @media (max-width: 576px) {
   .blog-post-shell {
     padding: 1rem;
   }
 
+  .jam-index-header,
   .jam-scroll-controls,
   .jam-block-heading {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .jam-print-key-grid {
+    column-count: 1;
   }
 
   .jam-song-header h1 {
@@ -1140,6 +1292,11 @@ a:hover {
     margin: 0.5in;
   }
 
+  @page jam-song-list {
+    size: letter;
+    margin: 0.25in;
+  }
+
   .print-hide {
     display: none !important;
   }
@@ -1147,6 +1304,84 @@ a:hover {
   .jam-scroll-controls,
   .jam-chord-popover {
     display: none !important;
+  }
+
+  .jam-print-page {
+    page: jam-song-list;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    font-family: Helvetica, Arial, Calibri, sans-serif;
+  }
+
+  .jam-print-sheet {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .jam-print-title {
+    margin-bottom: 0.08in;
+    padding-bottom: 0.04in;
+    border-bottom: 1pt solid #000000;
+  }
+
+  .jam-print-title h1 {
+    font-size: 15pt;
+    line-height: 1;
+  }
+
+  .jam-print-title p {
+    color: #000000;
+    font-size: 8pt;
+  }
+
+  .jam-print-key-grid {
+    column-count: 3;
+    column-gap: 0.16in;
+  }
+
+  .jam-print-key-section {
+    margin-bottom: 0.07in;
+  }
+
+  .jam-print-key-section h2 {
+    margin-bottom: 0.025in;
+    border-bottom: 0.5pt solid #000000;
+    color: #000000;
+    font-size: 8.5pt;
+  }
+
+  .jam-print-key-section h2 small {
+    color: #000000;
+    font-size: 6.5pt;
+  }
+
+  .jam-print-artist {
+    margin-bottom: 0.025in;
+  }
+
+  .jam-print-artist h3 {
+    color: #000000;
+    font-size: 6.7pt;
+    line-height: 1.05;
+  }
+
+  .jam-print-song-list {
+    padding-left: 0.11in;
+  }
+
+  .jam-print-song {
+    margin-bottom: 0;
+    padding-left: 0.02in;
+    font-size: 6.25pt;
+    line-height: 1.08;
+  }
+
+  .jam-print-song-meta {
+    color: #333333;
+    font-size: 5.9pt;
   }
 
   .print-resume-page {

@@ -8,6 +8,7 @@ import PrintResume from './components/PrintResume';
 import BlogIndex from './components/blog/BlogIndex';
 import BlogPostPage from './components/blog/BlogPostPage';
 import JamIndex from './components/jam/JamIndex';
+import JamPrint from './components/jam/JamPrint';
 import JamSongPage from './components/jam/JamSongPage';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/jam" element={<JamIndex />} />
+        <Route path="/jam/print" element={<JamPrint />} />
         <Route path="/jam/:slug" element={<JamSongPage />} />
         <Route path="/character" element={<CharacterSheet />} />
       </Routes>

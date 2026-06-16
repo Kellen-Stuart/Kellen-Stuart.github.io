@@ -1,24 +1,51 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import { getJamSongs, hasJamSongTab } from "../../data/jamSongs";
+
+const filterGroupOrder = new Map([
+  ["Tuning", 0],
+  ["Key", 1],
+  ["Tag", 2],
+  ["Status", 3],
+]);
 
 function getTabStatus(song) {
   return hasJamSongTab(song) ? "Tabbed" : "No tab yet";
 }
 
+function createSongFilter(label, group, className = "") {
+  if (!label) {
+    return null;
+  }
+
+  return {
+    label,
+    group,
+    value: `${group}:${label}`,
+    className,
+  };
+}
+
 function getSongFilterTags(song) {
+  const tabStatus = getTabStatus(song);
+
   return [
-    song.guitarKey,
-    ...(song.tags ?? []),
-    getTabStatus(song),
+    createSongFilter(song.tuning, "Tuning", "is-tuning"),
+    createSongFilter(song.key, "Key", "is-key"),
+    ...(song.tags ?? []).map((tag) => createSongFilter(tag, "Tag")),
+    createSongFilter(
+      tabStatus,
+      "Status",
+      tabStatus === "Tabbed" ? "is-tabbed-status" : "is-missing-tab-status"
+    ),
   ].filter(Boolean);
 }
 
 function getSongFacts(song) {
   return [
-    { label: song.tuning },
     { label: song.capo },
-    { label: song.key },
     { label: song.tempo ? `${song.tempo} BPM` : null },
     { label: song.timeSignature },
     {
@@ -41,6 +68,7 @@ function matchesSearch(song, query) {
     song.capo,
     song.difficulty ? `difficulty ${song.difficulty}/10` : null,
     getTabStatus(song),
+    ...getSongFilterTags(song).map((filter) => `${filter.label} ${filter.group}`),
     ...(song.tags ?? []),
   ]
     .join(" ")
@@ -55,28 +83,30 @@ function matchesFilters(song, activeFilters) {
   }
 
   const songFilters = getSongFilterTags(song);
-  return activeFilters.every((filter) => songFilters.includes(filter));
+  return activeFilters.every((filter) =>
+    songFilters.some((songFilter) => songFilter.value === filter)
+  );
 }
 
 function getFilterOptions(songs) {
-  const keyFilters = new Set();
-  const tagFilters = new Set();
-  const statusFilters = new Set();
+  const filters = new Map();
 
   songs.forEach((song) => {
-    if (song.guitarKey) {
-      keyFilters.add(song.guitarKey);
-    }
-
-    (song.tags ?? []).forEach((tag) => tagFilters.add(tag));
-    statusFilters.add(getTabStatus(song));
+    getSongFilterTags(song).forEach((filter) => {
+      filters.set(filter.value, filter);
+    });
   });
 
-  return [
-    ...[...keyFilters].sort().map((label) => ({ label, group: "Key" })),
-    ...[...tagFilters].sort().map((label) => ({ label, group: "Tag" })),
-    ...[...statusFilters].sort().map((label) => ({ label, group: "Status" })),
-  ];
+  return [...filters.values()].sort((a, b) => {
+    const groupSort =
+      (filterGroupOrder.get(a.group) ?? 99) - (filterGroupOrder.get(b.group) ?? 99);
+
+    if (groupSort !== 0) {
+      return groupSort;
+    }
+
+    return a.label.localeCompare(b.label);
+  });
 }
 
 function JamIndex() {
@@ -94,11 +124,11 @@ function JamIndex() {
     [activeFilters, query, songs]
   );
 
-  function toggleFilter(filter) {
+  function toggleFilter(filterValue) {
     setActiveFilters((currentFilters) =>
-      currentFilters.includes(filter)
-        ? currentFilters.filter((currentFilter) => currentFilter !== filter)
-        : [...currentFilters, filter]
+      currentFilters.includes(filterValue)
+        ? currentFilters.filter((currentFilter) => currentFilter !== filterValue)
+        : [...currentFilters, filterValue]
     );
   }
 
@@ -112,10 +142,16 @@ function JamIndex() {
       <div className="row justify-content-center">
         <div className="col-xl-9 col-lg-10 col-md-11 col-sm-12 col-12">
           <header className="jam-index-header mb-4">
-            <h1 className="mb-2">Jam</h1>
-            <p className="text-muted mb-0">
-              Live-use charts for song structure, chords, riffs, and rhythm cues.
-            </p>
+            <div>
+              <h1 className="mb-2">Jam</h1>
+              <p className="text-muted mb-0">
+                Live-use charts for song structure, chords, riffs, and rhythm cues.
+              </p>
+            </div>
+            <Link className="btn btn-outline-dark jam-print-link" to="/jam/print">
+              <FontAwesomeIcon icon={faPrint} className="jam-button-icon" aria-hidden="true" />
+              <span>Print</span>
+            </Link>
           </header>
 
           <div className="jam-search mb-4">
@@ -149,10 +185,10 @@ function JamIndex() {
                   type="button"
                   key={`${filter.group}-${filter.label}`}
                   className={`jam-filter-chip ${
-                    activeFilters.includes(filter.label) ? "is-active" : ""
+                    activeFilters.includes(filter.value) ? "is-active" : ""
                   }`}
-                  aria-pressed={activeFilters.includes(filter.label)}
-                  onClick={() => toggleFilter(filter.label)}
+                  aria-pressed={activeFilters.includes(filter.value)}
+                  onClick={() => toggleFilter(filter.value)}
                 >
                   <span>{filter.label}</span>
                   <small>{filter.group}</small>
@@ -166,62 +202,75 @@ function JamIndex() {
           </p>
 
           <div className="row g-3">
-            {visibleSongs.map((song) => (
-              <div className="col-md-6" key={song.slug}>
-                <article
-                  className={`jam-song-card h-100 ${
-                    hasJamSongTab(song) ? "is-tabbed" : "is-not-tabbed"
-                  }`}
-                >
-                  <header className="jam-song-card-header">
-                    <h2 className="jam-song-title">{song.title}</h2>
-                    <p className="jam-song-artist">{song.artist}</p>
-                  </header>
+            {visibleSongs.map((song) => {
+              const songFacts = getSongFacts(song);
+              const songFilters = getSongFilterTags(song);
 
-                  <p className="jam-song-summary">{song.summary}</p>
-
-                  <div className="jam-song-fact-row" aria-label="Song details">
-                    {getSongFacts(song).map((fact) => (
-                      <span className={fact.className} key={fact.label}>
-                        {fact.label}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="jam-tag-row" aria-label="Song filters">
-                    {getSongFilterTags(song).map((tag) => (
-                      <button
-                        type="button"
-                        key={tag}
-                        className={`jam-song-tag ${
-                          activeFilters.includes(tag) ? "is-active" : ""
-                        } ${tag === "Tabbed" ? "is-tabbed-status" : ""} ${
-                          tag === "No tab yet" ? "is-missing-tab-status" : ""
-                        }`}
-                        aria-pressed={activeFilters.includes(tag)}
-                        onClick={() => toggleFilter(tag)}
-                      >
-                        {tag}
-                      </button>
-                    ))}
-                  </div>
-
-                  <footer className="jam-song-card-footer">
-                    {hasJamSongTab(song) ? (
-                      <Link
-                        className="link jam-open-link"
-                        to={`/jam/${song.slug}`}
-                        aria-label={`Open tab: ${song.title} - ${song.artist}`}
-                      >
-                        Open tab
-                      </Link>
-                    ) : (
-                      <span className="jam-no-tab-note">No tab on site yet</span>
+              return (
+                <div className="col-md-6" key={song.slug}>
+                  <article
+                    className={`jam-song-card h-100 ${
+                      hasJamSongTab(song) ? "is-tabbed" : "is-not-tabbed"
+                    }`}
+                  >
+                    {song.albumCover && (
+                      <img
+                        className="jam-album-cover"
+                        src={song.albumCover}
+                        alt={`${song.title} album cover`}
+                        loading="lazy"
+                      />
                     )}
-                  </footer>
-                </article>
-              </div>
-            ))}
+
+                    <header className="jam-song-card-header">
+                      <h2 className="jam-song-title">{song.title}</h2>
+                      <p className="jam-song-artist">{song.artist}</p>
+                    </header>
+
+                    {songFacts.length > 0 && (
+                      <div className="jam-song-fact-row" aria-label="Song details">
+                        {songFacts.map((fact) => (
+                          <span className={fact.className} key={fact.label}>
+                            {fact.label}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="jam-tag-row" aria-label="Song filters">
+                      {songFilters.map((filter) => (
+                        <button
+                          type="button"
+                          key={filter.value}
+                          className={`jam-song-tag ${filter.className} ${
+                            activeFilters.includes(filter.value) ? "is-active" : ""
+                          }`}
+                          aria-pressed={activeFilters.includes(filter.value)}
+                          onClick={() => toggleFilter(filter.value)}
+                        >
+                          <span>{filter.label}</span>
+                          <small>{filter.group}</small>
+                        </button>
+                      ))}
+                    </div>
+
+                    <footer className="jam-song-card-footer">
+                      {hasJamSongTab(song) ? (
+                        <Link
+                          className="link jam-open-link"
+                          to={`/jam/${song.slug}`}
+                          aria-label={`Open tab: ${song.title} - ${song.artist}`}
+                        >
+                          Open tab
+                        </Link>
+                      ) : (
+                        <span className="jam-no-tab-note">No tab on site yet</span>
+                      )}
+                    </footer>
+                  </article>
+                </div>
+              );
+            })}
           </div>
 
           {visibleSongs.length === 0 && (

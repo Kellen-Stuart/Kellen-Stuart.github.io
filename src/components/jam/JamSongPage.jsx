@@ -130,15 +130,50 @@ function JamSongPage() {
               {song.title} - {song.artist}
             </h1>
             <div className="jam-song-facts" aria-label="Song details">
-              {song.guitarKey && <span>{song.guitarKey}</span>}
-              <span>{song.tuning}</span>
-              {song.capo && <span>{song.capo}</span>}
-              {song.key && <span>{song.key}</span>}
-              {song.tempo && <span>{song.tempo} BPM</span>}
-              {song.timeSignature && <span>{song.timeSignature}</span>}
-              {song.difficulty && <span>Difficulty {song.difficulty}/10</span>}
-              {song.chordNotation && <span>{song.chordNotation}</span>}
-              <span>Default scroll {song.defaultScrollSpeed}px/s</span>
+              <span>
+                <strong>{song.tuning}</strong>
+                <small>Tuning</small>
+              </span>
+              {song.key && (
+                <span>
+                  <strong>{song.key}</strong>
+                  <small>Key</small>
+                </span>
+              )}
+              {song.capo && (
+                <span>
+                  <strong>{song.capo}</strong>
+                  <small>Capo</small>
+                </span>
+              )}
+              {song.tempo && (
+                <span>
+                  <strong>{song.tempo} BPM</strong>
+                  <small>Tempo</small>
+                </span>
+              )}
+              {song.timeSignature && (
+                <span>
+                  <strong>{song.timeSignature}</strong>
+                  <small>Time</small>
+                </span>
+              )}
+              {song.difficulty && (
+                <span>
+                  <strong>Difficulty {song.difficulty}/10</strong>
+                  <small>Difficulty</small>
+                </span>
+              )}
+              {song.chordNotation && (
+                <span>
+                  <strong>{song.chordNotation}</strong>
+                  <small>Notation</small>
+                </span>
+              )}
+              <span>
+                <strong>Default scroll {song.defaultScrollSpeed}px/s</strong>
+                <small>Auto-scroll</small>
+              </span>
             </div>
           </header>
 
