@@ -118,7 +118,7 @@ const standardTags = {
   kassidy: "Kassidy",
   kaylee: "Kaylee",
   yousician: "Yousician",
-  kellenSg: "Kellen Sing / Guitar",
+  kellenSingGuitar: "Kellen Sing / Guitar",
   kellenSing: "Kellen Sing",
   logan: "Logan",
   casey: "Casey",
@@ -128,6 +128,7 @@ const standardTags = {
   needsWork: "Needs Work",
   soloLearned: "Solo Learned",
   soloNotLearned: "Solo Not Learned",
+  fourChordsOrLess: "<= 4 Chords"
 };
 
 const albumCovers = {
@@ -191,6 +192,33 @@ const albumCovers = {
   mountainClimbing:
     "/jam-album-covers/mountain-climbing-album-cover.png",
   weezerBlue: "/jam-album-covers/weezer-weezer-blue-album-cover.png",
+  zuma: "/jam-album-covers/neil-young-crazy-horse-zuma-album-cover.png",
+  neilYoungFreedom: "/jam-album-covers/neil-young-freedom-album-cover.png",
+  nirvanaBleach: "/jam-album-covers/nirvana-bleach-album-cover.png",
+  nirvanaNevermind: "/jam-album-covers/nirvana-nevermind-album-cover.png",
+  nirvanaInUtero: "/jam-album-covers/nirvana-in-utero-album-cover.png",
+  nirvanaMtvUnpluggedInNewYork: "/jam-album-covers/nirvana-mtv-unplugged-in-new-york-album-cover.png",
+  deathToThePixies: "/jam-album-covers/pixies-death-to-the-pixies-album-cover.png",
+  songsForTheDeaf: "/jam-album-covers/qotsa-songs-for-the-deaf-album-cover.png",
+  qotsaSelfTitled: "/jam-album-covers/qotsa-self-titled-album-cover.png",
+  californication: "/jam-album-covers/rhcp-californication-album-cover.png",
+  sunnyDayRealEstateDiary: "/jam-album-covers/sunny-day-real-estate-diary-album-cover.png",
+  stadiumArcadium: "/jam-album-covers/rhcp-stadium-arcadium-album-cover.png",
+  sublimeSelfTitled: "/jam-album-covers/sublime-self-titled-album-cover.png",
+  toxicity: "/jam-album-covers/toxicity-album-cover.png",
+  beatles1: "/jam-album-covers/beatles-1-album-cover.png",
+  beatlesSelfTitled: "/jam-album-covers/beatles-self-titled-album-cover.png",
+  shakeYourMoneyMaker: "/jam-album-covers/the-black-crowes-shake-your-money-maker-album-cover.png",
+  loveStinks: "/jam-album-covers/love-stinks-album-cover.png",
+  offspringSmash: "/jam-album-covers/offspring-smash-album-cover.png",
+  offspringAmericana: "/jam-album-covers/offspring-americana-album-cover.png",
+  smashingPumpkinsMellonCollieAndTheInfiniteSadness: "/jam-album-covers/smashing-pumpkins-mellon-collie-and-the-infinite-sadness-album-cover.png",
+  titleFightFloralGreen: "/jam-album-covers/title-fight-floral-green-album-cover.png",
+  titleFightShed: "/jam-album-covers/title-fight-shed-album-cover.png",
+  tomPettyGreatestHits: "/jam-album-covers/tom-petty-greatest-hits-album-cover.png",
+  tracyChapmanNewBeginning: "/jam-album-covers/tracy-chapman-new-beginning-album-cover.png",
+  weezerGreen: "/jam-album-covers/weezer-green-album-cover.png",
+  youthBrigadeToSellTheTruth: "/jam-album-covers/youth-brigade-to-sell-the-truth-album-cover.png",
 };
 
 const knownSongCatalog = [
@@ -205,8 +233,10 @@ const knownSongCatalog = [
     title: "Slow Cheetah",
     artist: "Red Hot Chili Peppers",
     tuning: "E standard",
-    guitarKey: "E",
-    tags: [standardTags.kellenSg],
+    guitarKey: "Bb minor",
+    capo: "Capo 6",
+    tags: [standardTags.kellenSingGuitar],
+    albumCover: albumCovers.stadiumArcadium,
   }),
   createCatalogSong({
     title: "White Horse",
@@ -219,7 +249,7 @@ const knownSongCatalog = [
       standardTags.kassidy,
       standardTags.yousician,
       standardTags.kaylee,
-      standardTags.kellenSg,
+      standardTags.kellenSingGuitar,
     ],
   }),
   createCatalogSong({
@@ -283,6 +313,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.jaj, standardTags.kaylee],
+    albumCover: albumCovers.neilYoungFreedom
   }),
   createCatalogSong({
     title: "All the Small Things",
@@ -294,7 +325,7 @@ const knownSongCatalog = [
       standardTags.jaj,
       standardTags.kaylee,
       standardTags.kassidy,
-      standardTags.kellenSg,
+      standardTags.kellenSingGuitar,
       standardTags.punk,
     ],
   }),
@@ -304,7 +335,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     albumCover: albumCovers.blink182DudeRanch,
-    tags: [standardTags.jaj, standardTags.kaylee, standardTags.kellenSg, standardTags.punk],
+    tags: [standardTags.jaj, standardTags.kaylee, standardTags.kellenSingGuitar, standardTags.punk],
   }),
   createCatalogSong({
     title: "The Slumbering Ones",
@@ -313,7 +344,7 @@ const knownSongCatalog = [
     guitarKey: "E",
     key: "C minor",
     albumCover: albumCovers.assembleHeadWhenSweetSleepReturned,
-    tags: [standardTags.kaylee, standardTags.kassidy, standardTags.kellenSg],
+    tags: [standardTags.kaylee, standardTags.kassidy, standardTags.kellenSingGuitar],
   }),
   createCatalogSong({
     title: "End Down Under",
@@ -322,7 +353,7 @@ const knownSongCatalog = [
     guitarKey: "E",
     key: "E minor",
     albumCover: albumCovers.assembleHeadWhenSweetSleepReturned,
-    tags: [standardTags.kaylee, standardTags.kellenSg],
+    tags: [standardTags.kaylee, standardTags.kellenSingGuitar],
   }),
   createCatalogSong({
     title: "Gemini 9",
@@ -331,7 +362,7 @@ const knownSongCatalog = [
     guitarKey: "E",
     key: "A minor",
     albumCover: albumCovers.assembleHeadEkranoplan,
-    tags: [standardTags.kaylee, standardTags.kellenSg],
+    tags: [standardTags.kaylee, standardTags.kellenSingGuitar],
   }),
   createCatalogSong({
     title: "Slithery Thing",
@@ -379,7 +410,8 @@ const knownSongCatalog = [
     artist: "Red Hot Chili Peppers",
     tuning: "E standard",
     guitarKey: "E",
-    tags: [standardTags.jaj, standardTags.kaylee, standardTags.kellenSg],
+    tags: [standardTags.jaj, standardTags.kaylee, standardTags.kellenSingGuitar],
+    albumCover: albumCovers.californication,
   }),
   createCatalogSong({
     title: "Epiphany",
@@ -393,7 +425,8 @@ const knownSongCatalog = [
     artist: "The Beatles",
     tuning: "E standard",
     guitarKey: "E",
-    tags: [standardTags.kellenSg],
+    tags: [standardTags.kellenSingGuitar],
+    albumCover: [albumCovers.beatlesSelfTitled],
   }),
   createCatalogSong({
     title: "What's My Age Again?",
@@ -457,14 +490,16 @@ const knownSongCatalog = [
     artist: "Nirvana",
     tuning: "E standard",
     guitarKey: "E",
-    tags: [standardTags.jaj, standardTags.logan, standardTags.casey],
+    tags: [standardTags.jaj, standardTags.logan, standardTags.casey, standardTags.soloLearned, standardTags.kaylee],
+    albumCover: albumCovers.nirvanaNevermind,
   }),
   createCatalogSong({
     title: "About a Girl",
     artist: "Nirvana",
     tuning: "E standard",
     guitarKey: "E",
-    tags: [standardTags.jaj, standardTags.kaylee],
+    tags: [standardTags.jaj, standardTags.kaylee, standardTags.soloLearned, standardTags.casey],
+    albumCover: albumCovers.nirvanaBleach
   }),
   createCatalogSong({
     title: "In Bloom",
@@ -472,6 +507,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.jaj, standardTags.logan],
+    albumCover: albumCovers.nirvanaNevermind
   }),
   createCatalogSong({
     title: "Lithium",
@@ -479,6 +515,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.jaj, standardTags.logan],
+    albumCover: albumCovers.nirvanaNevermind,
   }),
   createCatalogSong({
     title: "How Many More Times",
@@ -518,6 +555,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.kaylee],
+    albumCover: albumCovers.titleFightFloralGreen,
   }),
   createCatalogSong({
     title: "Head in the Ceiling Fan",
@@ -525,6 +563,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.kaylee],
+    albumCover: albumCovers.titleFightFloralGreen,
   }),
   createCatalogSong({
     title: "Shed",
@@ -532,6 +571,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.kaylee],
+    albumCover: albumCovers.titleFightShed,
   }),
   createCatalogSong({
     title: "Love Stinks",
@@ -539,6 +579,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.jaj, standardTags.kaylee],
+    albumCover: albumCovers.loveStinks,
   }),
   createCatalogSong({
     title: "Can't Decide",
@@ -563,24 +604,27 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.logan, standardTags.punk, standardTags.jaj, standardTags.kellenSing],
+    albumCover: albumCovers.youthBrigadeToSellTheTruth,
   }),
   createCatalogSong({
     title: "Island in the Sun",
     artist: "Weezer",
     tuning: "E standard",
-    guitarKey: "E",
+    guitarKey: "G",
     tags: [standardTags.jaj, standardTags.kassidy, standardTags.kaylee],
+    albumCover: albumCovers.weezerGreen,
   }),
   createCatalogSong({
     title: "Go with the Flow",
     artist: "Queens of the Stone Age",
     tuning: "E standard",
     guitarKey: "E",
-    tags: [standardTags.jaj],
+    tags: [standardTags.jaj, standardTags.logan, standardTags.fourChordsOrLess],
+    albumCover: albumCovers.songsForTheDeaf,
   }),
   createCatalogSong({
     title: "Cortez the Killer",
-    artist: "Neil Young / Built to Spill",
+    artist: "Neil Young & Crazy Horse",
     tuning: "E standard",
     guitarKey: "E",
     tags: [
@@ -589,7 +633,9 @@ const knownSongCatalog = [
       standardTags.kassidy,
       standardTags.logan,
       standardTags.kaylee,
+      standardTags.fourChordsOrLess,
     ],
+    albumCover: albumCovers.zuma,
   }),
   createCatalogSong({
     title: "Mary Jane's Last Dance",
@@ -597,13 +643,15 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.jaj],
+    albumCover: albumCovers.tomPettyGreatestHits,
   }),
   createCatalogSong({
     title: "Give Me One Reason",
     artist: "Tracy Chapman",
     tuning: "E standard",
-    guitarKey: "E",
+    guitarKey: "F# minor",
     tags: [standardTags.kassidy, standardTags.jaj, standardTags.ryanHudson, standardTags.kaylee],
+    albumCover: albumCovers.tracyChapmanNewBeginning
   }),
   createCatalogSong({
     title: "Hard to Handle",
@@ -611,6 +659,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.kassidy, standardTags.jaj],
+    albumCover: albumCovers.shakeYourMoneyMaker,
   }),
   createCatalogSong({
     title: "Use Somebody",
@@ -657,6 +706,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.jaj],
+    albumCover: albumCovers.offspringAmericana,
   }),
   createCatalogSong({
     title: "Self Esteem",
@@ -664,6 +714,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.jaj],
+    albumCover: albumCovers.offspringSmash,
   }),
   createCatalogSong({
     title: "Up Around the Bend",
@@ -680,6 +731,7 @@ const knownSongCatalog = [
     guitarKey: "E",
     difficulty: 8,
     tags: [standardTags.jaj, standardTags.kassidy, standardTags.kaylee],
+    albumCover: albumCovers.sublimeSelfTitled,
   }),
   createCatalogSong({
     title: "Back in Black",
@@ -696,6 +748,7 @@ const knownSongCatalog = [
     tuning: "E standard",
     guitarKey: "E",
     tags: [standardTags.jaj, standardTags.kaylee],
+    albumCover: albumCovers.beatles1,
   }),
   createCatalogSong({
     title: "Peace of Mind",
@@ -734,7 +787,8 @@ const knownSongCatalog = [
     artist: "Pixies",
     tuning: "Eb standard",
     guitarKey: "Eb",
-    tags: [standardTags.jaj, standardTags.kaylee],
+    tags: [standardTags.jaj, standardTags.kaylee, standardTags.logan, standardTags.hudson],
+    albumCover: albumCovers.deathToThePixies
   }),
   createCatalogSong({
     title: "The Man Who Sold the World",
@@ -742,6 +796,7 @@ const knownSongCatalog = [
     tuning: "Eb standard",
     guitarKey: "Eb",
     tags: [standardTags.jaj, standardTags.logan],
+    albumCover: albumCovers.nirvanaMtvUnpluggedInNewYork
   }),
   createCatalogSong({
     title: "Hemorrhage (In My Hands)",
@@ -749,7 +804,7 @@ const knownSongCatalog = [
     tuning: "Eb standard",
     guitarKey: "Eb",
     albumCover: albumCovers.fuelSomethingLikeHuman,
-    tags: [standardTags.jaj, standardTags.kassidy, standardTags.kellenSg],
+    tags: [standardTags.jaj, standardTags.kassidy, standardTags.kellenSingGuitar],
   }),
   createCatalogSong({
     title: "Brain Stew",
@@ -757,21 +812,23 @@ const knownSongCatalog = [
     tuning: "Eb standard",
     guitarKey: "Eb",
     albumCover: albumCovers.greenDayInsomnia,
-    tags: [standardTags.jaj, standardTags.kaylee, standardTags.kellenSg],
+    tags: [standardTags.jaj, standardTags.kaylee, standardTags.kellenSingGuitar],
   }),
   createCatalogSong({
     title: "Marigold",
     artist: "Nirvana",
     tuning: "Eb standard",
     guitarKey: "Eb",
-    tags: [standardTags.yousician, standardTags.kellenSg],
+    tags: [standardTags.yousician, standardTags.kellenSingGuitar],
+    albumCover: albumCovers.nirvanaInUtero,
   }),
   createCatalogSong({
     title: "Bullet with Butterfly Wings",
     artist: "The Smashing Pumpkins",
     tuning: "Eb standard",
     guitarKey: "Eb",
-    tags: [standardTags.kellenSg, standardTags.yousician, standardTags.jaj, standardTags.logan],
+    tags: [standardTags.kellenSingGuitar, standardTags.yousician, standardTags.jaj, standardTags.logan],
+    albumCover: albumCovers.smashingPumpkinsMellonCollieAndTheInfiniteSadness,
   }),
   createCatalogSong({
     title: "Sweet Child O' Mine",
@@ -780,7 +837,7 @@ const knownSongCatalog = [
     guitarKey: "Eb",
     albumCover: albumCovers.gunsNRosesAppetite,
     tags: [
-      standardTags.kellenSg,
+      standardTags.kellenSingGuitar,
       standardTags.jaj,
       standardTags.needsWork,
       standardTags.soloNotLearned,
@@ -801,7 +858,7 @@ const knownSongCatalog = [
     tuning: "Eb standard",
     guitarKey: "Eb",
     albumCover: albumCovers.greenDayDookie,
-    tags: [standardTags.jaj, standardTags.kellenSg, standardTags.logan],
+    tags: [standardTags.jaj, standardTags.kellenSingGuitar, standardTags.logan],
   }),
   createCatalogSong({
     title: "Undone - The Sweater Song",
@@ -819,6 +876,7 @@ const knownSongCatalog = [
     guitarKey: "Eb",
     difficulty: 5,
     tags: [standardTags.kaylee, standardTags.kassidy],
+    albumCover: albumCovers.sunnyDayRealEstateDiary
   }),
   createCatalogSong({
     title: "Come as You Are",
@@ -826,6 +884,7 @@ const knownSongCatalog = [
     tuning: "D standard",
     guitarKey: "D",
     tags: [standardTags.jaj, standardTags.logan],
+    albumCover: albumCovers.nirvanaNevermind,
   }),
   createCatalogSong({
     title: "Machine Gun",
@@ -893,12 +952,15 @@ const knownSongCatalog = [
     artist: "System of a Down",
     tuning: "Drop C",
     guitarKey: "Drop C",
+    albumCover: albumCovers.toxicity,
   }),
   createCatalogSong({
     title: "Mexicola",
     artist: "Queens of the Stone Age",
     tuning: "C standard",
     guitarKey: "C",
+    tags: [standardTags.jaj, standardTags.logan, standardTags.casey, standardTags.soloNotLearned],
+    albumCover: albumCovers.qotsaSelfTitled,
   }),
 ];
 
