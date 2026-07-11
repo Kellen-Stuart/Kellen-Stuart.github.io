@@ -8,3 +8,5 @@ Make "Easy" Green
 Make "Medium" Yellow
 Make "Hard" Red
 
+## Remove "Key" Tag
+Tagging the Key is not useful. I find it useful on the actual card itself but not as a tag you can filter by. It makes it difficult to actually read through all the filters so this is a good QoL to clean this up. Keep it in the card though, it's useful to know what key the song is in.
