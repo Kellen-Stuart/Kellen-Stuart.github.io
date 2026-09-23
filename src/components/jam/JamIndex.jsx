@@ -149,7 +149,7 @@ function JamIndex() {
               </p>
             </div>
             <Link className="btn btn-outline-dark jam-print-link" to="/jam/print">
-              <FontAwesomeIcon icon={faPrint} className="jam-button-icon" aria-hidden="true" />
+              <FontAwesomeIcon widthAuto icon={faPrint} className="jam-button-icon" aria-hidden="true" />
               <span>Print</span>
             </Link>
           </header>

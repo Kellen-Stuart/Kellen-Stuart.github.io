@@ -4,11 +4,10 @@
 #
 # Purpose:
 # - Let Codex freely read, edit, test, format, and inspect files in this repository.
-# - Keep OS-level changes, dependency installs, network access, and secret access gated by approval.
-# - Avoid duplicating global ~/.codex/config.toml settings.
-model = "gpt-5.5"
-personality = "pragmatic"
-model_reasoning_effort = "xhigh"
+# - Disable sandbox command networking, including when installed without the global baseline.
+# - Instruct the agent to ask before OS changes, dependency installs, and secret access.
+#   Secret reads are not denied by this sandbox mode; see README.md.
+# - Inherit model, environment, and UI preferences from ~/.codex/config.toml.
 
 approval_policy = "on-request"
 approvals_reviewer = "user"
@@ -66,3 +65,9 @@ Prefer safe project-local commands:
 
 If a command may print secrets, redact the output or ask first.
 """
+
+[sandbox_workspace_write]
+writable_roots = []
+network_access = false
+exclude_tmpdir_env_var = true
+exclude_slash_tmp = true

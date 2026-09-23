@@ -4,8 +4,8 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 
 ## Requirements
 
-- Node.js 24.x (project pin: `24.16.0` in `.nvmrc`)
-- npm
+- Node.js 24.x LTS (project pin: `24.21.0` in `.nvmrc`)
+- npm 12.x (project pin: `12.0.2` in `package.json`)
 - Git
 - Optional: ImageMagick, for stripping image metadata when the media metadata check fails
 - Optional: metaflac, for stripping FLAC metadata when the media metadata check fails
@@ -29,11 +29,20 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 
 ## Install
 
+Use the Node.js version in `.nvmrc` and npm version in `package.json`.
+Dependency installation is performed by the operator, as required by `AGENTS.md`.
+
 ```bash
-npm install
+npm ci
 npm run setup:hooks
 npm run check:media-metadata
 ```
+
+After changing dependency versions in `package.json`, run `npm install` to update
+`package-lock.json` and the installed packages, then validate with `npm run build`
+and `npm run check:media-metadata`. Commit both package files together. After a
+Playwright upgrade, run `npx playwright install chromium` to install its matching
+browser before testing resume PDF generation.
 
 ## Notes
 

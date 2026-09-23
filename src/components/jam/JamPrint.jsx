@@ -121,11 +121,11 @@ function JamPrint() {
     <main className="jam-print-page">
       <div className="jam-print-toolbar print-hide">
         <Link className="btn btn-outline-dark" to="/jam">
-          <FontAwesomeIcon icon={faArrowLeft} className="jam-button-icon" aria-hidden="true" />
+          <FontAwesomeIcon widthAuto icon={faArrowLeft} className="jam-button-icon" aria-hidden="true" />
           <span>Jam</span>
         </Link>
         <button type="button" className="btn btn-dark jam-print-action" onClick={printPage}>
-          <FontAwesomeIcon icon={faPrint} className="jam-button-icon" aria-hidden="true" />
+          <FontAwesomeIcon widthAuto icon={faPrint} className="jam-button-icon" aria-hidden="true" />
           <span>Print</span>
         </button>
       </div>

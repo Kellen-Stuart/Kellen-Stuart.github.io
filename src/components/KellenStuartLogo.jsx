@@ -15,18 +15,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const KellenStuartLogo = () => {
     return (
         <>
-        <FontAwesomeIcon icon={faK} className="fa-xl"/>{" "}
-        <FontAwesomeIcon icon={faE} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faL} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faL} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faE} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faN} className="fa-2xs pe-2" />{" "}
-        <FontAwesomeIcon icon={faS} className="fa-xl"/>{" "}
-        <FontAwesomeIcon icon={faT} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faU} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faA} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faR} className="fa-2xs" />{" "}
-        <FontAwesomeIcon icon={faT} className="fa-2xs" />
+        <FontAwesomeIcon widthAuto icon={faK} className="fa-xl"/>{" "}
+        <FontAwesomeIcon widthAuto icon={faE} className="fa-2xs" />{" "}
+        <FontAwesomeIcon widthAuto icon={faL} className="fa-2xs" />{" "}
+        <FontAwesomeIcon widthAuto icon={faL} className="fa-2xs" />{" "}
+        <FontAwesomeIcon widthAuto icon={faE} className="fa-2xs" />{" "}
+        <FontAwesomeIcon widthAuto icon={faN} className="fa-2xs pe-2" />{" "}
+        <FontAwesomeIcon widthAuto icon={faS} className="fa-xl"/>{" "}
+        <FontAwesomeIcon widthAuto icon={faT} className="fa-2xs" />{" "}
+        <FontAwesomeIcon widthAuto icon={faU} className="fa-2xs" />{" "}
+        <FontAwesomeIcon widthAuto icon={faA} className="fa-2xs" />{" "}
+        <FontAwesomeIcon widthAuto icon={faR} className="fa-2xs" />{" "}
+        <FontAwesomeIcon widthAuto icon={faT} className="fa-2xs" />
         </>
     );
 };
