@@ -104,6 +104,12 @@ is excluded from filters and the search metadata.
 Guitar tuning uses the same plain-label style directly below the key; filter it
 using the Guitar Tuning controls in the main filter section.
 
+The print view at `/jam/print` groups songs alphabetically by artist, then by
+song title. Song lines are indented without numbering and show
+`Title - 🎸 Guitar tuning - ♫ Musical key`, with 🤘 for Ready to rock (Stage Ready). Missing
+values display Tuning TBD or Key TBD. The sheet uses two columns, with a single
+column on narrow screens.
+
 Run `npm run test:jam` and `npm run build` after changing filter logic. For a
 manual smoke test, select two people and verify each song lists both, then
 deselect one and confirm the list broadens. Select two genres or

@@ -1370,56 +1370,42 @@ a:hover {
   font-weight: 800;
 }
 
-.jam-print-key-grid {
-  column-count: 3;
-  column-gap: 1rem;
-}
-
-.jam-print-key-section {
-  break-inside: avoid;
+.jam-print-legend {
   margin: 0 0 1rem;
-}
-
-.jam-print-key-section h2 {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin: 0 0 0.35rem;
-  border-bottom: 1px solid #9bb6de;
-  color: #003687;
-  font-size: 1rem;
-  line-height: 1.2;
-}
-
-.jam-print-key-section h2 small {
   color: #4f5d75;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
+}
+
+.jam-print-artist-grid {
+  column-count: 2;
+  column-gap: 1.5rem;
 }
 
 .jam-print-artist {
   break-inside: avoid;
-  margin-bottom: 0.45rem;
+  margin-bottom: 1rem;
 }
 
-.jam-print-artist h3 {
-  margin: 0 0 0.12rem;
+.jam-print-artist h2 {
+  margin: 0 0 0.3rem;
   color: #24364f;
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 800;
   line-height: 1.2;
+  break-after: avoid;
 }
 
 .jam-print-song-list {
+  list-style: none;
   margin: 0;
   padding-left: 1rem;
 }
 
 .jam-print-song {
-  margin-bottom: 0.08rem;
-  padding-left: 0.12rem;
-  font-size: 0.78rem;
-  line-height: 1.25;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
   break-inside: avoid;
 }
 
@@ -1429,11 +1415,10 @@ a:hover {
 
 .jam-print-song-meta {
   color: #4f5d75;
-  font-size: 0.72rem;
 }
 
-.jam-print-song-meta::before {
-  content: " - ";
+.jam-print-stage-ready {
+  display: inline-block;
 }
 
 @media (max-width: 576px) {
@@ -1448,7 +1433,7 @@ a:hover {
     flex-direction: column;
   }
 
-  .jam-print-key-grid {
+  .jam-print-artist-grid {
     column-count: 1;
   }
 
@@ -1527,51 +1512,39 @@ a:hover {
     font-size: 8pt;
   }
 
-  .jam-print-key-grid {
-    column-count: 3;
-    column-gap: 0.16in;
-  }
-
-  .jam-print-key-section {
-    margin-bottom: 0.07in;
-  }
-
-  .jam-print-key-section h2 {
-    margin-bottom: 0.025in;
-    border-bottom: 0.5pt solid #000000;
+  .jam-print-legend {
+    margin-bottom: 0.08in;
     color: #000000;
-    font-size: 8.5pt;
+    font-size: 7pt;
   }
 
-  .jam-print-key-section h2 small {
-    color: #000000;
-    font-size: 6.5pt;
+  .jam-print-artist-grid {
+    column-count: 2;
+    column-gap: 0.2in;
   }
 
   .jam-print-artist {
-    margin-bottom: 0.025in;
+    margin-bottom: 0.1in;
   }
 
-  .jam-print-artist h3 {
+  .jam-print-artist h2 {
     color: #000000;
-    font-size: 6.7pt;
-    line-height: 1.05;
+    font-size: 9pt;
+    line-height: 1.15;
   }
 
   .jam-print-song-list {
-    padding-left: 0.11in;
+    padding-left: 0.14in;
   }
 
   .jam-print-song {
-    margin-bottom: 0;
-    padding-left: 0.02in;
-    font-size: 6.25pt;
-    line-height: 1.08;
+    margin-bottom: 0.025in;
+    font-size: 8pt;
+    line-height: 1.2;
   }
 
   .jam-print-song-meta {
     color: #333333;
-    font-size: 5.9pt;
   }
 
   .print-resume-page {

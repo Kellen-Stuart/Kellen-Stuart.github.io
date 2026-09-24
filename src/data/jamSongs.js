@@ -274,6 +274,8 @@ const albumCovers = {
   offspringAmericana: "/jam-album-covers/offspring-americana-album-cover.png",
   smashingPumpkinsMellonCollieAndTheInfiniteSadness:
     "/jam-album-covers/smashing-pumpkins-mellon-collie-and-the-infinite-sadness-album-cover.png",
+  smashingPumpkinsSiameseDream:
+    "/jam-album-covers/smashing-pumpkins-siamese-dream-album-cover.png",
   titleFightFloralGreen:
     "/jam-album-covers/title-fight-floral-green-album-cover.png",
   titleFightShed: "/jam-album-covers/title-fight-shed-album-cover.png",
@@ -1349,6 +1351,24 @@ const knownSongCatalog = [
     genres: [],
     hasYousician: false,
     tags: [jamTags.stageReady, jamTags.soloLearned],
+  }),
+  createCatalogSong({
+    title: "Today",
+    artist: "Smashing Pumpkins",
+    tuning: "E Standard",
+    playedWith: [
+      musicians.kellen,
+      musicians.jim,
+      musicians.casey,
+      musicians.logan,
+      musicians.kassidy,
+      musicians.hudson,
+      musicians.kaylee,
+    ],
+    genres: [],
+    hasYousician: false,
+    tags: [jamTags.needsWork],
+    albumCover: albumCovers.smashingPumpkinsSiameseDream,
   }),
   createCatalogSong({
     title: "Where Is My Mind?",
