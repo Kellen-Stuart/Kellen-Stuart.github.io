@@ -1,10 +1,9 @@
 import { access } from "node:fs/promises";
-import { spawn } from "node:child_process";
 import path from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
-import { setTimeout as delay } from "node:timers/promises";
 import { chromium } from "playwright";
+import { preview } from "vite";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
@@ -15,66 +14,6 @@ const host = "127.0.0.1";
 const port = Number.parseInt(process.env.RESUME_PDF_PORT ?? "4173", 10);
 const baseUrl = `http://${host}:${port}`;
 const targetUrl = `${baseUrl}/print-resume?mode=pdf`;
-
-async function waitForServerReady(timeoutMs = 30000) {
-  const startedAt = Date.now();
-  let lastError;
-
-  while (Date.now() - startedAt < timeoutMs) {
-    try {
-      const response = await fetch(baseUrl, { method: "GET" });
-      if (response.ok || response.status < 500) {
-        return;
-      }
-    } catch (error) {
-      lastError = error;
-    }
-
-    await delay(300);
-  }
-
-  throw new Error(
-    `Timed out waiting for preview server at ${baseUrl}${
-      lastError ? ` (${lastError.message})` : ""
-    }`
-  );
-}
-
-function startPreviewServer() {
-  return spawn(
-    "npx",
-    [
-      "vite",
-      "preview",
-      "--host",
-      host,
-      "--port",
-      String(port),
-      "--strictPort",
-      "--outDir",
-      "dist",
-    ],
-    {
-      cwd: projectRoot,
-      stdio: "inherit",
-      env: {
-        ...process.env,
-        BROWSER: "none",
-      },
-    }
-  );
-}
-
-function stopPreviewServer(serverProcess) {
-  if (!serverProcess || serverProcess.exitCode !== null) {
-    return Promise.resolve();
-  }
-
-  return new Promise((resolve) => {
-    serverProcess.once("exit", () => resolve());
-    serverProcess.kill("SIGTERM");
-  });
-}
 
 async function ensureBuildExists() {
   try {
@@ -88,11 +27,15 @@ async function ensureBuildExists() {
 
 async function generatePdf() {
   await ensureBuildExists();
-  const previewServer = startPreviewServer();
+  // Await our own listener so an occupied port fails before browser launch.
+  // The API avoids npx child processes and interactive CLI stdin handlers.
+  const previewServer = await preview({
+    root: projectRoot,
+    build: { outDir: distDir },
+    preview: { host, port, strictPort: true, open: false },
+  });
 
   try {
-    await waitForServerReady();
-
     const browser = await chromium.launch({
       headless: true,
     });
@@ -131,7 +74,7 @@ async function generatePdf() {
       await browser.close();
     }
   } finally {
-    await stopPreviewServer(previewServer);
+    await previewServer.close();
   }
 }
 
