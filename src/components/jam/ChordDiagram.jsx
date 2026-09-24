@@ -11,7 +11,9 @@ function getStringIndex(stringNumber) {
 }
 
 function getAutoBaseFret(frets) {
-  const frettedNotes = frets.filter((fret) => Number.isFinite(fret) && fret > 0);
+  const frettedNotes = frets.filter(
+    (fret) => Number.isFinite(fret) && fret > 0,
+  );
 
   if (frettedNotes.length === 0) {
     return 1;
@@ -32,7 +34,10 @@ function ChordDiagram({ name, shape, stringLabels = defaultStringLabels }) {
   }
 
   const baseFret = shape.baseFret ?? getAutoBaseFret(shape.frets);
-  const fretCount = Math.max(4, Math.max(...shape.frets.filter(Number.isFinite)));
+  const fretCount = Math.max(
+    4,
+    Math.max(...shape.frets.filter(Number.isFinite)),
+  );
   const visibleFrets = Math.min(Math.max(fretCount - baseFret + 1, 4), 6);
   const topY = 34;
   const fretGap = 23;
@@ -81,21 +86,25 @@ function ChordDiagram({ name, shape, stringLabels = defaultStringLabels }) {
             y1={topY + index * fretGap}
             x2={getStringX(5)}
             y2={topY + index * fretGap}
-            className={index === 0 && baseFret === 1 ? "jam-chord-nut" : "jam-chord-fret"}
+            className={
+              index === 0 && baseFret === 1 ? "jam-chord-nut" : "jam-chord-fret"
+            }
           />
         ))}
 
         {shape.barre && (
           <rect
-            x={Math.min(
-              getStringX(getStringIndex(shape.barre.fromString)),
-              getStringX(getStringIndex(shape.barre.toString))
-            ) - 7}
+            x={
+              Math.min(
+                getStringX(getStringIndex(shape.barre.fromString)),
+                getStringX(getStringIndex(shape.barre.toString)),
+              ) - 7
+            }
             y={topY + (shape.barre.fret - baseFret + 0.5) * fretGap - 7}
             width={
               Math.abs(
                 getStringX(getStringIndex(shape.barre.fromString)) -
-                  getStringX(getStringIndex(shape.barre.toString))
+                  getStringX(getStringIndex(shape.barre.toString)),
               ) + 14
             }
             height="14"
@@ -117,7 +126,12 @@ function ChordDiagram({ name, shape, stringLabels = defaultStringLabels }) {
             <g key={`finger-${index}`}>
               <circle cx={x} cy={y} r="8" className="jam-chord-dot" />
               {finger && (
-                <text x={x} y={y + 4} textAnchor="middle" className="jam-chord-finger">
+                <text
+                  x={x}
+                  y={y + 4}
+                  textAnchor="middle"
+                  className="jam-chord-finger"
+                >
                   {finger}
                 </text>
               )}

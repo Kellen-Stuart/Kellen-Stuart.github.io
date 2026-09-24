@@ -1,134 +1,129 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPrint } from "@fortawesome/free-solid-svg-icons";
-import { getJamSongs, hasJamSongTab } from "../../data/jamSongs";
+import { faCheck, faPrint } from "@fortawesome/free-solid-svg-icons";
+import { getJamSongs, hasJamSongTab, jamTags } from "../../data/jamSongs";
 
-const filterGroupOrder = new Map([
-  ["Tuning", 0],
-  ["Key", 1],
-  ["Tag", 2],
-  ["Status", 3],
-]);
+import {
+  getFilterOptions,
+  getSongFilters,
+  jamFilterGroups,
+  matchesFilters,
+  matchesSearch,
+} from "../../data/jamSongFilters";
 
-function getTabStatus(song) {
-  return hasJamSongTab(song) ? "Tabbed" : "No tab yet";
+function FilterChip({
+  filter,
+  activeFilters,
+  onToggle,
+  card = false,
+  remove = false,
+}) {
+  const groupLabel = jamFilterGroups.find(
+    ({ id }) => id === filter.group,
+  ).label;
+  const isSelected = activeFilters.includes(filter.value);
+  return (
+    <button
+      type="button"
+      className={`${card ? "jam-song-tag" : "jam-filter-chip"} ${filter.className} ${isSelected ? "is-active" : ""}`}
+      aria-pressed={remove ? undefined : isSelected}
+      aria-label={`${remove ? "Remove filter" : "Filter by"} ${groupLabel}: ${filter.label}`}
+      onClick={() => onToggle(filter.value)}
+    >
+      {isSelected && !remove && (
+        <FontAwesomeIcon icon={faCheck} aria-hidden="true" />
+      )}
+      <span>{filter.label}</span>
+      {(card || remove) && <small>{groupLabel}</small>}
+      {remove && <span aria-hidden="true">×</span>}
+    </button>
+  );
 }
 
-function createSongFilter(label, group, className = "") {
-  if (!label) {
-    return null;
-  }
-
-  return {
-    label,
-    group,
-    value: `${group}:${label}`,
-    className,
-  };
-}
-
-function getSongFilterTags(song) {
-  const tabStatus = getTabStatus(song);
-
-  return [
-    createSongFilter(song.tuning, "Tuning", "is-tuning"),
-    createSongFilter(song.key, "Key", "is-key"),
-    ...(song.tags ?? []).map((tag) => createSongFilter(tag, "Tag")),
-    createSongFilter(
-      tabStatus,
-      "Status",
-      tabStatus === "Tabbed" ? "is-tabbed-status" : "is-missing-tab-status"
-    ),
-  ].filter(Boolean);
+function FilterGroup({ group, activeFilters, onToggle }) {
+  return (
+    <fieldset className="jam-filter-group">
+      <legend>{group.label}</legend>
+      {group.id === "playedWith" ? (
+        <p className="jam-filter-help">
+          Show songs you've played with each selected person. Click a name again
+          to remove it.
+        </p>
+      ) : (
+        group.matchAll && (
+          <p className="jam-filter-help">Matches every selected tag.</p>
+        )
+      )}
+      <div className="jam-filter-row">
+        {group.options.map((filter) => (
+          <FilterChip
+            key={filter.value}
+            filter={filter}
+            activeFilters={activeFilters}
+            onToggle={onToggle}
+          />
+        ))}
+      </div>
+    </fieldset>
+  );
 }
 
 function getSongFacts(song) {
   return [
+    { label: song.key ? `Key: ${song.key}` : null },
     { label: song.capo },
     { label: song.tempo ? `${song.tempo} BPM` : null },
     { label: song.timeSignature },
     {
       label: song.difficulty ? `Difficulty ${song.difficulty}/10` : null,
-      className: song.difficulty ? `is-difficulty difficulty-${song.difficulty}` : "",
+      className: song.difficulty
+        ? `is-difficulty difficulty-${song.difficulty}`
+        : "",
     },
   ].filter((fact) => fact.label);
-}
-
-function matchesSearch(song, query) {
-  const haystack = [
-    song.artist,
-    song.title,
-    song.summary,
-    song.tuning,
-    song.guitarKey,
-    song.key,
-    song.tempo,
-    song.timeSignature,
-    song.capo,
-    song.difficulty ? `difficulty ${song.difficulty}/10` : null,
-    getTabStatus(song),
-    ...getSongFilterTags(song).map((filter) => `${filter.label} ${filter.group}`),
-    ...(song.tags ?? []),
-  ]
-    .join(" ")
-    .toLowerCase();
-
-  return haystack.includes(query.trim().toLowerCase());
-}
-
-function matchesFilters(song, activeFilters) {
-  if (activeFilters.length === 0) {
-    return true;
-  }
-
-  const songFilters = getSongFilterTags(song);
-  return activeFilters.every((filter) =>
-    songFilters.some((songFilter) => songFilter.value === filter)
-  );
-}
-
-function getFilterOptions(songs) {
-  const filters = new Map();
-
-  songs.forEach((song) => {
-    getSongFilterTags(song).forEach((filter) => {
-      filters.set(filter.value, filter);
-    });
-  });
-
-  return [...filters.values()].sort((a, b) => {
-    const groupSort =
-      (filterGroupOrder.get(a.group) ?? 99) - (filterGroupOrder.get(b.group) ?? 99);
-
-    if (groupSort !== 0) {
-      return groupSort;
-    }
-
-    return a.label.localeCompare(b.label);
-  });
 }
 
 function JamIndex() {
   const [query, setQuery] = useState("");
   const [activeFilters, setActiveFilters] = useState([]);
   const songs = useMemo(() => getJamSongs(), []);
-  const filterOptions = useMemo(() => getFilterOptions(songs), [songs]);
+  const filterGroups = useMemo(() => getFilterOptions(songs), [songs]);
+  const stageReadyFilter = filterGroups
+    .find((group) => group.id === "practice")
+    ?.options.find(
+      (filter) => filter.value === `practice:${jamTags.stageReady}`,
+    );
+  const moreFilterGroups = filterGroups
+    .filter((group) => group.advanced)
+    .map((group) => ({
+      ...group,
+      options: group.options.filter((filter) => filter !== stageReadyFilter),
+    }))
+    .filter((group) => group.options.length > 0);
+  const selectedFilters = filterGroups.flatMap((group) =>
+    group.options.filter((filter) => activeFilters.includes(filter.value)),
+  );
+  const advancedFilterCount = moreFilterGroups
+    .flatMap((group) => group.options)
+    .filter((filter) => activeFilters.includes(filter.value)).length;
   const visibleSongs = useMemo(
     () =>
       songs.filter(
         (song) =>
           (!query.trim() || matchesSearch(song, query)) &&
-          matchesFilters(song, activeFilters)
+          matchesFilters(song, activeFilters),
       ),
-    [activeFilters, query, songs]
+    [activeFilters, query, songs],
   );
 
   function toggleFilter(filterValue) {
     setActiveFilters((currentFilters) =>
       currentFilters.includes(filterValue)
-        ? currentFilters.filter((currentFilter) => currentFilter !== filterValue)
-        : [...currentFilters, filterValue]
+        ? currentFilters.filter(
+            (currentFilter) => currentFilter !== filterValue,
+          )
+        : [...currentFilters, filterValue],
     );
   }
 
@@ -145,11 +140,19 @@ function JamIndex() {
             <div>
               <h1 className="mb-2">Jam</h1>
               <p className="text-muted mb-0">
-                Live-use charts for song structure, chords, riffs, and rhythm cues.
+                Songs we've played together. Find a familiar tune for this jam.
               </p>
             </div>
-            <Link className="btn btn-outline-dark jam-print-link" to="/jam/print">
-              <FontAwesomeIcon widthAuto icon={faPrint} className="jam-button-icon" aria-hidden="true" />
+            <Link
+              className="btn btn-outline-dark jam-print-link"
+              to="/jam/print"
+            >
+              <FontAwesomeIcon
+                widthAuto
+                icon={faPrint}
+                className="jam-button-icon"
+                aria-hidden="true"
+              />
               <span>Print</span>
             </Link>
           </header>
@@ -161,7 +164,7 @@ function JamIndex() {
               type="search"
               className="form-control"
               value={query}
-              placeholder="Artist, song, key, tuning, tag..."
+              placeholder="Artist, song, person, genre, guitar tuning..."
               onChange={(event) => setQuery(event.target.value)}
             />
           </div>
@@ -179,22 +182,61 @@ function JamIndex() {
                 </button>
               )}
             </div>
-            <div className="jam-filter-row">
-              {filterOptions.map((filter) => (
-                <button
-                  type="button"
-                  key={`${filter.group}-${filter.label}`}
-                  className={`jam-filter-chip ${
-                    activeFilters.includes(filter.value) ? "is-active" : ""
-                  }`}
-                  aria-pressed={activeFilters.includes(filter.value)}
-                  onClick={() => toggleFilter(filter.value)}
-                >
-                  <span>{filter.label}</span>
-                  <small>{filter.group}</small>
-                </button>
+            <p className="jam-filter-help">
+              Pick people you've played with, then narrow the list. Genres and
+              guitar tunings match any selected option in their group.
+            </p>
+            {filterGroups
+              .filter((group) => !group.advanced)
+              .map((group) => (
+                <FilterGroup
+                  key={group.id}
+                  group={group}
+                  activeFilters={activeFilters}
+                  onToggle={toggleFilter}
+                />
               ))}
-            </div>
+            {stageReadyFilter && (
+              <div className="jam-filter-row mb-3">
+                <FilterChip
+                  filter={stageReadyFilter}
+                  activeFilters={activeFilters}
+                  onToggle={toggleFilter}
+                />
+              </div>
+            )}
+            <details className="jam-more-filters">
+              <summary>
+                More filters
+                {advancedFilterCount > 0
+                  ? ` (${advancedFilterCount} selected)`
+                  : ""}
+              </summary>
+              {moreFilterGroups.map((group) => (
+                <FilterGroup
+                  key={group.id}
+                  group={group}
+                  activeFilters={activeFilters}
+                  onToggle={toggleFilter}
+                />
+              ))}
+            </details>
+            {selectedFilters.length > 0 && (
+              <div className="jam-selected-filters">
+                <p className="jam-control-label">Selected filters</p>
+                <div className="jam-filter-row" aria-label="Selected filters">
+                  {selectedFilters.map((filter) => (
+                    <FilterChip
+                      key={filter.value}
+                      filter={filter}
+                      activeFilters={activeFilters}
+                      onToggle={toggleFilter}
+                      remove
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </section>
 
           <p className="jam-result-count" aria-live="polite">
@@ -204,7 +246,10 @@ function JamIndex() {
           <div className="row g-3">
             {visibleSongs.map((song) => {
               const songFacts = getSongFacts(song);
-              const songFilters = getSongFilterTags(song);
+              const songFilters = getSongFilters(song);
+              const secondaryFilters = songFilters.filter(
+                (filter) => !filter.primary,
+              );
 
               return (
                 <div className="col-md-6" key={song.slug}>
@@ -228,7 +273,10 @@ function JamIndex() {
                     </header>
 
                     {songFacts.length > 0 && (
-                      <div className="jam-song-fact-row" aria-label="Song details">
+                      <div
+                        className="jam-song-fact-row"
+                        aria-label="Song details"
+                      >
                         {songFacts.map((fact) => (
                           <span className={fact.className} key={fact.label}>
                             {fact.label}
@@ -238,21 +286,35 @@ function JamIndex() {
                     )}
 
                     <div className="jam-tag-row" aria-label="Song filters">
-                      {songFilters.map((filter) => (
-                        <button
-                          type="button"
-                          key={filter.value}
-                          className={`jam-song-tag ${filter.className} ${
-                            activeFilters.includes(filter.value) ? "is-active" : ""
-                          }`}
-                          aria-pressed={activeFilters.includes(filter.value)}
-                          onClick={() => toggleFilter(filter.value)}
-                        >
-                          <span>{filter.label}</span>
-                          <small>{filter.group}</small>
-                        </button>
-                      ))}
+                      {songFilters
+                        .filter((filter) => filter.primary)
+                        .map((filter) => (
+                          <FilterChip
+                            key={filter.value}
+                            filter={filter}
+                            activeFilters={activeFilters}
+                            onToggle={toggleFilter}
+                            card
+                          />
+                        ))}
                     </div>
+
+                    {secondaryFilters.length > 0 && (
+                      <details className="jam-song-more">
+                        <summary>More song details</summary>
+                        <div className="jam-tag-row">
+                          {secondaryFilters.map((filter) => (
+                            <FilterChip
+                              key={filter.value}
+                              filter={filter}
+                              activeFilters={activeFilters}
+                              onToggle={toggleFilter}
+                              card
+                            />
+                          ))}
+                        </div>
+                      </details>
+                    )}
 
                     <footer className="jam-song-card-footer">
                       {hasJamSongTab(song) ? (
@@ -264,7 +326,9 @@ function JamIndex() {
                           Open tab
                         </Link>
                       ) : (
-                        <span className="jam-no-tab-note">No tab on site yet</span>
+                        <span className="jam-no-tab-note">
+                          No tab on site yet
+                        </span>
                       )}
                     </footer>
                   </article>
@@ -274,7 +338,18 @@ function JamIndex() {
           </div>
 
           {visibleSongs.length === 0 && (
-            <p className="jam-empty-state">No songs match that search.</p>
+            <div className="jam-empty-state">
+              <p>
+                No songs match. Try removing a filter or changing your search.
+              </p>
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={clearFilters}
+              >
+                Clear filters and search
+              </button>
+            </div>
           )}
         </div>
       </div>

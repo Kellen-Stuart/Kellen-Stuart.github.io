@@ -6,15 +6,15 @@ const PrintEmploymentDescription = ({ paragraphText, bulletPoints }) => {
       <div className="row ms-2">
         <p>{paragraphText}</p>
       </div>
-    <div className="row ms-5">
+      <div className="row ms-5">
         <ul>
-            {bulletPoints.map((bulletPoint) => (
-                <li>{bulletPoint}</li>
-            ))}
+          {bulletPoints.map((bulletPoint) => (
+            <li>{bulletPoint}</li>
+          ))}
         </ul>
-    </div>
+      </div>
     </>
   );
-}
+};
 
 export default PrintEmploymentDescription;

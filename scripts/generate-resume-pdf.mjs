@@ -20,7 +20,7 @@ async function ensureBuildExists() {
     await access(distIndexPath);
   } catch {
     throw new Error(
-      "Missing dist build output. Run `npm run build` before `npm run generate:resume-pdf`."
+      "Missing dist build output. Run `npm run build` before `npm run generate:resume-pdf`.",
     );
   }
 }
@@ -98,7 +98,7 @@ generatePdf()
   })
   .catch((error) => {
     process.stderr.write(
-      `Failed to generate resume PDF: ${formatErrorMessage(error)}\n`
+      `Failed to generate resume PDF: ${formatErrorMessage(error)}\n`,
     );
     process.exitCode = 1;
   });

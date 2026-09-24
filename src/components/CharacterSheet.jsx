@@ -1,5 +1,5 @@
-import React from "react"
-import "../CharacterSheet.css"
+import React from "react";
+import "../CharacterSheet.css";
 function CharacterSheet() {
   return (
     <div id="character-sheet" className="container print-hide">
@@ -24,10 +24,7 @@ function CharacterSheet() {
                   className="img-fluid exp-sprite"
                   src="https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg"
                 />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/react-logo.svg"
-                />
+                <img className="img-fluid exp-sprite" src="/react-logo.svg" />
                 <img
                   className="img-fluid exp-sprite-double-wide"
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/500px-Node.js_logo.svg.png"
@@ -38,46 +35,16 @@ function CharacterSheet() {
                 />
               </div>
               <div className="col-9">
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-2.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-2.png"
-                />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-2.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-2.png" />
                 <img
                   className="img-fluid exp-sprite-double-wide"
                   src="/number-10.png"
@@ -94,46 +61,16 @@ function CharacterSheet() {
                 />
               </div>
               <div className="col-9">
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-2.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-3.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-4.png"
-                />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-2.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-3.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-4.png" />
                 <img className="img-fluid exp-sprite" src="/number-8.png" />
               </div>
             </div>
@@ -149,52 +86,19 @@ function CharacterSheet() {
                   className="img-fluid exp-sprite"
                   src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Blazor.png"
                 />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/python-logo.svg"
-                />
+                <img className="img-fluid exp-sprite" src="/python-logo.svg" />
               </div>
               <div className="col-9">
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-2.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-3.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-3.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-3.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-4.png"
-                />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-2.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-3.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-3.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-3.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-4.png" />
                 <img className="img-fluid exp-sprite" src="/number-6.png" />
               </div>
             </div>
@@ -216,46 +120,16 @@ function CharacterSheet() {
                 />
               </div>
               <div className="col-9">
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-2.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-3.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-4.png"
-                />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-2.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-3.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-4.png" />
                 <img className="img-fluid exp-sprite" src="/number-8.png" />
               </div>
             </div>
@@ -277,46 +151,16 @@ function CharacterSheet() {
                 />
               </div>
               <div className="col-9">
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-2.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-3.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-4.png"
-                />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-2.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-3.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-4.png" />
                 <img className="img-fluid exp-sprite" src="/number-8.png" />
               </div>
             </div>
@@ -326,46 +170,16 @@ function CharacterSheet() {
                 <span className="stardew-text-no-border">Experience</span>
               </div>
               <div className="col-9">
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-2.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-3.png"
-                />
-                <img
-                  className="img-fluid exp-sprite"
-                  src="/exp-sprite-4.png"
-                />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-2.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-3.png" />
+                <img className="img-fluid exp-sprite" src="/exp-sprite-4.png" />
                 <img
                   className="img-fluid exp-sprite-double-wide"
                   src="/number-10.png"
@@ -380,4 +194,4 @@ function CharacterSheet() {
   );
 }
 
-export default CharacterSheet
+export default CharacterSheet;

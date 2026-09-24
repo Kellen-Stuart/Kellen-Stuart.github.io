@@ -61,7 +61,10 @@ function ChordLyricsLine({ line, chordShapes, stringLabels }) {
   return (
     <div className="jam-chord-lyric-line">
       {parsedLine.map((part, index) => (
-        <span className="jam-chord-lyric-cell" key={`${part.chordName ?? "lyric"}-${index}`}>
+        <span
+          className="jam-chord-lyric-cell"
+          key={`${part.chordName ?? "lyric"}-${index}`}
+        >
           <span className="jam-chord-slot">
             {part.chordName && (
               <ChordToken
@@ -117,7 +120,11 @@ function TabBlock({ block }) {
 }
 
 function RhythmEvent({ event }) {
-  const label = event.hold ? "-" : event.rest ? "rest" : event.stroke ?? event.label ?? "hit";
+  const label = event.hold
+    ? "-"
+    : event.rest
+      ? "rest"
+      : (event.stroke ?? event.label ?? "hit");
 
   return (
     <div
@@ -136,7 +143,9 @@ function RhythmEvent({ event }) {
       <span className="jam-rhythm-notehead">
         {event.hold ? "-" : event.rest ? "R" : event.mute ? "x" : ""}
       </span>
-      {!event.rest && !event.hold && <span className="jam-rhythm-stem" aria-hidden="true" />}
+      {!event.rest && !event.hold && (
+        <span className="jam-rhythm-stem" aria-hidden="true" />
+      )}
       <span className="jam-rhythm-event-label">{label}</span>
     </div>
   );
@@ -148,7 +157,10 @@ function CompactStrumGrid({ block }) {
   };
 
   return (
-    <div className="jam-compact-strum" aria-label={`${block.label} compact notation`}>
+    <div
+      className="jam-compact-strum"
+      aria-label={`${block.label} compact notation`}
+    >
       {block.pattern && (
         <div className="jam-compact-pattern">
           <span>Pattern</span>
@@ -177,7 +189,7 @@ function CompactStrumGrid({ block }) {
               .join(" ")}
             key={`compact-hit-${index}`}
           >
-            {event.hold || event.rest ? "-" : event.stroke ?? "x"}
+            {event.hold || event.rest ? "-" : (event.stroke ?? "x")}
           </span>
         ))}
         {block.events.map((event, index) => (
@@ -237,11 +249,19 @@ function RhythmicLyricsBlock({ block, chordShapes, stringLabels }) {
       </div>
       <div className="jam-rhythmic-measures">
         {block.measures.map((measure, measureIndex) => (
-          <div className="jam-rhythmic-measure-wrap" key={`measure-${measureIndex}`}>
-            <span className="jam-rhythmic-measure-label">Bar {measureIndex + 1}</span>
+          <div
+            className="jam-rhythmic-measure-wrap"
+            key={`measure-${measureIndex}`}
+          >
+            <span className="jam-rhythmic-measure-label">
+              Bar {measureIndex + 1}
+            </span>
             <div className="jam-rhythmic-measure" style={columns}>
               {block.counts.map((count, index) => (
-                <span className="jam-rhythmic-count" key={`${count}-${measureIndex}-${index}`}>
+                <span
+                  className="jam-rhythmic-count"
+                  key={`${count}-${measureIndex}-${index}`}
+                >
                   {count}
                 </span>
               ))}
@@ -259,7 +279,9 @@ function RhythmicLyricsBlock({ block, chordShapes, stringLabels }) {
                       />
                     )}
                   </span>
-                  <span className="jam-rhythmic-lyric">{cell.lyric || " "}</span>
+                  <span className="jam-rhythmic-lyric">
+                    {cell.lyric || " "}
+                  </span>
                 </span>
               ))}
             </div>
@@ -287,7 +309,11 @@ function BarMapBlock({ block }) {
           <span role="columnheader">Cue</span>
         </div>
         {block.rows.map((row) => (
-          <div className="jam-bar-map-row" role="row" key={`${row.bars}-${row.lyric ?? row.cue}`}>
+          <div
+            className="jam-bar-map-row"
+            role="row"
+            key={`${row.bars}-${row.lyric ?? row.cue}`}
+          >
             <span className="jam-bar-map-bars" role="cell">
               {row.bars}
             </span>
@@ -295,7 +321,9 @@ function BarMapBlock({ block }) {
               {row.chords}
             </span>
             <span className="jam-bar-map-cue" role="cell">
-              {row.lyric && <span className="jam-bar-map-lyric">{row.lyric}</span>}
+              {row.lyric && (
+                <span className="jam-bar-map-lyric">{row.lyric}</span>
+              )}
               {row.cue && <span className="jam-bar-map-note">{row.cue}</span>}
             </span>
           </div>

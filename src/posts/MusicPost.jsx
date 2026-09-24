@@ -14,12 +14,10 @@ function MusicPost({ post }) {
     >
       <p>
         I rebuilt my guitar practice routine this year to favor consistency over
-        long sessions. Thirty focused minutes has been more effective than waiting
-        for a perfect two-hour block.
+        long sessions. Thirty focused minutes has been more effective than
+        waiting for a perfect two-hour block.
       </p>
-      <p>
-        My baseline structure is:
-      </p>
+      <p>My baseline structure is:</p>
       <ul>
         <li>10 minutes of scale and fretboard warmups.</li>
         <li>10 minutes of rhythm and timing drills with a metronome.</li>
@@ -27,8 +25,8 @@ function MusicPost({ post }) {
       </ul>
       <p>
         The key is reducing setup friction. I keep one guitar on a stand and a
-        short list of drills nearby so I can start quickly instead of deciding what
-        to practice.
+        short list of drills nearby so I can start quickly instead of deciding
+        what to practice.
       </p>
       <p>
         This routine keeps momentum high and makes it easier to notice gradual

@@ -72,7 +72,9 @@ body {
 }
 
 .navbar-icon {
-  transition: transform 0.08s ease, opacity 0.08s ease;
+  transition:
+    transform 0.08s ease,
+    opacity 0.08s ease;
 }
 
 .navbar-icon-link:hover .navbar-icon,
@@ -155,7 +157,9 @@ a:hover {
   border-radius: 0.75rem;
   padding: 1rem;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .blog-post-card:hover {
@@ -305,6 +309,61 @@ a:hover {
   gap: 0.5rem;
 }
 
+.jam-filter-help {
+  color: #4f5d75;
+  font-size: 0.875rem;
+  margin-bottom: 0.9rem;
+}
+
+.jam-filter-group {
+  min-width: 0;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.jam-filter-group legend {
+  float: none;
+  width: auto;
+  margin-bottom: 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #24364f;
+}
+
+.jam-more-filters summary,
+.jam-song-more summary {
+  cursor: pointer;
+  color: #003687;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.jam-more-filters[open] summary,
+.jam-song-more[open] summary {
+  margin-bottom: 0.75rem;
+}
+
+.jam-more-filters summary:focus-visible,
+.jam-song-more summary:focus-visible {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+.jam-selected-filters {
+  border-top: 1px solid #d9e3f3;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+}
+
+.jam-selected-filters p {
+  margin-bottom: 0.5rem;
+}
+
+.jam-song-more {
+  margin-bottom: 0.75rem;
+}
+
 .jam-filter-chip,
 .jam-song-tag {
   display: inline-flex;
@@ -318,7 +377,10 @@ a:hover {
   font-size: 0.82rem;
   font-weight: 700;
   line-height: 1.2;
-  transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  transition:
+    background-color 0.12s ease,
+    border-color 0.12s ease,
+    color 0.12s ease;
 }
 
 .jam-filter-chip small,
@@ -373,7 +435,9 @@ a:hover {
   border-radius: 0.5rem;
   padding: 1rem;
   background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .jam-song-card.is-tabbed:hover {
@@ -731,7 +795,9 @@ a:hover {
   opacity: 0;
   pointer-events: none;
   transform: translateX(-50%) translateY(-0.15rem);
-  transition: opacity 0.08s ease, transform 0.08s ease;
+  transition:
+    opacity 0.08s ease,
+    transform 0.08s ease;
   visibility: hidden;
 }
 
@@ -885,7 +951,9 @@ a:hover {
   padding: 0.75rem;
   background-color: #f6f8fb;
   color: #111;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
   font-size: 0.92rem;
   line-height: 1.5;
 }
@@ -1005,7 +1073,10 @@ a:hover {
 
 .jam-bar-map-row {
   display: grid;
-  grid-template-columns: minmax(4.5rem, 0.4fr) minmax(12rem, 1fr) minmax(14rem, 1.35fr);
+  grid-template-columns: minmax(4.5rem, 0.4fr) minmax(12rem, 1fr) minmax(
+      14rem,
+      1.35fr
+    );
   min-width: 46rem;
 }
 
@@ -1102,7 +1173,9 @@ a:hover {
 .jam-compact-count {
   border-bottom: 1px solid #d9e3f3;
   color: #4f5d75;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
   font-size: 0.75rem;
   font-weight: 800;
 }
@@ -1110,7 +1183,9 @@ a:hover {
 .jam-compact-hit {
   border-bottom: 1px solid #d9e3f3;
   color: #111;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
   font-size: 0.95rem;
   font-weight: 800;
 }
@@ -1419,7 +1494,8 @@ a:hover {
     align-items: center; /* Centers items vertically */
     width: 100%; /* Ensures the navbar takes full width */
   }
-  .nav-link, .navbar-text {
+  .nav-link,
+  .navbar-text {
     display: inline; /* Forces inline display */
     white-space: nowrap; /* Prevents breaking items into new lines */
   }

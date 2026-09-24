@@ -29,21 +29,16 @@ const PrintResume = () => {
   return (
     <div className="container-fluid print-resume-page">
       <PrintNavbar />
-      <PrintContactInfo
-        contacts={[
-          "linkedin.com/in/kellenstuart",
-        ]}
-      />
+      <PrintContactInfo contacts={["linkedin.com/in/kellenstuart"]} />
       <div className="row">
         <div className="col-12">
           <p className="mt-5 ps-1 pe-2">
             Senior leader with a track record of success in translating business
             challenges and changing user needs into innovative new features and
             products for companies including Tech Disc, Tasso Inc., and Lockheed
-            Martin.
-            Highly skilled in leveraging cross-functional collaboration to ensure
-            the on-time completion of end-to-end software development and
-            engineering lifecycles.
+            Martin. Highly skilled in leveraging cross-functional collaboration
+            to ensure the on-time completion of end-to-end software development
+            and engineering lifecycles.
           </p>
         </div>
       </div>
@@ -94,10 +89,10 @@ applications, mobile applications, and a GraphQL API essential for the success o
         employmentTimeSpan="Dec 2015 - Mar 2018"
         paragraphText="Supported a missile defense system by integrating new technologies."
         bulletPoints={[
-            "Supported Java development of missile defense system.",
-            "Upgraded internal employee tracking system stored in Excel by building a new Angular web application with a Mongo DB supporting advanced features.",
-            "Automated repititive tasks for the IT team by writing scripts in Powershell.",
-            "Administrator of highly secure RedHat Linux systems which requires a deep understand of unix-like systems."
+          "Supported Java development of missile defense system.",
+          "Upgraded internal employee tracking system stored in Excel by building a new Angular web application with a Mongo DB supporting advanced features.",
+          "Automated repititive tasks for the IT team by writing scripts in Powershell.",
+          "Administrator of highly secure RedHat Linux systems which requires a deep understand of unix-like systems.",
         ]}
       />
 
@@ -105,8 +100,9 @@ applications, mobile applications, and a GraphQL API essential for the success o
       <div className="row">
         <div className="col-12">
           <p className="ps-1 pe-2">
-            <span className="fw-bold">Bachelor of Computer Science</span>, Western
-            State Colorado University, 2016 - GPA 3.94/4.0 Summa Cum Laude
+            <span className="fw-bold">Bachelor of Computer Science</span>,
+            Western State Colorado University, 2016 - GPA 3.94/4.0 Summa Cum
+            Laude
           </p>
         </div>
       </div>

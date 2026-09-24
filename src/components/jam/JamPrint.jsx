@@ -68,9 +68,12 @@ function compareKeyLabels(firstKey, secondKey) {
 function groupSongsForPrint(songs) {
   const sortedSongs = [...songs].sort(
     (firstSong, secondSong) =>
-      compareKeyLabels(firstSong.key || keyTbdLabel, secondSong.key || keyTbdLabel) ||
+      compareKeyLabels(
+        firstSong.key || keyTbdLabel,
+        secondSong.key || keyTbdLabel,
+      ) ||
       firstSong.artist.localeCompare(secondSong.artist) ||
-      firstSong.title.localeCompare(secondSong.title)
+      firstSong.title.localeCompare(secondSong.title),
   );
 
   const keyGroups = new Map();
@@ -106,7 +109,9 @@ function groupSongsForPrint(songs) {
 }
 
 function getSongPrintMeta(song) {
-  return [song.tuning, song.capo, hasJamSongTab(song) ? "Tabbed" : null].filter(Boolean).join(" / ");
+  return [song.tuning, song.capo, hasJamSongTab(song) ? "Tabbed" : null]
+    .filter(Boolean)
+    .join(" / ");
 }
 
 function JamPrint() {
@@ -121,11 +126,25 @@ function JamPrint() {
     <main className="jam-print-page">
       <div className="jam-print-toolbar print-hide">
         <Link className="btn btn-outline-dark" to="/jam">
-          <FontAwesomeIcon widthAuto icon={faArrowLeft} className="jam-button-icon" aria-hidden="true" />
+          <FontAwesomeIcon
+            widthAuto
+            icon={faArrowLeft}
+            className="jam-button-icon"
+            aria-hidden="true"
+          />
           <span>Jam</span>
         </Link>
-        <button type="button" className="btn btn-dark jam-print-action" onClick={printPage}>
-          <FontAwesomeIcon widthAuto icon={faPrint} className="jam-button-icon" aria-hidden="true" />
+        <button
+          type="button"
+          className="btn btn-dark jam-print-action"
+          onClick={printPage}
+        >
+          <FontAwesomeIcon
+            widthAuto
+            icon={faPrint}
+            className="jam-button-icon"
+            aria-hidden="true"
+          />
           <span>Print</span>
         </button>
       </div>
@@ -145,13 +164,20 @@ function JamPrint() {
               </h2>
 
               {keyGroup.artists.map((artistGroup) => (
-                <div className="jam-print-artist" key={`${keyGroup.key}-${artistGroup.artist}`}>
+                <div
+                  className="jam-print-artist"
+                  key={`${keyGroup.key}-${artistGroup.artist}`}
+                >
                   <h3>{artistGroup.artist}</h3>
                   <ol className="jam-print-song-list">
                     {artistGroup.songs.map((song) => (
                       <li className="jam-print-song" key={song.slug}>
-                        <span className="jam-print-song-title">{song.title}</span>
-                        <span className="jam-print-song-meta">{getSongPrintMeta(song)}</span>
+                        <span className="jam-print-song-title">
+                          {song.title}
+                        </span>
+                        <span className="jam-print-song-meta">
+                          {getSongPrintMeta(song)}
+                        </span>
                       </li>
                     ))}
                   </ol>

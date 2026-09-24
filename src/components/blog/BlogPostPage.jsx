@@ -100,7 +100,11 @@ const usePostSeo = (post) => {
 
     if (!post) {
       document.title = "Post Not Found | Kellen Stuart";
-      setMetaTag("name", "description", "The requested blog post was not found.");
+      setMetaTag(
+        "name",
+        "description",
+        "The requested blog post was not found.",
+      );
       return resetSeo;
     }
 
@@ -120,9 +124,17 @@ const usePostSeo = (post) => {
     setMetaTag("property", "og:url", url);
     setMetaTag("property", "og:site_name", "Kellen Stuart");
     setMetaTag("property", "article:published_time", post.date);
-    setMetaTag("property", "article:modified_time", post.lastUpdated || post.date);
+    setMetaTag(
+      "property",
+      "article:modified_time",
+      post.lastUpdated || post.date,
+    );
     setMetaTag("property", "article:section", post.category);
-    setMetaTag("name", "twitter:card", imageUrl ? "summary_large_image" : "summary");
+    setMetaTag(
+      "name",
+      "twitter:card",
+      imageUrl ? "summary_large_image" : "summary",
+    );
     setMetaTag("name", "twitter:title", title);
     setMetaTag("name", "twitter:description", description);
     if (imageUrl) {
@@ -148,7 +160,8 @@ function BlogPostPage() {
           <div className="col-xl-8 col-lg-9 col-md-10 col-sm-12 col-12">
             <h1 className="h3 mb-3">Post Not Found</h1>
             <p className="mb-3">
-              The post you requested does not exist or has not been published yet.
+              The post you requested does not exist or has not been published
+              yet.
             </p>
             <Link to="/blog" className="link">
               Return to Blog Index

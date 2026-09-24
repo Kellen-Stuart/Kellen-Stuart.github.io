@@ -28,7 +28,11 @@ function ChordToken({ chordName, chordShapes, stringLabels }) {
         {chordName}
       </button>
       <span className="jam-chord-popover" role="tooltip">
-        <ChordDiagram name={chordName} shape={shape} stringLabels={stringLabels} />
+        <ChordDiagram
+          name={chordName}
+          shape={shape}
+          stringLabels={stringLabels}
+        />
       </span>
     </span>
   );

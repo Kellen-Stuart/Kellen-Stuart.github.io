@@ -51,7 +51,10 @@ function JamSongPage() {
       return;
     }
 
-    window.localStorage.setItem(getStorageKey(song.slug), String(pixelsPerSecond));
+    window.localStorage.setItem(
+      getStorageKey(song.slug),
+      String(pixelsPerSecond),
+    );
   }, [song, pixelsPerSecond]);
 
   useEffect(() => {
@@ -64,7 +67,10 @@ function JamSongPage() {
         lastFrameTimeRef.current = timestamp;
       }
 
-      const elapsedSeconds = Math.min((timestamp - lastFrameTimeRef.current) / 1000, 0.25);
+      const elapsedSeconds = Math.min(
+        (timestamp - lastFrameTimeRef.current) / 1000,
+        0.25,
+      );
       lastFrameTimeRef.current = timestamp;
 
       const documentElement = document.documentElement;
@@ -177,7 +183,10 @@ function JamSongPage() {
             </div>
           </header>
 
-          <section className="jam-scroll-controls" aria-label="Auto-scroll controls">
+          <section
+            className="jam-scroll-controls"
+            aria-label="Auto-scroll controls"
+          >
             <div>
               <p className="jam-control-label mb-1">Auto-scroll</p>
               <button
@@ -212,7 +221,10 @@ function JamSongPage() {
                 value={pixelsPerSecond}
                 onChange={(event) =>
                   setPixelsPerSecond(
-                    clampScrollSpeed(Number(event.target.value), song.defaultScrollSpeed)
+                    clampScrollSpeed(
+                      Number(event.target.value),
+                      song.defaultScrollSpeed,
+                    ),
                   )
                 }
               />

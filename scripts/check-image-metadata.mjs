@@ -50,7 +50,10 @@ function trackedFiles(root) {
 }
 
 function untrackedFiles(root) {
-  const output = gitOutput(["ls-files", "--others", "--exclude-standard", "-z"], root);
+  const output = gitOutput(
+    ["ls-files", "--others", "--exclude-standard", "-z"],
+    root,
+  );
 
   return output
     .toString("utf8")
@@ -91,10 +94,21 @@ function addIssue(issues, file, message) {
 }
 
 function checkPng(buffer, file, issues) {
-  const signature = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
-  if (buffer.length < 8 || !buffer.subarray(0, 8).equals(signature)) return false;
+  const signature = Buffer.from([
+    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
+  ]);
+  if (buffer.length < 8 || !buffer.subarray(0, 8).equals(signature))
+    return false;
 
-  const blockedChunks = new Set(["eXIf", "iCCP", "iDOT", "iTXt", "tEXt", "tIME", "zTXt"]);
+  const blockedChunks = new Set([
+    "eXIf",
+    "iCCP",
+    "iDOT",
+    "iTXt",
+    "tEXt",
+    "tIME",
+    "zTXt",
+  ]);
   let offset = 8;
 
   while (offset + 12 <= buffer.length) {
@@ -107,7 +121,10 @@ function checkPng(buffer, file, issues) {
     if (blockedChunks.has(type)) {
       let detail = type;
       if (["iTXt", "tEXt", "zTXt"].includes(type)) {
-        const keyword = buffer.subarray(dataStart, dataEnd).toString("latin1").split("\0")[0];
+        const keyword = buffer
+          .subarray(dataStart, dataEnd)
+          .toString("latin1")
+          .split("\0")[0];
         detail = `${type} ${keyword || "text metadata"}`;
       }
       addIssue(issues, file, `PNG metadata chunk found: ${detail}`);
@@ -121,7 +138,8 @@ function checkPng(buffer, file, issues) {
 }
 
 function checkJpeg(buffer, file, issues) {
-  if (buffer.length < 2 || buffer[0] !== 0xff || buffer[1] !== 0xd8) return false;
+  if (buffer.length < 2 || buffer[0] !== 0xff || buffer[1] !== 0xd8)
+    return false;
 
   let offset = 2;
   while (offset + 4 <= buffer.length) {
@@ -146,8 +164,15 @@ function checkJpeg(buffer, file, issues) {
 
     const payload = buffer.subarray(dataStart, dataEnd);
     if (marker === 0xe1) {
-      addIssue(issues, file, `JPEG APP1 EXIF/XMP metadata found: ${ascii(payload)}`);
-    } else if (marker === 0xe2 && payload.includes(Buffer.from("ICC_PROFILE", "latin1"))) {
+      addIssue(
+        issues,
+        file,
+        `JPEG APP1 EXIF/XMP metadata found: ${ascii(payload)}`,
+      );
+    } else if (
+      marker === 0xe2 &&
+      payload.includes(Buffer.from("ICC_PROFILE", "latin1"))
+    ) {
       addIssue(issues, file, "JPEG APP2 ICC profile metadata found");
     } else if (marker === 0xed) {
       addIssue(issues, file, "JPEG APP13 Photoshop/IPTC metadata found");
@@ -179,7 +204,11 @@ function checkWebp(buffer, file, issues) {
     const type = buffer.subarray(offset, offset + 4).toString("latin1");
     const length = readUInt32LE(buffer, offset + 4);
     if (blockedChunks.has(type)) {
-      addIssue(issues, file, `WebP metadata/provenance chunk found: ${type.trim()}`);
+      addIssue(
+        issues,
+        file,
+        `WebP metadata/provenance chunk found: ${type.trim()}`,
+      );
     }
     offset += 8 + length + (length % 2);
   }
@@ -191,9 +220,12 @@ function checkSvg(buffer, file, issues) {
   const text = buffer.toString("utf8").trimStart();
   if (!text.startsWith("<")) return false;
 
-  if (text.includes("<!--")) addIssue(issues, file, "SVG comment metadata found");
-  if (/<metadata[\s>]/i.test(text)) addIssue(issues, file, "SVG <metadata> element found");
-  if (/<rdf:|<dc:|<cc:/i.test(text)) addIssue(issues, file, "SVG RDF/DC/CC metadata found");
+  if (text.includes("<!--"))
+    addIssue(issues, file, "SVG comment metadata found");
+  if (/<metadata[\s>]/i.test(text))
+    addIssue(issues, file, "SVG <metadata> element found");
+  if (/<rdf:|<dc:|<cc:/i.test(text))
+    addIssue(issues, file, "SVG RDF/DC/CC metadata found");
 
   return true;
 }
@@ -224,7 +256,10 @@ function checkIco(buffer, file, issues) {
 }
 
 function checkFlac(buffer, file, issues) {
-  if (buffer.length < 4 || buffer.subarray(0, 4).toString("latin1") !== "fLaC") {
+  if (
+    buffer.length < 4 ||
+    buffer.subarray(0, 4).toString("latin1") !== "fLaC"
+  ) {
     return false;
   }
 
@@ -268,7 +303,12 @@ function checkLooseMetadataStrings(buffer, file, issues) {
   }
 }
 
-function checkBuffer(buffer, file, issues, extension = path.extname(file).toLowerCase()) {
+function checkBuffer(
+  buffer,
+  file,
+  issues,
+  extension = path.extname(file).toLowerCase(),
+) {
   if (checkPng(buffer, file, issues)) return;
   if (checkJpeg(buffer, file, issues)) return;
   if (checkWebp(buffer, file, issues)) return;
@@ -286,7 +326,8 @@ function checkFile(root, file, issues) {
 }
 
 function checkInlineDataImages(root, files, issues) {
-  const dataImagePattern = /data:image\/([a-zA-Z0-9.+-]+);base64,([A-Za-z0-9+/=]+)/g;
+  const dataImagePattern =
+    /data:image\/([a-zA-Z0-9.+-]+);base64,([A-Za-z0-9+/=]+)/g;
 
   for (const file of files) {
     if (mediaExtensions.has(path.extname(file).toLowerCase())) continue;
@@ -309,8 +350,11 @@ function checkInlineDataImages(root, files, issues) {
 }
 
 const root = repoRoot();
-const scannedFiles = process.argv.length > 2 ? cliMediaFiles(root) : defaultFiles(root);
-const mediaFiles = scannedFiles.filter((file) => mediaExtensions.has(path.extname(file).toLowerCase()));
+const scannedFiles =
+  process.argv.length > 2 ? cliMediaFiles(root) : defaultFiles(root);
+const mediaFiles = scannedFiles.filter((file) =>
+  mediaExtensions.has(path.extname(file).toLowerCase()),
+);
 const issues = [];
 
 for (const file of mediaFiles) {

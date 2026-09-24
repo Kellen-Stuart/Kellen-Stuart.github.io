@@ -28,7 +28,10 @@ const removeExistingSeo = (html) =>
     .replace(/<meta\s+property="og:[^"]+"[^>]*>\s*/gi, "")
     .replace(/<meta\s+property="article:[^"]+"[^>]*>\s*/gi, "")
     .replace(/<meta\s+name="twitter:[^"]+"[^>]*>\s*/gi, "")
-    .replace(/<script\s+type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>\s*/gi, "");
+    .replace(
+      /<script\s+type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>\s*/gi,
+      "",
+    );
 
 const renderMetaTags = (post) => {
   const title = `${post.seo?.title || post.title} | Kellen Stuart`;
@@ -62,15 +65,22 @@ const renderMetaTags = (post) => {
     `<meta property="og:type" content="article" />`,
     `<meta property="og:url" content="${escapeHtml(url)}" />`,
     `<meta property="og:site_name" content="Kellen Stuart" />`,
-    imageUrl ? `<meta property="og:image" content="${escapeHtml(imageUrl)}" />` : "",
+    imageUrl
+      ? `<meta property="og:image" content="${escapeHtml(imageUrl)}" />`
+      : "",
     `<meta property="article:published_time" content="${escapeHtml(post.date)}" />`,
     `<meta property="article:modified_time" content="${escapeHtml(post.lastUpdated || post.date)}" />`,
     `<meta property="article:section" content="${escapeHtml(post.category)}" />`,
-    ...keywords.map((keyword) => `<meta property="article:tag" content="${escapeHtml(keyword)}" />`),
+    ...keywords.map(
+      (keyword) =>
+        `<meta property="article:tag" content="${escapeHtml(keyword)}" />`,
+    ),
     `<meta name="twitter:card" content="${imageUrl ? "summary_large_image" : "summary"}" />`,
     `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
-    imageUrl ? `<meta name="twitter:image" content="${escapeHtml(imageUrl)}" />` : "",
+    imageUrl
+      ? `<meta name="twitter:image" content="${escapeHtml(imageUrl)}" />`
+      : "",
     `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`,
   ]
     .filter(Boolean)
@@ -93,4 +103,6 @@ for (const post of blogPostMeta) {
   fs.writeFileSync(path.join(postDir, "index.html"), postHtml);
 }
 
-console.log(`Generated ${blogPostMeta.length} static blog meta page${blogPostMeta.length === 1 ? "" : "s"}.`);
+console.log(
+  `Generated ${blogPostMeta.length} static blog meta page${blogPostMeta.length === 1 ? "" : "s"}.`,
+);

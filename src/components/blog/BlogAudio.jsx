@@ -8,7 +8,9 @@ function BlogAudio({ src, title, caption, type, className = "" }) {
         <source src={src} type={type} />
         Your browser does not support the audio element.
       </audio>
-      {caption && <figcaption className="blog-audio-caption">{caption}</figcaption>}
+      {caption && (
+        <figcaption className="blog-audio-caption">{caption}</figcaption>
+      )}
     </figure>
   );
 }

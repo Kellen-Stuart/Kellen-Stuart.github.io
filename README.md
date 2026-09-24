@@ -17,6 +17,7 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 - `npm run dev` (or `npm start`): start the local Vite dev server at `http://localhost:5173`
 - `npm run build`: create a production build in `dist/` and copy `dist/index.html` to `dist/404.html`
 - `npm run preview`: preview the production build locally
+- `npm run test:jam`: validate jam filtering and catalog metadata without starting a server
 - `npm run check:media-metadata`: check tracked and untracked media files for image and FLAC metadata
 - `npm run check:image-metadata`: compatibility alias for `npm run check:media-metadata`
 - `npm run setup:hooks`: configure this local clone to use the repo's Git hooks from `.githooks/`
@@ -51,6 +52,59 @@ browser before testing resume PDF generation.
 - The build includes a `404.html` copy for static hosting fallback behavior.
 - If Playwright browser binaries are missing in your environment, run `npx playwright install chromium`.
 - On Linux runners/workstations missing shared libraries, run `npx playwright install --with-deps chromium`.
+
+## Jam Song Metadata
+
+Edit songs in `src/data/jamSongs.js`. People, genres, and Yousician availability
+have their own fields; practice and descriptive labels remain in `tags`.
+
+```js
+playedWith: [musicians.kaylee, musicians.casey],
+genres: ["punk"],
+hasYousician: true,
+tags: [jamTags.needsWork, jamTags.soloLearned],
+```
+
+- `playedWith` records people you've played the song with. Use references such
+  as `musicians.kaylee` instead of quoted IDs. To add someone, define their stable
+  ID in `musicians` and their display name in `jamMusicians`. This is jam history,
+  not a required lineup or a claim that everyone currently remembers the song.
+- `genres` accepts multiple IDs from `jamGenres`, such as `"punk"`, `"country"`,
+  `"classic-rock"`, and `"psychedelic"`. Leave it empty when unspecified.
+- `hasYousician: true` marks a song as available in Yousician. `false` means
+  **not marked**, rather than verified unavailable. Existing Yousician tags were
+  carried over as `true`; availability has not been independently checked.
+- `tags` uses `jamTags` for practice and descriptions such as
+  Acoustic or Open Jam. Needs Work and Stage Ready can coexist; they have not
+  been reduced to a single readiness value. Solo progress remains separate.
+- Catalog songs default to empty people/genre/tag arrays and `hasYousician: false`
+  when these fields are omitted. Tuning, musical key, capo, and chart data keep
+  their existing fields.
+
+On `/jam`, click names under **Played with** to find songs you've played with
+every selected person. Each additional person narrows the list; click a selected
+name again to remove it. Selected buttons show a checkmark. There is no matching
+mode to choose. Genre, Guitar Tuning, Yousician, and chart
+filters match any selected option within their group. Different groups narrow
+each other. Practice and other tags require every selected tag.
+
+The main filter groups appear in this order: **Played with**, **Guitar Tuning**,
+**Genre**, and **Chart**. **Stage Ready** is a standalone toggle immediately below
+them. **More filters** contains **Practice**, **Yousician**, and **Other Tags**,
+in that order; Stage Ready is not repeated inside Practice and does not count
+toward the More filters selection count. Selected filters remain visible
+and removable even when that section is collapsed. Song cards show tuning,
+key, people, and readiness first; **More song details** reveals the remaining
+clickable labels. Search includes names, genres, practice tags, and song details.
+Musical key is informational only: it appears as a plain label on song cards and
+is excluded from filters and the search metadata.
+
+Run `npm run test:jam` and `npm run build` after changing filter logic. For a
+manual smoke test, select two people and verify each song lists both, then
+deselect one and confirm the list broadens. Select two genres or
+tunings, try the Yousician filter, and clear the selections. Check the expandable
+controls on a phone-sized viewport and confirm the Rooster chart and print list
+still open.
 
 ## Image Metadata Guard
 

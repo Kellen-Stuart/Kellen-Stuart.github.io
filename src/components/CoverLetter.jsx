@@ -12,7 +12,7 @@ function CoverLetter() {
             alt="Kellen"
           />
           <div className="row">
-              <ContactButton showDownloadPdf downloadLabel="Download Resume" />
+            <ContactButton showDownloadPdf downloadLabel="Download Resume" />
           </div>
         </div>
         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -48,10 +48,10 @@ function CoverLetter() {
           <div className="row">
             <h3>Professional Experience</h3>
             <p>
-              Kellen has been working professionally for over 10 years as a software
-              engineer. Beginning with an internship at Lockheed Martin, Kellen
-              gained experience in multiple industries and programming
-              languages.
+              Kellen has been working professionally for over 10 years as a
+              software engineer. Beginning with an internship at Lockheed
+              Martin, Kellen gained experience in multiple industries and
+              programming languages.
             </p>
             <p>
               Kellen began his career at Lockheed Martin where he worked on a

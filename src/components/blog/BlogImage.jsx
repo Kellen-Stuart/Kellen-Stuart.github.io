@@ -10,7 +10,9 @@ function BlogImage({ src, alt, caption, className = "" }) {
         loading="lazy"
         decoding="async"
       />
-      {caption && <figcaption className="blog-image-caption">{caption}</figcaption>}
+      {caption && (
+        <figcaption className="blog-image-caption">{caption}</figcaption>
+      )}
     </figure>
   );
 }

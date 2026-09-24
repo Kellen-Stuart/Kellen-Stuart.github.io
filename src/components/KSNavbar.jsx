@@ -7,13 +7,13 @@ import {
   faGitlab,
   faStackOverflow,
   faInstagram,
-  faLinkedin
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faFile,
   faAddressCard,
   faBookOpen,
-  faGuitar
+  faGuitar,
 } from "@fortawesome/free-solid-svg-icons";
 import KellenStuartLogo from "./KellenStuartLogo";
 import SeniorSoftwareEngineerLogo from "./SeniorSoftwareEngineerLogo";
@@ -43,7 +43,11 @@ function KSNavbar() {
             data-label="Resume"
             aria-label="Resume"
           >
-            <FontAwesomeIcon widthAuto icon={faFile} className="fa-xl link-black navbar-icon" />
+            <FontAwesomeIcon
+              widthAuto
+              icon={faFile}
+              className="fa-xl link-black navbar-icon"
+            />
           </Nav.Link>
           <Nav.Link
             as={Link}
@@ -52,7 +56,11 @@ function KSNavbar() {
             data-label="Contact"
             aria-label="Contact"
           >
-            <FontAwesomeIcon widthAuto icon={faAddressCard} className="fa-xl link-black navbar-icon" />
+            <FontAwesomeIcon
+              widthAuto
+              icon={faAddressCard}
+              className="fa-xl link-black navbar-icon"
+            />
           </Nav.Link>
           <Nav.Link
             as={Link}
@@ -61,7 +69,11 @@ function KSNavbar() {
             data-label="Blog"
             aria-label="Blog"
           >
-            <FontAwesomeIcon widthAuto icon={faBookOpen} className="fa-xl link-black navbar-icon" />
+            <FontAwesomeIcon
+              widthAuto
+              icon={faBookOpen}
+              className="fa-xl link-black navbar-icon"
+            />
           </Nav.Link>
           <Nav.Link
             as={Link}
@@ -70,7 +82,11 @@ function KSNavbar() {
             data-label="Jam"
             aria-label="Jam"
           >
-            <FontAwesomeIcon widthAuto icon={faGuitar} className="fa-xl link-black navbar-icon" />
+            <FontAwesomeIcon
+              widthAuto
+              icon={faGuitar}
+              className="fa-xl link-black navbar-icon"
+            />
           </Nav.Link>
           <Nav.Link
             href="https://www.linkedin.com/in/kellenstuart"
@@ -80,7 +96,11 @@ function KSNavbar() {
             data-label="LinkedIn"
             aria-label="LinkedIn"
           >
-            <FontAwesomeIcon widthAuto icon={faLinkedin} className="fa-xl link navbar-icon" />
+            <FontAwesomeIcon
+              widthAuto
+              icon={faLinkedin}
+              className="fa-xl link navbar-icon"
+            />
           </Nav.Link>
           <Nav.Link
             href="https://github.com/kellen-stuart"
@@ -90,7 +110,11 @@ function KSNavbar() {
             data-label="Github"
             aria-label="Github"
           >
-            <FontAwesomeIcon widthAuto icon={faGithub} className="fa-xl link-black navbar-icon" />
+            <FontAwesomeIcon
+              widthAuto
+              icon={faGithub}
+              className="fa-xl link-black navbar-icon"
+            />
           </Nav.Link>
           <Nav.Link
             href="https://stackoverflow.com/users/5361412/kellen-stuart"
@@ -100,7 +124,11 @@ function KSNavbar() {
             data-label="Stackoverflow"
             aria-label="Stackoverflow"
           >
-            <FontAwesomeIcon widthAuto icon={faStackOverflow} className="fa-xl link-orange navbar-icon" />
+            <FontAwesomeIcon
+              widthAuto
+              icon={faStackOverflow}
+              className="fa-xl link-orange navbar-icon"
+            />
           </Nav.Link>
           <Nav.Link
             href="https://gitlab.com/kellenstuart"
@@ -110,7 +138,11 @@ function KSNavbar() {
             data-label="Gitlab"
             aria-label="Gitlab"
           >
-            <FontAwesomeIcon widthAuto icon={faGitlab} className="fa-xl link-orange navbar-icon" />
+            <FontAwesomeIcon
+              widthAuto
+              icon={faGitlab}
+              className="fa-xl link-orange navbar-icon"
+            />
           </Nav.Link>
           <Nav.Link
             href="https://www.instagram.com/kellenmstuart"
@@ -120,7 +152,11 @@ function KSNavbar() {
             data-label="Instagram"
             aria-label="Instagram"
           >
-            <FontAwesomeIcon widthAuto icon={faInstagram} className="fa-xl link-pink navbar-icon" />
+            <FontAwesomeIcon
+              widthAuto
+              icon={faInstagram}
+              className="fa-xl link-pink navbar-icon"
+            />
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>

@@ -75,7 +75,9 @@ function Resume() {
               <li>Node.JS</li>
               <li>Google Cloud / Firebase Storage</li>
               <li>Bluetooth device integration</li>
-              <li>Security vulnerability patching (dependency/package updates)</li>
+              <li>
+                Security vulnerability patching (dependency/package updates)
+              </li>
               <li>Github Actions</li>
               <li>WSL 2 (Ubuntu)</li>
               <li>ZSH</li>
@@ -105,15 +107,17 @@ function Resume() {
             <ul>
               <li>Built and maintained AWS cloud infrastructure</li>
               <li>Developed React frontends for user-facing applications</li>
-              <li>Created and managed APIs and databases for partner integrations</li>
+              <li>
+                Created and managed APIs and databases for partner integrations
+              </li>
             </ul>
             <p className="pl-3">
               Built a .NET 8 GraphQL API for blood device and collection
-              workflow data by scaffolding the existing relational database
-              with Entity Framework Core, then layering a strongly typed
-              GraphQL schema on top. This let clients request only the exact
-              fields needed for each workflow, reducing REST over-fetching and
-              removing significant front-end data-joining complexity.
+              workflow data by scaffolding the existing relational database with
+              Entity Framework Core, then layering a strongly typed GraphQL
+              schema on top. This let clients request only the exact fields
+              needed for each workflow, reducing REST over-fetching and removing
+              significant front-end data-joining complexity.
             </p>
             <p className="pl-3">
               Led implementation of company-wide feature flags and frequently
@@ -140,7 +144,9 @@ function Resume() {
               <li>Gitlab CI/CD</li>
               <li>Agile</li>
               <li>Test Driven Development / Cucumber / Gherkin / Selenium</li>
-              <li>Launch Darkly / Unleash / Gitlab Unleash / Unleash React SDK</li>
+              <li>
+                Launch Darkly / Unleash / Gitlab Unleash / Unleash React SDK
+              </li>
               <li>Linux / Sonoma Automation ZSH BASH</li>
             </ul>
           </div>
@@ -151,8 +157,7 @@ function Resume() {
 
         {/* Work Experience - Flavor Forge AI, LLC */}
         <div className="row mb-4">
-          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
-          </div>
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12"></div>
           <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <a className="link" href="https://flavorforgeai.com">
               Flavor Forge AI, LLC
@@ -185,8 +190,7 @@ function Resume() {
 
         {/* Work Experience - Tyler Technologies */}
         <div className="row mb-4">
-          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12">
-          </div>
+          <div className="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-12"></div>
           <div className="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-12">
             <a className="link" href="https://www.tylertech.com/">
               Tyler Technologies
@@ -196,7 +200,7 @@ function Resume() {
             <br />
             <p className="pl-3">
               This position entails developing critical payment systems for a
-              large utility billing software suite called 
+              large utility billing software suite called
               <a
                 href="https://municipalonlinepayments.com/goldenco"
                 className="link"
@@ -337,13 +341,22 @@ function Resume() {
             <b>languages</b>
             <p>Typescript, Javascript (ES6+), Python, C#, Java, SQL</p>
             <b>frameworks</b>
-            <p>React, Django, Node.js, Express.js, Nest.JS, .NET Core, ASP.NET MVC, Blazor, Angular</p>
+            <p>
+              React, Django, Node.js, Express.js, Nest.JS, .NET Core, ASP.NET
+              MVC, Blazor, Angular
+            </p>
             <b>front end</b>
-            <p>React (Vite & CRA), React Router, Tailwind CSS, Material UI, Bootstrap 5, CSS, SASS, LESS</p>
+            <p>
+              React (Vite & CRA), React Router, Tailwind CSS, Material UI,
+              Bootstrap 5, CSS, SASS, LESS
+            </p>
             <b>mobile</b>
             <p>React Native</p>
             <b>cloud</b>
-            <p>AWS (CDK, AWS CLI), Google Cloud Platform (GCP), Firebase Storage, Azure</p>
+            <p>
+              AWS (CDK, AWS CLI), Google Cloud Platform (GCP), Firebase Storage,
+              Azure
+            </p>
             <b>databases</b>
             <p>PostgreSQL, SQL Server, MySQL, DynamoDB, MongoDB</p>
             <b>orm</b>
@@ -351,11 +364,17 @@ function Resume() {
             <b>api</b>
             <p>REST APIs, GraphQL, OAuth 2.0, ASP.NET Web API</p>
             <b>security</b>
-            <p>Dependency vulnerability remediation, package patching, secure release practices</p>
+            <p>
+              Dependency vulnerability remediation, package patching, secure
+              release practices
+            </p>
             <b>connectivity</b>
             <p>Bluetooth / BLE device integration and reliability hardening</p>
             <b>dev ops / ci-cd</b>
-            <p>GitHub Actions, GitLab CI/CD, Dotnet Publish, TeamCity, Octopus Deploy</p>
+            <p>
+              GitHub Actions, GitLab CI/CD, Dotnet Publish, TeamCity, Octopus
+              Deploy
+            </p>
             <b>ide</b>
             <p>
               VS Code, Visual Studio, Jetbrains Rider, WebStorm, Eclipse,
@@ -427,7 +446,10 @@ function Resume() {
               </a>
               . Futhermore, he participated in the early development of
               Functional Reactive Programming and the arrow-based
-              <a href="https://hackage.haskell.org/package/Yampa" className="link">
+              <a
+                href="https://hackage.haskell.org/package/Yampa"
+                className="link"
+              >
                 Yampa Library
               </a>
               . He is well respected in the community and I plan to dedicate a
