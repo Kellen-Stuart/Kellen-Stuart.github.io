@@ -239,6 +239,8 @@ const albumCovers = {
     "/jam-album-covers/modest-mouse-the-moon-and-antarctica-album-cover.png",
   modestMouseLonesomeCrowdedWest:
     "/jam-album-covers/modest-mouse-the-lonesome-crowded-west-album-cover.png",
+  modestMouseBuildingNothingOutOfSomething:
+    "/jam-album-covers/modest-mouse-building-nothing-out-of-something-album-cover.png",
   mountainClimbing: "/jam-album-covers/mountain-climbing-album-cover.png",
   weezerBlue: "/jam-album-covers/weezer-weezer-blue-album-cover.png",
   neilYoungZuma:
@@ -1343,6 +1345,7 @@ const knownSongCatalog = [
     playedWith: [
       musicians.kellen,
       musicians.jim,
+      musicians.casey,
       musicians.kassidy,
       musicians.kaylee,
       musicians.logan,
@@ -1351,6 +1354,23 @@ const knownSongCatalog = [
     genres: [],
     hasYousician: false,
     tags: [jamTags.stageReady, jamTags.soloLearned],
+  }),
+  createCatalogSong({
+    title: "Whenever You Breathe Out, I Breathe In (Positive Negative)",
+    artist: "Modest Mouse",
+    tuning: "E Standard",
+    key: "G Major",
+    albumCover: albumCovers.modestMouseBuildingNothingOutOfSomething,
+    playedWith: [
+      musicians.kellen,
+      musicians.casey,
+      musicians.jim,
+      musicians.kaylee,
+      musicians.kassidy,
+    ],
+    genres: ["Indie Rock"],
+    hasYousician: false,
+    tags: [jamTags.soloLearned, jamTags.needsWork],
   }),
   createCatalogSong({
     title: "Today",
@@ -1403,6 +1423,7 @@ const knownSongCatalog = [
     title: "Hemorrhage (In My Hands)",
     artist: "Fuel",
     tuning: "Eb Standard",
+    key: "Db Major",
     albumCover: albumCovers.fuelSomethingLikeHuman,
     playedWith: [
       musicians.kellen,
