@@ -16,7 +16,6 @@ const practiceTags = new Set([
   jamTags.soloLearned,
   jamTags.soloNotLearned,
 ]);
-const readinessTags = new Set([jamTags.needsWork, jamTags.stageReady]);
 
 function createFilter(
   group,
@@ -38,9 +37,7 @@ export function getSongFilters(song) {
     );
   }
   for (const id of song.playedWith ?? []) {
-    filters.push(
-      createFilter("playedWith", id, jamMusicians[id] ?? id, { primary: true }),
-    );
+    filters.push(createFilter("playedWith", id, jamMusicians[id] ?? id));
   }
   for (const id of song.genres ?? []) {
     filters.push(createFilter("genres", id, jamGenres[id] ?? id));
@@ -48,14 +45,17 @@ export function getSongFilters(song) {
   for (const tag of song.tags ?? []) {
     const group = practiceTags.has(tag) ? "practice" : "tags";
     filters.push(
-      createFilter(group, tag, tag, { primary: readinessTags.has(tag) }),
+      createFilter(group, tag, tag, {
+        primary: tag === jamTags.stageReady,
+        className: tag === jamTags.stageReady ? "is-stage-ready" : "",
+      }),
     );
   }
   filters.push(
     createFilter(
       "yousician",
       String(Boolean(song.hasYousician)),
-      song.hasYousician ? "Available" : "Not marked",
+      song.hasYousician ? "Available" : "Not Available",
     ),
   );
   const tabbed = hasJamSongTab(song);

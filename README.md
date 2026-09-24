@@ -70,9 +70,9 @@ tags: [jamTags.needsWork, jamTags.soloLearned],
   ID in `musicians` and their display name in `jamMusicians`. This is jam history,
   not a required lineup or a claim that everyone currently remembers the song.
 - `genres` accepts multiple IDs from `jamGenres`, such as `"punk"`, `"country"`,
-  `"classic-rock"`, and `"psychedelic"`. Leave it empty when unspecified.
-- `hasYousician: true` marks a song as available in Yousician. `false` means
-  **not marked**, rather than verified unavailable. Existing Yousician tags were
+  `"classic rock"`, and `"psychedelic"`. Leave it empty when unspecified.
+- `hasYousician` displays **Available** when true and **Not Available** when false.
+  The display reflects the catalog flag. Existing Yousician tags were
   carried over as `true`; availability has not been independently checked.
 - `tags` uses `jamTags` for practice and descriptions such as
   Acoustic or Open Jam. Needs Work and Stage Ready can coexist; they have not
@@ -93,11 +93,16 @@ The main filter groups appear in this order: **Played with**, **Guitar Tuning**,
 them. **More filters** contains **Practice**, **Yousician**, and **Other Tags**,
 in that order; Stage Ready is not repeated inside Practice and does not count
 toward the More filters selection count. Selected filters remain visible
-and removable even when that section is collapsed. Song cards show tuning,
-key, people, and readiness first; **More song details** reveals the remaining
-clickable labels. Search includes names, genres, practice tags, and song details.
+and removable even when that section is collapsed. Song cards show guitar tuning,
+key, and Stage Ready first. **More song details** shows compact clickable lists
+for **Played with**, **Genres**, **Practice Notes**, and **Other Tags**, plus
+additional song facts. Yousician appears last as plain **Available** / **Not Available**
+text. Chart availability remains in the card footer and main Chart filters.
+Search includes names, genres, practice tags, and song details.
 Musical key is informational only: it appears as a plain label on song cards and
 is excluded from filters and the search metadata.
+Guitar tuning uses the same plain-label style directly below the key; filter it
+using the Guitar Tuning controls in the main filter section.
 
 Run `npm run test:jam` and `npm run build` after changing filter logic. For a
 manual smoke test, select two people and verify each song lists both, then

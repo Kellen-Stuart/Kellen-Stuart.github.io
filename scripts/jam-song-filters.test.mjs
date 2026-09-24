@@ -62,7 +62,7 @@ test("genres and guitar tunings match any within a category and all across categ
   assert.equal(matchesFilters(song, filters), true);
   assert.equal(matchesFilters({ ...song, tuning: "Drop C" }, filters), false);
   assert.equal(
-    matchesFilters({ ...song, genres: ["classic-rock"] }, filters),
+    matchesFilters({ ...song, genres: ["classic rock"] }, filters),
     false,
   );
   assert.equal(matchesFilters(song, [...filters, "playedWith:logan"]), false);
@@ -94,6 +94,16 @@ test("practice and descriptive tags remain cumulative without discarding mixed r
 });
 
 test("Yousician filters distinguish marked and unmarked songs", () => {
+  assert.equal(
+    getSongFilters(song).find(({ group }) => group === "yousician").label,
+    "Available",
+  );
+  assert.equal(
+    getSongFilters({ ...song, hasYousician: false }).find(
+      ({ group }) => group === "yousician",
+    ).label,
+    "Not Available",
+  );
   assert.equal(matchesFilters(song, ["yousician:true"]), true);
   assert.equal(matchesFilters(song, ["yousician:false"]), false);
   assert.equal(
@@ -137,7 +147,7 @@ test("search finds moved metadata, remaining tags and musical details", () => {
     assert.equal(matchesSearch(song, query), true, query);
   }
   assert.equal(
-    matchesSearch({ ...song, genres: ["classic-rock"] }, "classic rock"),
+    matchesSearch({ ...song, genres: ["classic rock"] }, "classic rock"),
     true,
   );
   assert.equal(
@@ -179,17 +189,20 @@ test("filter options are grouped, deduplicated and do not invent missing song me
   assert.equal(matchesFilters(song, ["unknown:filter"]), false);
 });
 
-test("song card filters prioritize people, guitar tuning and readiness without musical key", () => {
+test("song card filters feature guitar tuning and Stage Ready while keeping people in details", () => {
   const filters = getSongFilters(song);
   assert.deepEqual(
     filters.filter(({ primary }) => primary).map(({ label }) => label),
-    ["E standard", "Kaylee", "Casey", "Stage Ready", "Needs Work"],
+    ["E standard", "Stage Ready"],
   );
   assert.equal(
     filters.some(({ group }) => group === "key"),
     false,
   );
   for (const value of [
+    "playedWith:kaylee",
+    "playedWith:casey",
+    "practice:Needs Work",
     "genres:punk",
     "practice:Solo Not Learned",
     "yousician:true",

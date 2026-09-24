@@ -430,7 +430,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 16rem;
+  min-height: 13rem;
   border: 1px solid #d9e3f3;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -451,16 +451,31 @@ a:hover {
 }
 
 .jam-song-card-header {
-  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.jam-song-card-title {
+  min-width: 0;
+}
+
+.jam-song-card-status {
+  position: absolute;
+  top: 0;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 .jam-album-cover {
-  width: 4.75rem;
+  width: 4rem;
+  flex-shrink: 0;
   aspect-ratio: 1;
   object-fit: cover;
   border: 1px solid #d9e3f3;
   border-radius: 0.35rem;
-  margin-bottom: 0.75rem;
   background-color: #f8fbff;
 }
 
@@ -477,6 +492,106 @@ a:hover {
   color: #4f5d75;
   font-size: 0.95rem;
   font-weight: 700;
+}
+
+.jam-song-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.jam-song-info {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.25rem 0;
+  color: #24364f;
+  font-size: 0.85rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.jam-song-info small,
+.jam-song-details-label {
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.jam-song-tag.is-stage-ready:not(.is-active):not(:hover):not(:focus-visible) {
+  color: #19673a;
+  border-color: #9fd3b6;
+  background-color: #effaf3;
+}
+
+.jam-song-detail-section {
+  margin-bottom: 0.85rem;
+}
+
+.jam-song-details-label {
+  margin-bottom: 0.2rem;
+}
+
+.jam-detail-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.65rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.jam-detail-list.is-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.jam-song-yousician {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  margin-bottom: 0;
+}
+
+.jam-song-yousician .is-available {
+  color: #19673a;
+}
+
+.jam-song-yousician .is-unavailable {
+  color: #b42318;
+}
+
+.jam-detail-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 0;
+  padding: 0.25rem 0;
+  background: transparent;
+  color: #4f5d75;
+  font-size: 0.875rem;
+  text-underline-offset: 0.2rem;
+}
+
+.jam-detail-item:hover,
+.jam-detail-item.is-active {
+  color: #003687;
+  text-decoration: underline;
+}
+
+.jam-detail-item.is-active {
+  font-weight: 700;
+}
+
+.jam-detail-item:focus-visible {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
 }
 
 .jam-song-fact-row {

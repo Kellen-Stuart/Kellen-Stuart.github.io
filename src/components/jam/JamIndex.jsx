@@ -35,7 +35,10 @@ function FilterChip({
         <FontAwesomeIcon icon={faCheck} aria-hidden="true" />
       )}
       <span>{filter.label}</span>
-      {(card || remove) && <small>{groupLabel}</small>}
+      {(remove ||
+        (card && filter.value !== `practice:${jamTags.stageReady}`)) && (
+        <small>{groupLabel}</small>
+      )}
       {remove && <span aria-hidden="true">×</span>}
     </button>
   );
@@ -69,9 +72,47 @@ function FilterGroup({ group, activeFilters, onToggle }) {
   );
 }
 
+function SongDetailList({
+  label,
+  filters,
+  activeFilters,
+  onToggle,
+  stacked = false,
+}) {
+  if (filters.length === 0) return null;
+  return (
+    <div className="jam-song-detail-section">
+      <p className="jam-song-details-label">{label}</p>
+      <ul
+        className={`jam-detail-list ${stacked ? "is-stacked" : ""}`}
+        aria-label={label}
+      >
+        {filters.map((filter) => {
+          const isSelected = activeFilters.includes(filter.value);
+          return (
+            <li key={filter.value}>
+              <button
+                type="button"
+                className={`jam-detail-item ${isSelected ? "is-active" : ""}`}
+                aria-label={`Filter by ${label}: ${filter.label}`}
+                aria-pressed={isSelected}
+                onClick={() => onToggle(filter.value)}
+              >
+                {isSelected && (
+                  <FontAwesomeIcon icon={faCheck} aria-hidden="true" />
+                )}
+                {filter.label}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
 function getSongFacts(song) {
   return [
-    { label: song.key ? `Key: ${song.key}` : null },
     { label: song.capo },
     { label: song.tempo ? `${song.tempo} BPM` : null },
     { label: song.timeSignature },
@@ -247,8 +288,8 @@ function JamIndex() {
             {visibleSongs.map((song) => {
               const songFacts = getSongFacts(song);
               const songFilters = getSongFilters(song);
-              const secondaryFilters = songFilters.filter(
-                (filter) => !filter.primary,
+              const stageReady = songFilters.find(
+                (filter) => filter.value === `practice:${jamTags.stageReady}`,
               );
 
               return (
@@ -258,63 +299,110 @@ function JamIndex() {
                       hasJamSongTab(song) ? "is-tabbed" : "is-not-tabbed"
                     }`}
                   >
-                    {song.albumCover && (
-                      <img
-                        className="jam-album-cover"
-                        src={song.albumCover}
-                        alt={`${song.title} album cover`}
-                        loading="lazy"
-                      />
-                    )}
-
-                    <header className="jam-song-card-header">
-                      <h2 className="jam-song-title">{song.title}</h2>
-                      <p className="jam-song-artist">{song.artist}</p>
-                    </header>
-
-                    {songFacts.length > 0 && (
-                      <div
-                        className="jam-song-fact-row"
-                        aria-label="Song details"
-                      >
-                        {songFacts.map((fact) => (
-                          <span className={fact.className} key={fact.label}>
-                            {fact.label}
-                          </span>
-                        ))}
+                    {stageReady && (
+                      <div className="jam-song-card-status">
+                        <FilterChip
+                          filter={stageReady}
+                          activeFilters={activeFilters}
+                          onToggle={toggleFilter}
+                          card
+                        />
                       </div>
                     )}
+                    <header className="jam-song-card-header">
+                      {song.albumCover && (
+                        <img
+                          className="jam-album-cover"
+                          src={song.albumCover}
+                          alt={`${song.title} album cover`}
+                          loading="lazy"
+                        />
+                      )}
+                      <div className="jam-song-card-title">
+                        <h2 className="jam-song-title">{song.title}</h2>
+                        <p className="jam-song-artist">{song.artist}</p>
+                      </div>
+                    </header>
 
-                    <div className="jam-tag-row" aria-label="Song filters">
-                      {songFilters
-                        .filter((filter) => filter.primary)
-                        .map((filter) => (
-                          <FilterChip
-                            key={filter.value}
-                            filter={filter}
-                            activeFilters={activeFilters}
-                            onToggle={toggleFilter}
-                            card
-                          />
-                        ))}
+                    <div
+                      className="jam-song-overview"
+                      aria-label="Song overview"
+                    >
+                      {song.key && (
+                        <span className="jam-song-info">
+                          <small>Key</small>
+                          <span>{song.key}</span>
+                        </span>
+                      )}
+                      {song.tuning && (
+                        <span className="jam-song-info">
+                          <small>Guitar Tuning</small>
+                          <span>{song.tuning}</span>
+                        </span>
+                      )}
                     </div>
 
-                    {secondaryFilters.length > 0 && (
-                      <details className="jam-song-more">
-                        <summary>More song details</summary>
-                        <div className="jam-tag-row">
-                          {secondaryFilters.map((filter) => (
-                            <FilterChip
-                              key={filter.value}
-                              filter={filter}
-                              activeFilters={activeFilters}
-                              onToggle={toggleFilter}
-                              card
-                            />
+                    <details className="jam-song-more">
+                      <summary>More song details</summary>
+                      {songFacts.length > 0 && (
+                        <div
+                          className="jam-song-fact-row"
+                          aria-label="Song details"
+                        >
+                          {songFacts.map((fact) => (
+                            <span className={fact.className} key={fact.label}>
+                              {fact.label}
+                            </span>
                           ))}
                         </div>
-                      </details>
-                    )}
+                      )}
+                      <SongDetailList
+                        label="Played with"
+                        filters={songFilters.filter(
+                          (filter) => filter.group === "playedWith",
+                        )}
+                        activeFilters={activeFilters}
+                        onToggle={toggleFilter}
+                      />
+                      <SongDetailList
+                        label="Genres"
+                        filters={songFilters.filter(
+                          (filter) => filter.group === "genres",
+                        )}
+                        activeFilters={activeFilters}
+                        onToggle={toggleFilter}
+                      />
+                      <SongDetailList
+                        label="Practice Notes"
+                        filters={songFilters.filter(
+                          (filter) =>
+                            filter.group === "practice" && !filter.primary,
+                        )}
+                        activeFilters={activeFilters}
+                        onToggle={toggleFilter}
+                        stacked
+                      />
+                      <SongDetailList
+                        label="Other Tags"
+                        filters={songFilters.filter(
+                          (filter) => filter.group === "tags",
+                        )}
+                        activeFilters={activeFilters}
+                        onToggle={toggleFilter}
+                      />
+                      <p className="jam-song-info jam-song-yousician">
+                        <small>Yousician</small>
+                        <span
+                          className={
+                            song.hasYousician
+                              ? "is-available"
+                              : "is-unavailable"
+                          }
+                        >
+                          {song.hasYousician ? "Available" : "Not Available"}
+                        </span>
+                      </p>
+                    </details>
 
                     <footer className="jam-song-card-footer">
                       {hasJamSongTab(song) ? (
