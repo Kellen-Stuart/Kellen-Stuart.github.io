@@ -6,17 +6,18 @@ function getLookupName(chordName) {
   return chordName.split(":")[0].split("@")[0];
 }
 
-function ChordToken({ chordName, chordShapes, stringLabels }) {
+function ChordToken({ chordName, displayName, chordShapes, stringLabels }) {
   const [isPinned, setIsPinned] = useState(false);
   const lookupName = getLookupName(chordName);
   const shape = getChordShape(lookupName, chordShapes);
+  const label = shape?.label ?? chordName;
 
   return (
     <span className={`jam-chord-token-wrap ${isPinned ? "is-pinned" : ""}`}>
       <button
         type="button"
         className="jam-chord-token"
-        aria-label={`Show ${chordName} chord diagram`}
+        aria-label={`Show ${label} chord diagram`}
         aria-expanded={isPinned}
         onClick={() => setIsPinned((current) => !current)}
         onKeyDown={(event) => {
@@ -25,14 +26,10 @@ function ChordToken({ chordName, chordShapes, stringLabels }) {
           }
         }}
       >
-        {chordName}
+        {displayName ?? label}
       </button>
       <span className="jam-chord-popover" role="tooltip">
-        <ChordDiagram
-          name={chordName}
-          shape={shape}
-          stringLabels={stringLabels}
-        />
+        <ChordDiagram name={label} shape={shape} stringLabels={stringLabels} />
       </span>
     </span>
   );

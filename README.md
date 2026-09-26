@@ -17,7 +17,7 @@ This repository contains a React 19 single-page portfolio/resume app built with 
 - `npm run dev` (or `npm start`): start the local Vite dev server at `http://localhost:5173`
 - `npm run build`: create a production build in `dist/` and copy `dist/index.html` to `dist/404.html`
 - `npm run preview`: preview the production build locally
-- `npm run test:jam`: validate jam filtering and catalog metadata without starting a server
+- `npm run test:jam`: validate jam filtering, catalog metadata, and chart authoring without starting a server
 - `npm run check:media-metadata`: check tracked and untracked media files for image and FLAC metadata
 - `npm run check:image-metadata`: compatibility alias for `npm run check:media-metadata`
 - `npm run setup:hooks`: configure this local clone to use the repo's Git hooks from `.githooks/`
@@ -54,6 +54,12 @@ browser before testing resume PDF generation.
 - On Linux runners/workstations missing shared libraries, run `npx playwright install --with-deps chromium`.
 
 ## Jam Song Metadata
+
+For the step-by-step process of adding a chart, including chord/lyric alignment,
+important voicings, rhythm notation, and validation, see
+[Authoring jam charts](docs/jam-charts.md). Song-specific
+content belongs in `src/data/charts/`; `jamSongs.js` holds catalog metadata
+and associates it with those chart modules.
 
 Edit songs in `src/data/jamSongs.js`. People, genres, and Yousician availability
 have their own fields; practice and descriptive labels remain in `tags`.
@@ -164,7 +170,7 @@ import BlogImage from "../components/blog/BlogImage";
   src="/blog/my-post/camp.webp"
   alt="Camp setup near an alpine lake"
   caption="Final campsite before summit day."
-/>
+/>;
 ```
 
 ## Blog Updates
@@ -187,6 +193,7 @@ Posts can track publish date, last-updated date, and an optional update log.
 ```
 
 2. The blog template will automatically render:
+
 - `Published <date>`
 - `Last updated <date>` (when different from publish date)
 - an `Updates` section when `updates` has entries
@@ -202,7 +209,7 @@ import BlogAudio from "../components/blog/BlogAudio";
   src="/blog/my-post/riff-demo-1.mp3"
   title="Riff Demo 1"
   caption="LA30BL, Sabbra Cadabra at 18V, C# standard."
-/>
+/>;
 ```
 
 Store audio files under `public/blog/<post-slug>/` so they are available as static assets.

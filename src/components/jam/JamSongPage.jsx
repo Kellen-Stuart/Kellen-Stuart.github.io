@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router";
 import { getJamSongBySlug } from "../../data/jamSongs";
 import JamChartRenderer from "./JamChartRenderer";
+import ChordVoicingLegend from "./ChordVoicingLegend";
 
 const minScrollSpeed = 1;
 const maxScrollSpeed = 25;
@@ -23,8 +24,14 @@ function readStoredSpeed(slug, fallbackSpeed) {
     return fallbackSpeed;
   }
 
-  const storedValue = Number(window.localStorage.getItem(getStorageKey(slug)));
-  return clampScrollSpeed(storedValue || fallbackSpeed, fallbackSpeed);
+  try {
+    const storedValue = Number(
+      window.localStorage.getItem(getStorageKey(slug)),
+    );
+    return clampScrollSpeed(storedValue || fallbackSpeed, fallbackSpeed);
+  } catch {
+    return fallbackSpeed;
+  }
 }
 
 function JamSongPage() {
@@ -35,6 +42,7 @@ function JamSongPage() {
   const animationFrameRef = useRef(null);
   const lastFrameTimeRef = useRef(null);
   const pendingScrollPixelsRef = useRef(0);
+  const quickChartRef = useRef(null);
 
   useEffect(() => {
     if (!song) {
@@ -43,19 +51,33 @@ function JamSongPage() {
 
     window.scrollTo({ top: 0 });
     setIsScrolling(false);
-    setPixelsPerSecond(readStoredSpeed(song.slug, song.defaultScrollSpeed));
+    setPixelsPerSecond(
+      readStoredSpeed(song.slug, song.defaultScrollSpeed ?? 5),
+    );
   }, [song]);
 
-  useEffect(() => {
-    if (!song) {
-      return;
+  function changeSpeed(value) {
+    const speed = clampScrollSpeed(value, song.defaultScrollSpeed ?? 5);
+    setPixelsPerSecond(speed);
+    try {
+      window.localStorage.setItem(getStorageKey(song.slug), String(speed));
+    } catch {
+      // Scrolling remains usable when browser storage is unavailable.
     }
+  }
 
-    window.localStorage.setItem(
-      getStorageKey(song.slug),
-      String(pixelsPerSecond),
-    );
-  }, [song, pixelsPerSecond]);
+  useEffect(() => {
+    const pause = () => setIsScrolling(false);
+    const pauseWhenHidden = () => {
+      if (document.hidden) pause();
+    };
+    window.addEventListener("beforeprint", pause);
+    document.addEventListener("visibilitychange", pauseWhenHidden);
+    return () => {
+      window.removeEventListener("beforeprint", pause);
+      document.removeEventListener("visibilitychange", pauseWhenHidden);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isScrolling || pixelsPerSecond <= 0) {
@@ -74,7 +96,16 @@ function JamSongPage() {
       lastFrameTimeRef.current = timestamp;
 
       const documentElement = document.documentElement;
-      const maxScrollY = documentElement.scrollHeight - window.innerHeight;
+      const chartBottom = quickChartRef.current
+        ? quickChartRef.current.getBoundingClientRect().bottom +
+          window.scrollY +
+          24
+        : documentElement.scrollHeight;
+      const maxScrollY = Math.max(
+        0,
+        Math.min(documentElement.scrollHeight, chartBottom) -
+          window.innerHeight,
+      );
 
       if (window.scrollY >= maxScrollY - 2) {
         setIsScrolling(false);
@@ -86,7 +117,10 @@ function JamSongPage() {
       const scrollPixels = Math.trunc(pendingScrollPixelsRef.current);
       if (scrollPixels > 0) {
         pendingScrollPixelsRef.current -= scrollPixels;
-        window.scrollBy({ top: scrollPixels, behavior: "auto" });
+        window.scrollBy({
+          top: Math.min(scrollPixels, maxScrollY - window.scrollY),
+          behavior: "auto",
+        });
       }
 
       animationFrameRef.current = window.requestAnimationFrame(tick);
@@ -127,7 +161,7 @@ function JamSongPage() {
       <div className="row justify-content-center">
         <div className="col-xl-9 col-lg-10 col-md-11 col-sm-12 col-12">
           <header className="jam-song-header">
-            <p className="jam-back-link mb-2">
+            <p className="jam-back-link mb-2 print-hide">
               <Link to="/jam" className="link">
                 Back to Jam
               </Link>
@@ -176,10 +210,6 @@ function JamSongPage() {
                   <small>Notation</small>
                 </span>
               )}
-              <span>
-                <strong>Default scroll {song.defaultScrollSpeed}px/s</strong>
-                <small>Auto-scroll</small>
-              </span>
             </div>
           </header>
 
@@ -206,6 +236,16 @@ function JamSongPage() {
               >
                 Reset
               </button>
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                onClick={() => {
+                  setIsScrolling(false);
+                  window.print();
+                }}
+              >
+                Print quick chart
+              </button>
             </div>
 
             <div className="jam-speed-control">
@@ -219,23 +259,24 @@ function JamSongPage() {
                 max={maxScrollSpeed}
                 step="1"
                 value={pixelsPerSecond}
-                onChange={(event) =>
-                  setPixelsPerSecond(
-                    clampScrollSpeed(
-                      Number(event.target.value),
-                      song.defaultScrollSpeed,
-                    ),
-                  )
-                }
+                onChange={(event) => changeSpeed(Number(event.target.value))}
               />
             </div>
           </section>
 
-          <JamChartRenderer
-            sections={song.sections}
-            chordShapes={song.chords}
-            stringLabels={song.stringLabels}
-          />
+          <ChordVoicingLegend song={song} />
+          <div
+            onClick={(event) => {
+              if (event.target.closest('a[href^="#"]')) setIsScrolling(false);
+            }}
+          >
+            <JamChartRenderer
+              sections={song.sections}
+              chordShapes={song.chords}
+              stringLabels={song.stringLabels}
+              quickChartRef={quickChartRef}
+            />
+          </div>
         </div>
       </div>
     </div>

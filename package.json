@@ -18,14 +18,15 @@
     "react-bootstrap": "^2.10.10",
     "react-calendly": "^4.4.0",
     "react-dom": "^19.3.0",
-    "react-router": "^8.4.0"
+    "react-router": "^8.4.0",
+    "vexflow": "^5.0.0"
   },
   "scripts": {
     "dev": "vite",
     "start": "vite",
     "build": "vite build && node scripts/generate-blog-meta-pages.mjs && cp dist/index.html dist/404.html",
     "preview": "vite preview",
-    "test:jam": "node --test scripts/jam-song-filters.test.mjs",
+    "test:jam": "node --test scripts/jam-song-filters.test.mjs scripts/jam-charts.test.mjs",
     "predeploy": "npm run build && npm run generate:resume-pdf",
     "deploy": "gh-pages -d dist",
     "check:media-metadata": "node scripts/check-image-metadata.mjs",

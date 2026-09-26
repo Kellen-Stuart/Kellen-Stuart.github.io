@@ -1,85 +1,7 @@
 import React from "react";
 import ChordToken from "./ChordToken";
-
-function parseChordLine(line) {
-  const parts = [];
-  const chordPattern = /\[([^\]]+)\]/g;
-  let currentChord = null;
-  let lastIndex = 0;
-  let match;
-
-  while ((match = chordPattern.exec(line)) !== null) {
-    if (match.index > lastIndex || currentChord) {
-      parts.push({
-        chordName: currentChord,
-        lyric: line.slice(lastIndex, match.index),
-      });
-    }
-
-    currentChord = match[1];
-    lastIndex = chordPattern.lastIndex;
-  }
-
-  if (lastIndex < line.length || currentChord) {
-    parts.push({
-      chordName: currentChord,
-      lyric: line.slice(lastIndex),
-    });
-  }
-
-  return parts.length > 0 ? parts : [{ chordName: null, lyric: line }];
-}
-
-function ChordLyricsLine({ line, chordShapes, stringLabels }) {
-  if (typeof line === "object" && line.href) {
-    return (
-      <div className="jam-chord-lyric-line is-cue-link">
-        <a href={line.href}>{line.text}</a>
-      </div>
-    );
-  }
-
-  if (typeof line === "object") {
-    return <div className="jam-chord-lyric-line is-plain-cue">{line.text}</div>;
-  }
-
-  const parsedLine = parseChordLine(line);
-  const hasChord = parsedLine.some((part) => part.chordName);
-
-  if (!hasChord) {
-    return (
-      <div
-        className={`jam-chord-lyric-line ${
-          line.trim() ? "is-section-label" : "is-spacer"
-        }`}
-      >
-        {line}
-      </div>
-    );
-  }
-
-  return (
-    <div className="jam-chord-lyric-line">
-      {parsedLine.map((part, index) => (
-        <span
-          className="jam-chord-lyric-cell"
-          key={`${part.chordName ?? "lyric"}-${index}`}
-        >
-          <span className="jam-chord-slot">
-            {part.chordName && (
-              <ChordToken
-                chordName={part.chordName}
-                chordShapes={chordShapes}
-                stringLabels={stringLabels}
-              />
-            )}
-          </span>
-          <span className="jam-lyric-text">{part.lyric || " "}</span>
-        </span>
-      ))}
-    </div>
-  );
-}
+import ChordLyricsLine from "./ChordLyricsLine";
+import RhythmPattern from "./RhythmPattern";
 
 function ChordLyricsBlock({ block, chordShapes, stringLabels }) {
   return (
@@ -115,121 +37,6 @@ function TabBlock({ block }) {
           ))}
         </ul>
       )}
-    </div>
-  );
-}
-
-function RhythmEvent({ event }) {
-  const label = event.hold
-    ? "-"
-    : event.rest
-      ? "rest"
-      : (event.stroke ?? event.label ?? "hit");
-
-  return (
-    <div
-      className={[
-        "jam-rhythm-event",
-        event.hold ? "is-held" : "",
-        event.rest ? "is-rest" : "",
-        event.mute ? "is-muted" : "",
-        event.accent ? "is-accented" : "",
-      ]
-        .filter(Boolean)
-        .join(" ")}
-    >
-      <span className="jam-rhythm-chord-label">{event.chord}</span>
-      <span className="jam-rhythm-accent">{event.accent ? ">" : ""}</span>
-      <span className="jam-rhythm-notehead">
-        {event.hold ? "-" : event.rest ? "R" : event.mute ? "x" : ""}
-      </span>
-      {!event.rest && !event.hold && (
-        <span className="jam-rhythm-stem" aria-hidden="true" />
-      )}
-      <span className="jam-rhythm-event-label">{label}</span>
-    </div>
-  );
-}
-
-function CompactStrumGrid({ block }) {
-  const columns = {
-    gridTemplateColumns: `repeat(${block.counts.length}, minmax(1.85rem, 1fr))`,
-  };
-
-  return (
-    <div
-      className="jam-compact-strum"
-      aria-label={`${block.label} compact notation`}
-    >
-      {block.pattern && (
-        <div className="jam-compact-pattern">
-          <span>Pattern</span>
-          <code>{block.pattern}</code>
-        </div>
-      )}
-      <div className="jam-compact-strum-grid" style={columns}>
-        {block.counts.map((count, index) => (
-          <span
-            className={`jam-compact-count ${index === block.counts.length - 1 ? "is-last" : ""}`}
-            key={`compact-count-${count}-${index}`}
-          >
-            {count}
-          </span>
-        ))}
-        {block.events.map((event, index) => (
-          <span
-            className={[
-              "jam-compact-hit",
-              event.hold ? "is-held" : "",
-              event.rest ? "is-rest" : "",
-              event.accent ? "is-accented" : "",
-              index === block.events.length - 1 ? "is-last" : "",
-            ]
-              .filter(Boolean)
-              .join(" ")}
-            key={`compact-hit-${index}`}
-          >
-            {event.hold || event.rest ? "-" : (event.stroke ?? "x")}
-          </span>
-        ))}
-        {block.events.map((event, index) => (
-          <span
-            className={`jam-compact-chord ${index === block.events.length - 1 ? "is-last" : ""}`}
-            key={`compact-chord-${index}`}
-          >
-            {event.chord || " "}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function RhythmBlock({ block }) {
-  const columns = {
-    gridTemplateColumns: `repeat(${block.counts.length}, minmax(2.25rem, 1fr))`,
-  };
-
-  return (
-    <div className="jam-chart-block jam-rhythm-block" id={block.id}>
-      <div className="jam-block-heading">
-        <h3>{block.label}</h3>
-        <div className="jam-block-meta">
-          <span>{block.type === "strum" ? "strum pattern" : "rhythm"}</span>
-        </div>
-      </div>
-      {block.compact && <CompactStrumGrid block={block} />}
-      <div className="jam-rhythm-grid" style={columns}>
-        {block.events.map((event, index) => (
-          <RhythmEvent key={`${block.counts[index]}-${index}`} event={event} />
-        ))}
-        {block.counts.map((count, index) => (
-          <span className="jam-rhythm-count" key={`${count}-${index}`}>
-            {count}
-          </span>
-        ))}
-      </div>
-      {block.note && <p className="jam-rhythm-note">{block.note}</p>}
     </div>
   );
 }
@@ -359,7 +166,13 @@ function renderBlock(block, chordShapes, stringLabels) {
       return <TabBlock block={block} />;
     case "rhythm":
     case "strum":
-      return <RhythmBlock block={block} />;
+      return (
+        <RhythmPattern
+          block={block}
+          chordShapes={chordShapes}
+          stringLabels={stringLabels}
+        />
+      );
     case "rhythmicLyrics":
       return (
         <RhythmicLyricsBlock
@@ -377,18 +190,33 @@ function renderBlock(block, chordShapes, stringLabels) {
   }
 }
 
-function JamChartRenderer({ sections, chordShapes, stringLabels }) {
+function JamChartRenderer({
+  sections,
+  chordShapes,
+  stringLabels,
+  quickChartRef,
+}) {
   return (
     <div className="jam-chart">
       {sections.map((section) => (
         <section
-          className={`jam-song-section ${section.dividerAfter ? "has-after-divider" : ""}`}
-          key={section.title}
+          className={`jam-song-section ${section.role === "reference" ? "jam-reference-section" : ""}`}
+          id={section.id}
+          ref={section.role === "quick" ? quickChartRef : undefined}
+          key={section.id ?? section.title}
         >
           <header className="jam-section-header">
             <h2>{section.title}</h2>
             {section.cue && <p>{section.cue}</p>}
           </header>
+          {section.blocks.some(
+            (block) => block.type === "strum" || block.type === "rhythm",
+          ) && (
+            <p className="jam-strum-legend">
+              Strums: ⊓ down · V up · &gt; accent · — sustain · R rest · × muted
+              attack
+            </p>
+          )}
           {section.blocks.map((block, index) => (
             <React.Fragment key={`${section.title}-${block.type}-${index}`}>
               {renderBlock(block, chordShapes, stringLabels)}
